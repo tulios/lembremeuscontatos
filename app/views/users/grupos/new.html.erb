@@ -1,0 +1,20 @@
+<% content_for(:javascript) do %>
+	<%= javascript_include_tag 'plugins/alphanumeric.pack' %>
+	<%= 
+		alphanumeric({
+			:grupo_periodicidade => "numeric()"
+		})
+	%>
+<% end %>
+
+<h1 class="item_grupos">
+	<span>
+		<% link_to users_grupos_url do %>
+			<%= t "app.menu.grupos" %>
+		<% end %>
+	</span>
+	<span class="divisor">&raquo;</span>
+	<span><%= t "app.grupo.novo" %></span>
+</h1>
+
+<%= render :partial => 'users/grupos/form' %>

@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
 
 body { line-height: 1; color: black; background-color: #d7d7d7; }
 
@@ -115,7 +115,7 @@ a:hover {
 	margin: auto;
 	margin-top: 10px;
 	background-color: #eaeaea;
-	width: 90%;
+	width: 92%;
 	min-height: 100px;
 }
 
@@ -173,7 +173,7 @@ a:hover {
 	margin-top: 20px;
 	float: left;
 }
-
+     
 .item_contatos span {
 	border-bottom: 3px solid #2daebf;
 }
@@ -189,6 +189,20 @@ a:hover {
 .item_grupos {
 	margin-bottom: 30px;
 }                 
+
+.item_grupos .divisor {
+	border: none;
+}    
+
+.item_grupos span a {
+	font-size: 40px;
+	border-bottom: 3px solid #ff5c00;
+	color: black;
+}                  
+
+.item_grupos span a:hover {
+	color: #696969;
+}
 
 .clicavel {
 	cursor: pointer;

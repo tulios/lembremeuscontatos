@@ -127,12 +127,19 @@
       # Coloque aqui a traducao dos modelos
       user: "Usuário"
       contato: "Contato"
+      grupo: "Grupo"
 
     attributes:
       # Coloque aqui a traducao dos atributos dos modelos
       contato:
         nome: "Nome"
         email: "E-mail"
+      
+      grupo:
+        nome: "Nome"
+        mensagem: "Mensagem"
+        periodicidade: "Periodicidade (em dias)"
+        inicio: "Data de início"
 
     errors:
       template:
@@ -175,3 +182,16 @@
       nenhum_encontrado: "Nenhum encontrado"
       novo: "Novo"
       remover: "Remover"
+      
+    grupo:
+      nenhum_encontrado: "Nenhum encontrado"
+      novo: "Novo"  
+      
+      
+      
+      
+      
+      
+      
+      
+      
