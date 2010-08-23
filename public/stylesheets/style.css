@@ -1,0 +1,23 @@
+img {
+	border: none;
+}             
+
+#login {
+	float: left;
+	text-align: center;
+}            
+                     
+#login #img {
+	float: left;
+}
+             
+#login #options {
+	float: left;
+	width: 50%;
+	margin-left: 5px;
+	text-align: left;
+}
+
+#login #options #name {
+	font-size: 1.5em;
+}

@@ -142,3 +142,1131 @@ Migrating to TwitterAuthMigration (20100823105456)
   [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100823105456')[0m
   [4;35;1mSQL (1.4ms)[0m   [0mCOMMIT[0m
   [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:11:53) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 92ms (View: 91, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:14:58) [GET]
+Redirected to http://localhost:3000/login
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 304ms (DB: 1) | 302 Found [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-08-23 08:14:58) [GET]
+
+OAuth::Unauthorized (401 Unauthorized):
+  /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:217:in `token_request'
+  /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:139:in `get_request_token'
+  /Library/Ruby/Gems/1.8/gems/twitter-auth-0.1.22/app/controllers/sessions_controller.rb:7:in `new'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+
+Rendered rescues/_trace (33.7ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-08-23 08:16:11) [GET]
+
+OAuth::Unauthorized (401 Unauthorized):
+  /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:217:in `token_request'
+  /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:139:in `get_request_token'
+  /Library/Ruby/Gems/1.8/gems/twitter-auth-0.1.22/app/controllers/sessions_controller.rb:7:in `new'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+
+Rendered rescues/_trace (31.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-08-23 08:18:59) [GET]
+
+OAuth::Unauthorized (401 Unauthorized):
+  /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:217:in `token_request'
+  /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:139:in `get_request_token'
+  /Library/Ruby/Gems/1.8/gems/twitter-auth-0.1.22/app/controllers/sessions_controller.rb:7:in `new'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+
+Rendered rescues/_trace (101.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-08-23 08:19:03) [GET]
+
+OAuth::Unauthorized (401 Unauthorized):
+  /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:217:in `token_request'
+  /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:139:in `get_request_token'
+  /Library/Ruby/Gems/1.8/gems/twitter-auth-0.1.22/app/controllers/sessions_controller.rb:7:in `new'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+  /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+  /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+
+Rendered rescues/_trace (31.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:19:06) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:19:59) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 89ms (View: 87, DB: 0) | 200 OK [http://localhost/]
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:26:37) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 19ms (View: 17, DB: 0) | 200 OK [http://lembremeuscontatos.local/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-08-23 08:26:44) [GET]
+Redirected to https://twitter.com/oauth/authenticate?oauth_token=Tr6h3iv6trlKRoxsKXe6bLUY2bxB3ybJWO7Rt0VI&oauth_callback=http%3A%2F%2Flocalhost%3A3000%2Foauth_callback
+Completed in 2409ms (DB: 1) | 302 Found [http://lembremeuscontatos.local/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#oauth_callback (for 127.0.0.1 at 2010-08-23 08:27:09) [GET]
+  Parameters: {"oauth_token"=>"Tr6h3iv6trlKRoxsKXe6bLUY2bxB3ybJWO7Rt0VI", "oauth_verifier"=>"22uN65Cs9mWJD0tooG98mBS5cUtq2qsTOehdtHPII"}
+  [4;35;1mUser Load (29.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."twitter_id" = '14293411') LIMIT 1[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.8ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'tulios') LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."twitter_id" = '14293411') LIMIT 1[0m
+  [4;35;1mSQL (85.7ms)[0m   [0mINSERT INTO "users" ("name", "profile_sidebar_fill_color", "profile_sidebar_border_color", "profile_background_tiled", "location", "profile_image_url", "created_at", "access_secret", "remember_token_expires_at", "profile_link_color", "updated_at", "url", "favourites_count", "utc_offset", "twitter_id", "remember_token", "protected", "profile_text_color", "followers_count", "description", "profile_background_color", "time_zone", "login", "profile_background_image_url", "friends_count", "statuses_count", "access_token") VALUES('Túlio Ornelas', '99CC33', '829D5E', NULL, 'Brasília - DF', 'http://a0.twimg.com/profile_images/916706892/Foto_criada_em_2010-05-20__s_19.00__5_normal.jpg', '2010-08-23 11:27:13.076740', '6NExcuV7awJuySeZxAwQmwCBQ3h6kuH0Rh5TuPW5U', NULL, 'D02B55', '2010-08-23 11:27:13.076740', NULL, 4, -10800, '14293411', NULL, 'f', '3E4415', 91, '', '352726', 'Brasilia', 'tulios', 'http://s.twimg.com/a/1282262833/images/themes/theme5/bg.gif', 42, 779, '14293411-Quk5kyXJ4Y7UoDAAvqEzCJo7RUxIk0ZGNlQ8dKNye') RETURNING "id"[0m
+  [4;36;1mSQL (37.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.9ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'tulios' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.4ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."twitter_id" = '14293411' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.6ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."remember_token" = 'b7a7e8612c8502f5f6f0' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mUser Update (36.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-08-23 11:27:13.242122', "remember_token" = 'b7a7e8612c8502f5f6f0', "remember_token_expires_at" = '2010-09-06 11:27:13.208937' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://lembremeuscontatos.local/
+Completed in 3711ms (DB: 194) | 302 Found [http://lembremeuscontatos.local/oauth_callback?oauth_token=Tr6h3iv6trlKRoxsKXe6bLUY2bxB3ybJWO7Rt0VI&oauth_verifier=22uN65Cs9mWJD0tooG98mBS5cUtq2qsTOehdtHPII]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:27:13) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://lembremeuscontatos.local/]
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:29:11) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed in 19ms (View: 17, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:29:40) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (12.4ms)
+Completed in 23ms (View: 21, DB: 3) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:30:50) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `[]' for #<TwitterAuth::Dispatcher::Oauth:0x104381878>) on line #8 of app/views/layouts/_login.html.erb:
+5: 		<% end %>
+6: 	</div>               
+7: <% else %>
+8: 	<strong><%= current_user.twitter['screen_name'] %></strong>
+9: <% end %>
+
+    app/views/layouts/_login.html.erb:8
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:20:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:19:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:44:in `render_partial'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/partials.rb:184:in `render_partial'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:267:in `render'
+    app/views/layouts/application.html.erb:20
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:352:in `_render_with_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:163:in `start'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (133.6ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:31:02) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+ActionView::TemplateError (undefined method `downcase' for nil:NilClass) on line #8 of app/views/layouts/_login.html.erb:
+5: 		<% end %>
+6: 	</div>               
+7: <% else %>
+8: 	<strong><%= current_user.twitter.get('screen_name') %></strong>
+9: <% end %>
+
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.8/lib/active_support/whiny_nil.rb:52:in `method_missing'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/request_proxy/base.rb:93:in `normalized_uri'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/request_proxy/base.rb:113:in `signature_base_string'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/signature/base.rb:77:in `signature_base_string'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/signature/hmac/base.rb:12:in `digest'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/signature/base.rb:65:in `signature'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/signature.rb:23:in `sign'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/client/helper.rb:45:in `signature'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/client/helper.rb:75:in `header'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/client/net_http.rb:90:in `set_oauth_header'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/client/net_http.rb:30:in `send'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/client/net_http.rb:30:in `oauth!'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:225:in `sign!'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:191:in `create_signed_request'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/consumer.rb:162:in `request'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/tokens/consumer_token.rb:25:in `request'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/tokens/access_token.rb:11:in `request'
+    /Library/Ruby/Gems/1.8/gems/oauth-0.4.2/lib/oauth/tokens/access_token.rb:24:in `get'
+    app/views/layouts/_login.html.erb:8
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:20:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:19:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable_partial.rb:44:in `render_partial'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/partials.rb:184:in `render_partial'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:267:in `render'
+    app/views/layouts/application.html.erb:20
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:34:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:306:in `with_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/renderable.rb:30:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/template.rb:205:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:265:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:352:in `_render_with_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_view/base.rb:262:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1250:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:936:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1326:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/rack/request_handler.rb:92:in `process_request'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_request_handler.rb:207:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/railz/application_spawner.rb:441:in `start_request_handler'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/railz/application_spawner.rb:381:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/utils.rb:252:in `safe_fork'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/railz/application_spawner.rb:377:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:163:in `start'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/railz/application_spawner.rb:222:in `start'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:262:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server_collection.rb:126:in `lookup_or_add'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:256:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server_collection.rb:80:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server_collection.rb:79:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:255:in `spawn_rails_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:154:in `spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/spawn_manager.rb:287:in `handle_spawn_application'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:352:in `__send__'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:352:in `main_loop'
+    /Library/Ruby/Gems/1.8/gems/passenger-2.2.14/lib/phusion_passenger/abstract_server.rb:196:in `start_synchronously'
+
+Rendered rescues/_trace (53.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:31:15) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (16.8ms)
+Completed in 24ms (View: 21, DB: 3) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:32:50) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (16.1ms)
+Completed in 23ms (View: 20, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:33:15) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (19.2ms)
+Completed in 27ms (View: 23, DB: 3) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:33:54) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.7ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:35:09) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.6ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:35:19) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.3ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:35:36) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (97.1ms)
+Completed in 101ms (View: 98, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:36:27) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (16.3ms)
+Completed in 23ms (View: 20, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:37:33) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.8ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:37:37) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.4ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:37:41) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.3ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:37:45) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.3ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:38:07) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.2ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:38:33) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.4ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:38:37) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.9ms)
+Completed in 20ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:38:43) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.5ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:38:51) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.2ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:38:57) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (15.4ms)
+Completed in 19ms (View: 16, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:39:45) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (16.3ms)
+Completed in 23ms (View: 20, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:41:06) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (49.9ms)
+Completed in 57ms (View: 54, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:41:29) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (31.7ms)
+Completed in 55ms (View: 51, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:42:18) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (188.9ms)
+Completed in 193ms (View: 190, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:42:38) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.5ms)
+Completed in 21ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:42:41) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (18.0ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:43:00) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (18.3ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:43:21) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (18.6ms)
+Completed in 25ms (View: 22, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:43:23) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.1ms)
+Completed in 21ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:43:33) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (89.9ms)
+Completed in 96ms (View: 94, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:43:40) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (18.0ms)
+Completed in 25ms (View: 22, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:44:22) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (18.1ms)
+Completed in 24ms (View: 21, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:44:41) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.6ms)
+Completed in 24ms (View: 21, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:44:53) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.2ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:45:07) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.2ms)
+Completed in 21ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:45:20) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (92.4ms)
+Completed in 99ms (View: 96, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:45:40) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (18.7ms)
+Completed in 25ms (View: 22, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:46:30) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (41.8ms)
+Completed in 60ms (View: 56, DB: 3) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:47:03) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.1ms)
+Completed in 21ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:47:10) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (18.0ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:47:11) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.2ms)
+Completed in 21ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:47:15) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (91.2ms)
+Completed in 95ms (View: 92, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:48:49) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (18.1ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:48:57) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.7ms)
+Completed in 21ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:49:11) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.4ms)
+Completed in 21ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:49:17) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.1ms)
+Completed in 21ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:49:46) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.1ms)
+Completed in 20ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:49:55) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.1ms)
+Completed in 22ms (View: 18, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-08-23 08:50:04) [GET]
+Redirected to http://lembremeuscontatos.local/
+Completed in 2ms (DB: 0) | 302 Found [http://lembremeuscontatos.local/logout]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:50:04) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Rendered layouts/_login (0.8ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://lembremeuscontatos.local/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-08-23 08:50:06) [GET]
+Redirected to https://twitter.com/oauth/authenticate?oauth_token=pYYZJVgF0XxaeK1Fo8DVZTdmxXxtx85vRMPhDLpag&oauth_callback=http%3A%2F%2Flocalhost%3A3000%2Foauth_callback
+Completed in 2133ms (DB: 0) | 302 Found [http://lembremeuscontatos.local/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SessionsController#oauth_callback (for 127.0.0.1 at 2010-08-23 08:50:09) [GET]
+  Parameters: {"oauth_token"=>"pYYZJVgF0XxaeK1Fo8DVZTdmxXxtx85vRMPhDLpag", "oauth_verifier"=>"HhPiw8udDyM6WoCibxffym1h9RnJza5W80tgQ6K6s8"}
+  [4;36;1mUser Load (22.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."twitter_id" = '14293411') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.8ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'tulios' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.3ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."twitter_id" = '14293411' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mTwitterAuth::GenericUser Load (0.3ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."remember_token" = 'b7a7e8612c8502f5f6f0' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."login") = 'tulios' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."twitter_id" = '14293411' AND "users".id <> 1) LIMIT 1[0m
+  [4;35;1mTwitterAuth::GenericUser Load (0.5ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."remember_token" = '686dfd601a55f6844819' AND "users".id <> 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.9ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-08-23 11:50:12.740266', "remember_token" = '686dfd601a55f6844819', "remember_token_expires_at" = '2010-09-06 11:50:12.730504' WHERE "id" = 1[0m
+  [4;35;1mSQL (39.5ms)[0m   [0mCOMMIT[0m
+Redirected to http://lembremeuscontatos.local/
+Completed in 3158ms (DB: 65) | 302 Found [http://lembremeuscontatos.local/oauth_callback?oauth_token=pYYZJVgF0XxaeK1Fo8DVZTdmxXxtx85vRMPhDLpag&oauth_verifier=HhPiw8udDyM6WoCibxffym1h9RnJza5W80tgQ6K6s8]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-08-23 08:50:12) [GET]
+Rendering template within layouts/application
+Rendering home/index
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_login (17.8ms)
+Completed in 22ms (View: 19, DB: 2) | 200 OK [http://lembremeuscontatos.local/]
