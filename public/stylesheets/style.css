@@ -1,10 +1,78 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
+
+body { line-height: 1; color: black; background-color: #d7d7d7; }
+
+h1 {
+	font-size: 40px;
+}                   
+
+h2 {
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+ol, ul { list-style: none; }
+
+table { border-collapse: separate; border-spacing: 0; vertical-align: middle; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: "" ""; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; }
+
+.round { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+
+a img { border: none; }
+
 img {
 	border: none;
 }             
 
+a {       
+	color: #696969;
+	font-size: 14px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	font-size: 14px;
+	text-decoration: none;
+	color: #C00;
+}
+
+.login_with_twitter {
+	margin-top: 10px;
+}
+
+.fieldWithErrors {
+	width: 50%;
+}           
+
+.formError {
+	width: 50%;
+	color: #C00;
+}
+
+.body {
+	height:auto !important;
+	margin:0 auto -324px;
+	min-height:100%;
+}
+ 
+#header {
+	background: none repeat scroll 0 0 rgba(30, 30, 30, 0.95);
+	border-bottom: 1px solid black;
+	height: 70px;
+	margin-bottom: 0;
+	top: 0;
+	width: 100%;
+}
+
 #login {
-	float: left;
+	float: right;
 	text-align: center;
+	margin: 10px;
 }            
                      
 #login #img {
@@ -19,5 +87,161 @@ img {
 }
 
 #login #options #name {
+	color: white;
+	font-family: Arial,Helvetica,sans-serif;
 	font-size: 1.5em;
+	line-height: 30px;
 }
+
+.gray {
+	color: #BFBFBF !important;
+}
+
+#logo {
+	float: left;
+	width: 30%;
+	text-align: center;
+	margin-top: 20px;
+}        
+
+#logo a {    
+	color: white;
+	font-size: 2em;
+}
+
+.content {
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	padding: 10px;
+	margin: auto;
+	margin-top: 10px;
+	background-color: #eaeaea;
+	width: 90%;
+	min-height: 100px;
+}
+
+.awesome{     
+	margin: 0 2px;
+	background: #222 url(/images/overlay-button.png) repeat-x;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #fff !important;
+	text-decoration: none;
+	font-weight: bold;
+	line-height: 1;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px #999;
+	-webkit-box-shadow: 0 1px 3px #999;
+	text-shadow: 0 -1px 1px #222;
+	border-bottom: 1px solid #222;
+	position: relative;
+	cursor: pointer;
+}
+
+.awesome:hover {
+	color: #cdcdcd !important;
+}
+  
+.small.awesome {
+	font-size: 11px;
+}
+.medium.awesome {
+	font-size: 13px;
+}
+.large.awesome {
+	font-size: 14px;
+	padding: 8px 14px 8px;
+}
+
+.blue.awesome {
+	background-color: #2daebf;
+}
+.red.awesome {
+	background-color: #e33100;
+}
+.magenta.awesome {
+	background-color: #a9014b;
+}
+.orange.awesome {
+	background-color: #ff5c00;
+}
+.yellow.awesome {
+	background-color: #ffb515;
+}
+
+#menu {      
+	margin-top: 20px;
+	float: left;
+}
+
+.item_contatos span {
+	border-bottom: 3px solid #2daebf;
+}
+
+.item_contatos {
+	margin-bottom: 30px;
+}                 
+
+.item_grupos span {
+	border-bottom: 3px solid #ff5c00;
+}
+
+.item_grupos {
+	margin-bottom: 30px;
+}                 
+
+.clicavel {
+	cursor: pointer;
+}
+
+.novo_contato {       
+}
+
+.field input {
+	border: 1px solid black;
+	color: black;
+	font-size: large;
+	margin: 0px 10px 10px 10px;
+	padding: 8px;
+	width: 340px;
+}
+
+.field textarea {
+	border: 1px solid black;
+	color: black;
+	font-size: large;
+	margin: 10px;
+	padding: 8px;
+	width: 600px;
+}
+
+.contato_form {
+	height: 200px;
+}
+
+.contato_box {
+	background-color: #2daebf;
+	min-height: 25px;
+	margin: 5px 0px;
+	padding: 10px;
+	font-size: 25px;
+	color: black;
+}             
+
+.contato_box .divisor {
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

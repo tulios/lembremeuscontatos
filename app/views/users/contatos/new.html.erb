@@ -1,0 +1,33 @@
+<%= javascript_include_tag 'views/contatos/form' %>
+
+<div class="contato_form">
+	<h2>
+		<%= t "activerecord.models.contato" %>
+	</h2>        
+	
+	<% form_for [:users, @contato] do |f| %>
+	
+		<div class="field">
+			<p>
+		    <%= f.label :nome %>
+				<%= f.error_message_on :nome %>
+				<br />
+		    <%= f.text_field :nome, :style => "width: 640px;" %>
+		  </p>
+	           
+			<p>
+		    <%= f.label :email %>
+				<%= f.error_message_on :email %>
+				<br />       
+		    <%= f.text_field :email, :style => "width: 640px;" %>
+		  </p>
+		</div>
+	
+		<div style="clear: both;"></div>
+	
+		<p>
+	    <%= f.submit t("app.enviar"), :id => "submit_contato" %>
+	  </p> 
+	
+	<% end %>
+</div>

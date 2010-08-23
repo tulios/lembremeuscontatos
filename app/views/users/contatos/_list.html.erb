@@ -1,0 +1,5 @@
+<% if @contatos and (not @contatos.empty?) %>
+	<%= render :partial => 'users/contatos/contato', :collection => @contatos %>
+<% else %>
+	<em><%= t "app.contato.nenhum_encontrado" %></em>
+<% end %>
