@@ -3,23 +3,23 @@ development:
   adapter: postgresql
   port: 5432                     
   host: localhost
-  username: postgres
   database: lembremeuscontatos
-  password: $lembremeuscontatos!$
+  username: postgres
+  password: postgres
 
 test: 
   encoding: unicode
   adapter: postgresql
   port: 5432     
   host: localhost
-  username: postgres
   database: lembremeuscontatos
-  password: $lembremeuscontatos!$
+  username: postgres
+  password: postgres
 
 production: 
   encoding: unicode
   adapter: postgresql
   port: 5432
-  username: postgres
   database: lembremeuscontatos
+  username: lembremeuscontatos
   password: $lembremeuscontatos!$

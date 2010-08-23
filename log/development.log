@@ -120,3 +120,25 @@
 
 Processing Rails::InfoController#properties (for 127.0.0.1 at 2010-08-20 08:18:22) [GET]
 Completed in 70ms (View: 7 | 200 OK [http://localhost/rails/info/properties]
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+** TwitterAuth initialized properly.
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to TwitterAuthMigration (20100823105456)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (11.4ms)[0m   [0mCREATE TABLE "users" ("id" serial primary key, "twitter_id" character varying(255), "login" character varying(255), "access_token" character varying(255), "access_secret" character varying(255), "remember_token" character varying(255), "remember_token_expires_at" timestamp, "name" character varying(255), "location" character varying(255), "description" character varying(255), "profile_image_url" character varying(255), "url" character varying(255), "protected" boolean, "profile_background_color" character varying(255), "profile_sidebar_fill_color" character varying(255), "profile_link_color" character varying(255), "profile_sidebar_border_color" character varying(255), "profile_text_color" character varying(255), "profile_background_image_url" character varying(255), "profile_background_tiled" boolean, "friends_count" integer, "statuses_count" integer, "followers_count" integer, "favourites_count" integer, "utc_offset" integer, "time_zone" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100823105456')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
