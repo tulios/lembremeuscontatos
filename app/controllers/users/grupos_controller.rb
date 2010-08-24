@@ -17,6 +17,34 @@ class Users::GruposController < Users::MainController
       return
     end     
     
+    flash[:notice] = t("app.grupo.msg.sucesso")
+    redirect_to :action => :index
+  end
+  
+  def edit
+    @grupo = Grupo.find params[:id]
+  end
+  
+  def update
+    @grupo = Grupo.find params[:id]
+    
+    unless @grupo.update_attributes(params[:grupo])
+      render :action => :edit
+      return
+    end
+      
+    flash[:notice] = t("app.grupo.msg.atualizado")
+    redirect_to :action => :index
+  end
+  
+  def show
+    @grupo = Grupo.find params[:id]
+  end
+
+  def destroy
+    @grupo = Grupo.find params[:id]
+    @grupo.destroy
+    
     redirect_to :action => :index
   end
   

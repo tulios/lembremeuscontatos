@@ -21,4 +21,24 @@ module ApplicationHelper
     }
   end
   
+  # Recebe um hash {id => mascara}. ex: {:field_1 => '99/99/9999', :field_2 => '(999) 9999-9999'}
+  def mask_fields(hash)
+    fields = []
+    hash.keys.each do |key|
+      fields << %Q{
+        $("#{'#'+(key.to_s)}").mask("#{hash[key]}");
+      }
+    end
+
+    %Q{
+      <script type="text/javascript">
+        jQuery(function($){
+          $(document).ready(function(){
+            #{fields}
+          });
+        });
+      </script>
+    }
+  end    
+  
 end

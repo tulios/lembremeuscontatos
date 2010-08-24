@@ -185,7 +185,14 @@
       
     grupo:
       nenhum_encontrado: "Nenhum encontrado"
-      novo: "Novo"  
+      novo: "Novo"
+      editar: "Editar"
+      remover: "Remover"
+      visualizar: "Visualizar"
+      msg:
+        sucesso: "Grupo criado com sucesso!"
+        atualizado: "Grupo atualizado com sucesso!"
+      
       
       
       

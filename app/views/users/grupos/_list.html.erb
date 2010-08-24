@@ -1,4 +1,5 @@
 <% if @grupos and (not @grupos.empty?) %>
+	<%= render :partial => 'users/grupos/grupo', :collection => @grupos %>
 <% else %>
 	<em><%= t "app.grupo.nenhum_encontrado" %></em>
 <% end %>

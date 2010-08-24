@@ -1,3 +1,18 @@
+<% content_for(:javascript) do %>
+	<%= javascript_include_tag 'plugins/alphanumeric.pack' %>
+	<%= javascript_include_tag 'plugins/maskedinput-1.2.2' %>
+	
+	<%= 
+		alphanumeric({
+			:grupo_periodicidade => "numeric()"
+		})
+		
+		mask_fields({
+			:grupo_inicio => "99/99/9999"
+		})
+	%>
+<% end %>
+
 <div class="grupo_form">
 	<% form_for [:users, @grupo] do |f| %>
 	
@@ -15,14 +30,22 @@
 				<br />       
 		    <%= f.text_area :mensagem %>
 		  </p>                        
-		
-			<p>
+			
+			<div style="float: left; width: 30%">
+			<p>    
 		    <%= f.label :periodicidade %>
 				<%= f.error_message_on :periodicidade %>
 				<br />       
 		    <%= f.text_field :periodicidade, :style => "width: 100px;" %>
-		  </p>                        
-			
+		  </p>                               
+			</div>
+		
+		  <p>
+			  <%= f.label :inicio %>
+				<%= f.error_message_on :inicio %>
+				<br />       
+		    <%= f.text_field :inicio_str, :id => "grupo_inicio", :style => "width: 120px;" %>
+		  </p>
 		</div>
 	
 		<div style="clear: both;"></div>
