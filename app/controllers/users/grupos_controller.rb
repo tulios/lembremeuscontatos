@@ -32,7 +32,9 @@ class Users::GruposController < Users::MainController
       render :action => :edit
       return
     end
-      
+    
+    associar_contatos
+    
     flash[:notice] = t("app.grupo.msg.atualizado")
     redirect_to :action => :index
   end
@@ -47,5 +49,31 @@ class Users::GruposController < Users::MainController
     
     redirect_to :action => :index
   end
+   
+  private
+  def associar_contatos
+    if params[:contatos]
+      Contato.find(params[:contatos]).each do |contato|
+        GrupoContato.create(:grupo => @grupo, :contato => contato) unless @grupo.contatos.member? contato
+      end                
+    end                   
+  end
   
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -284,7 +284,17 @@ a:hover {
 	text-align: justify;
 }
 
+.contatos_nomes_container {
+	margin:10px;
+}
 
+.item_contato_box {
+	margin: 5px 0px;
+	background-color: #2daebf;
+	padding: 5px;
+	font-size: 16px;
+	color: black;
+}
 
 
 

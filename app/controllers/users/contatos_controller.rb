@@ -1,5 +1,10 @@
 class Users::ContatosController < Users::MainController
-  
+
+  def pelo_nome             
+    @contatos = Contato.pesquisar_pelo_nome params[:nome], current_user
+    render :json => @contatos
+  end
+         
   def index
     @contatos = Contato.all
   end

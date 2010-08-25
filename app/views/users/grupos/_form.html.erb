@@ -1,3 +1,7 @@
+<% content_for(:css) do %>
+	<%= stylesheet_link_tag "smoothness/jquery-ui-1.8.custom" %>
+<% end %>                                                     
+
 <% content_for(:javascript) do %>
 	<%= javascript_include_tag 'plugins/alphanumeric.pack' %>
 	<%= javascript_include_tag 'plugins/maskedinput-1.2.2' %>
@@ -12,47 +16,74 @@
 		})
 	%>
 <% end %>
-
-<div class="grupo_form">
+       
+<div class="form_container">
 	<% form_for [:users, @grupo] do |f| %>
-	
-		<div class="field">
-			<p>
-		    <%= f.label :nome %>
-				<%= f.error_message_on :nome %>
-				<br />
-		    <%= f.text_field :nome, :style => "width: 600px;" %>
-		  </p>
+		<div class="grupo_form" style="float: left;">
+				<div class="field">
+					<p>
+				    <%= f.label :nome %>
+						<%= f.error_message_on :nome %>
+						<br />
+				    <%= f.text_field :nome, :style => "width: 600px;" %>
+				  </p>
 	           
-			<p>
-		    <%= f.label :mensagem %>
-				<%= f.error_message_on :mensagem %>
-				<br />       
-		    <%= f.text_area :mensagem %>
-		  </p>                        
+					<p>
+				    <%= f.label :mensagem %>
+						<%= f.error_message_on :mensagem %>
+						<br />       
+				    <%= f.text_area :mensagem %>
+				  </p>                        
 			
-			<div style="float: left; width: 30%">
-			<p>    
-		    <%= f.label :periodicidade %>
-				<%= f.error_message_on :periodicidade %>
-				<br />       
-		    <%= f.text_field :periodicidade, :style => "width: 100px;" %>
-		  </p>                               
-			</div>
+					<div style="float: left; width: 30%">
+					<p>    
+				    <%= f.label :periodicidade %>
+						<%= f.error_message_on :periodicidade %>
+						<br />       
+				    <%= f.text_field :periodicidade, :style => "width: 100px;" %>
+				  </p>                               
+					</div>
 		
-		  <p>
-			  <%= f.label :inicio %>
-				<%= f.error_message_on :inicio %>
-				<br />       
-		    <%= f.text_field :inicio_str, :id => "grupo_inicio", :style => "width: 120px;" %>
-		  </p>
+				  <p>
+					  <%= f.label :inicio %>
+						<%= f.error_message_on :inicio %>
+						<br />       
+				    <%= f.text_field :inicio_str, :id => "grupo_inicio", :style => "width: 120px;" %>
+				  </p>
+		
+				</div>
+	
+				<div style="clear: both;"></div>
+	
+				<p>
+			    <%= f.submit t("app.enviar"), :id => "submit_grupo" %>
+			  </p> 
+	
 		</div>
-	
-		<div style="clear: both;"></div>
-	
-		<p>
-	    <%= f.submit t("app.enviar"), :id => "submit_grupo" %>
-	  </p> 
-	
+
+		<div style="float: left;">
+			<%= render :partial => 'users/grupos/contato_search', :locals => {:contatos => @grupo.contatos} %>
+		</div>
 	<% end %>
+	
+	<div style="clear: both;"></div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

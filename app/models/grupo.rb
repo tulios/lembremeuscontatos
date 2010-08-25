@@ -1,5 +1,8 @@
 class Grupo < ActiveRecord::Base
   include LembreMeusContatos::Converters
+    
+  has_many :grupos_contatos
+  has_many :contatos, :through => :grupos_contatos
                                                                                   
   attr_protected :user_id
   act_as_virtual_date :inicio                                      
@@ -15,6 +18,6 @@ class Grupo < ActiveRecord::Base
   
   def inicio_formatado
     "começando em #{self.inicio_str}"
-  end
+  end                 
   
 end
