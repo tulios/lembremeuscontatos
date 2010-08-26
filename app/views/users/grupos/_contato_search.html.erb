@@ -1,5 +1,6 @@
 <% content_for(:javascript) do %>
 	<%= javascript_include_tag 'views/grupos/form' %>
+	<%= javascript_include_tag 'views/grupos/item_contato' %>
 <% end %>
 
 <div id="contato_search" class="field">
@@ -7,11 +8,10 @@
 		<label for="contato_search_field">Contatos</label>
 		<br/>
 		<input id="contato_search_field">
-		<button type="button" id="btn_adicionar">Adicionar</button>
 	</p>
 </div>
 <div id="nomes_container" class="contatos_nomes_container">
-	<% if defined? contatos %>
-		<%= render :partial => 'users/grupos/item_contato', :collection => contatos %>
+	<% if defined? contatos and defined? grupo %>
+		<%= render :partial => 'users/grupos/item_contato', :collection => contatos, :locals => {:grupo => grupo} %>
 	<% end %>
 </div>

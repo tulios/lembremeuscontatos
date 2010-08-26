@@ -1,3 +1,7 @@
+<% content_for(:javascript) do %>
+	<%= javascript_include_tag 'views/grupos/item_contato' %>
+<% end %>
+
 <h1 class="item_grupos">
 	<span>
 		<% link_to users_grupos_url do %>
@@ -16,6 +20,9 @@
 	</div>          
 	<br/>
 	<div class="periodo inicio">
+		<span class="label"><%= t ("app.enviar") %>:</span>
+		<br/>
+		
 		<%= @grupo.periodicidade_formatado %>
 		<span class="divisor">&raquo;</span>
 		<%= @grupo.inicio_formatado %>
@@ -26,4 +33,12 @@
 		<br/>
 		<%= @grupo.mensagem %>
 	</div>
+	<br/>                                          
+	<% if @grupo.contatos.length > 0 %>
+	<div id="nomes_container" class="contatos">
+		<span class="label"><%= t ("app.menu.contatos") %>:</span>
+		<br/>
+		<%= render :partial => 'users/grupos/item_contato', :collection => @grupo.contatos, :locals => {:grupo => @grupo} %>
+	</div>                           
+	<% end %>
 </div>

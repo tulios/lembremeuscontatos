@@ -241,6 +241,10 @@ a:hover {
 	padding: 10px;
 	font-size: 25px;
 	color: black;
+}
+
+.contato_box .opcoes {
+	float: right;
 }             
 
 .contato_box .divisor {
@@ -264,6 +268,10 @@ a:hover {
 	color: black;
 }
 
+.grupo_box .opcoes {
+	float: right;
+}             
+
 .grupo_box .nome a {
 	font-size:25px;
 }
@@ -283,6 +291,11 @@ a:hover {
 .grupo_box .mensagem {
 	text-align: justify;
 }
+      
+.grupo_box .contatos .item_contato_box {
+	background-color: transparent;
+	border-bottom: 1px solid black;
+}
 
 .contatos_nomes_container {
 	margin:10px;
@@ -296,7 +309,20 @@ a:hover {
 	color: black;
 }
 
+.item_contato_box .opcoes {
+	float: right;
+}
 
+.item_contato_box .opcoes a {
+	color: white;
+}                   
 
+.item_contato_box .opcoes a:hover {
+	color: #cdcdcd;
+}
+
+.item_contato_box .removido {
+	text-decoration: line-through;
+}
 
 

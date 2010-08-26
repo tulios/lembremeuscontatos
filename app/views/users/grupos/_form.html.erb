@@ -62,7 +62,10 @@
 		</div>
 
 		<div style="float: left;">
-			<%= render :partial => 'users/grupos/contato_search', :locals => {:contatos => @grupo.contatos} %>
+			<%= render :partial => 'users/grupos/contato_search', :locals => {
+				:contatos => @grupo.contatos,
+				:grupo => @grupo
+			}%>
 		</div>
 	<% end %>
 	

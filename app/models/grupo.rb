@@ -2,7 +2,7 @@ class Grupo < ActiveRecord::Base
   include LembreMeusContatos::Converters
     
   has_many :grupos_contatos
-  has_many :contatos, :through => :grupos_contatos
+  has_many :contatos, :through => :grupos_contatos, :order => "nome asc"
                                                                                   
   attr_protected :user_id
   act_as_virtual_date :inicio                                      

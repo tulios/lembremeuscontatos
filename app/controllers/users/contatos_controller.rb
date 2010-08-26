@@ -6,11 +6,11 @@ class Users::ContatosController < Users::MainController
   end
          
   def index
-    @contatos = Contato.all
+    pesquisar
   end
   
   def index_ajax
-    @contatos = Contato.all
+    pesquisar
     render :partial => 'users/contatos/list'
   end
   
@@ -36,6 +36,15 @@ class Users::ContatosController < Users::MainController
     @contato.destroy
     
     redirect_to :action => :index
+  end
+   
+  private
+  def pesquisar
+    @contatos = Contato.find(
+      :all,
+      :conditions => ["user_id = ?", current_user.id],
+      :order => "nome asc"
+    )
   end
   
 end

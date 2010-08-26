@@ -173,6 +173,7 @@
   app:
     logout: 'Sair'
     enviar: "Enviar"
+    certeza: "Você tem certeza?"
     
     menu:
       contatos: "Contatos"
@@ -193,7 +194,8 @@
         sucesso: "Grupo criado com sucesso!"
         atualizado: "Grupo atualizado com sucesso!"
       
-      
+    grupo_contato:
+      remover: "remover"  
       
       
       

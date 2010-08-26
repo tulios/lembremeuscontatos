@@ -8,6 +8,8 @@ ActionController::Routing::Routes.draw do |map|
     user.load_contatos_ajax 'contatos_ajax', :controller => :contatos, :action => :index_ajax
     
     user.resources :grupos
+    
+    user.resources :grupos_contatos, :only => :destroy
   end
   
   map.root :controller => :home

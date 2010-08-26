@@ -1,7 +1,11 @@
 class Users::GruposController < Users::MainController
   
   def index
-    @grupos = Grupo.all
+    @grupos = Grupo.find(
+      :all,
+      :conditions => ["user_id = ?", current_user.id],
+      :order => "created_at desc"
+    )
   end
   
   def new
@@ -16,6 +20,8 @@ class Users::GruposController < Users::MainController
       render :action => :new
       return
     end     
+             
+    associar_contatos
     
     flash[:notice] = t("app.grupo.msg.sucesso")
     redirect_to :action => :index
