@@ -63,6 +63,12 @@ module Hominid
     
     def update_campaign campaign_id, name, value
       base.update campaign_id, name, value
+    end                                   
+    
+    def segment_test
+      base.segment_test @list_id, {
+        :match => "all"
+      }
     end
     
   end
