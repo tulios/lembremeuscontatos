@@ -33,6 +33,8 @@ class TwitterAuthMigration < ActiveRecord::Migration
       # Probably don't need both, but they're here.
       t.integer :utc_offset
       t.string :time_zone
+                       
+      t.integer :folder_id # MailChimp
 
       t.timestamps
     end

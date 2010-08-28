@@ -1,0 +1,17 @@
+development:
+  api: "c7ff198612803bfee79eddb0b3f20555-us2"
+  list_id: "2ea7c86cfc"
+  from_email: "sistema@lembremeuscontatos.com"
+  to_email: "sistema@lembremeuscontatos.com"
+  
+test:
+  api: "c7ff198612803bfee79eddb0b3f20555-us2"
+  list_id: "2ea7c86cfc"
+  from_email: "sistema@lembremeuscontatos.com"
+  to_email: "sistema@lembremeuscontatos.com"
+  
+production:
+  api: "c7ff198612803bfee79eddb0b3f20555-us2"
+  list_id: "2ea7c86cfc"
+  from_email: "sistema@lembremeuscontatos.com"
+  to_email: "sistema@lembremeuscontatos.com"

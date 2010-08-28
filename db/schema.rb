@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20100825011438) do
     t.integer  "user_id"
     t.integer  "periodicidade"
     t.date     "inicio"
+    t.string   "campaign_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20100825011438) do
     t.integer  "favourites_count"
     t.integer  "utc_offset"
     t.string   "time_zone"
+    t.integer  "folder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

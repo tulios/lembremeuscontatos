@@ -15,8 +15,7 @@ function aplicarAjaxSubmit(){
 			type: 'POST',
 			data: $("#new_contato").serialize(),
 			beforeSend: function(request){
-				botao.attr('disabled', true);
-				botao.attr('value', 'Enviando...');
+				bloquearBotao(botao, 'Enviando...');
 			},
 		  success: function(data, request) {
 				tratarSucesso(data, request);

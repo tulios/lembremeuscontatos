@@ -1,8 +1,15 @@
 jQuery(document).ready(function(){
 	 
 	adicionarAutoCompleteDeContato();
+	aplicarBloquearBotao();
 	
 });
+
+function aplicarBloquearBotao(){
+	$("#submit_grupo").click(function(){
+		bloquearBotao($(this), 'Enviando...');
+	});
+}
 
 function adicionarAutoCompleteDeContato(){  
 	$("#contato_search_field").autocomplete({
