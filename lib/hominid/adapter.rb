@@ -49,13 +49,17 @@ module Hominid
       # Configure the object host
       #
       def sync_with_hominid_list
-        self.send :after_save, :add_contact
-        self.send :after_destroy, :remove_contact
+        unless Rails.env.test?
+          self.send :after_save, :add_contact
+          self.send :after_destroy, :remove_contact
+        end
       end
       
       def sync_with_hominid_campaign
-        self.send :after_save, :add_campaign
-        self.send :after_destroy, :remove_campaign
+        unless Rails.env.test?
+          self.send :after_save, :add_campaign
+          self.send :after_destroy, :remove_campaign
+        end
       end
       
     end
