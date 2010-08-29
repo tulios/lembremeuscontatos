@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100825011438) do
     t.integer  "periodicidade"
     t.date     "inicio"
     t.string   "campaign_id"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

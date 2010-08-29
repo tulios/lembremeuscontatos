@@ -38,6 +38,17 @@ module Hominid
         })
         self.save!
       end
+    end
+    
+    def add_segment
+      emails_for_segmentation = self.emails
+      if emails_for_segmentation
+        Hominid::Loader.instance.create_segment(self.campaign_id, emails_for_segmentation)
+      end
+    end
+    
+    def segments_correct?
+      Hominid::Loader.instance.segment_test self.emails
     end  
     
     def remove_campaign                               

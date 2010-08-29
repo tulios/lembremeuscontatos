@@ -65,10 +65,29 @@ module Hominid
       base.update campaign_id, name, value
     end                                   
     
-    def segment_test
-      base.segment_test @list_id, {
-        :match => "all"
+    def create_segment campaign_id, emails
+      conditions = create_conditions_array(emails)
+      self.update_campaign campaign_id, "segment_opts", {
+        :match => "any",
+        :conditions => conditions
       }
+    end
+    
+    def segment_test emails           
+      conditions = create_conditions_array(emails)
+      
+      total = base.segment_test @list_id, {
+        :match => "any",
+        :conditions => conditions
+      }
+      
+      total == emails.length
+    end
+    
+    private
+    
+    def create_conditions_array emails
+      emails.collect {|email| {:field => "merge0", :op => "eq", :value => email}} 
     end
     
   end

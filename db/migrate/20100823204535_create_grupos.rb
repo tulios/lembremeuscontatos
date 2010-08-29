@@ -7,6 +7,7 @@ class CreateGrupos < ActiveRecord::Migration
       t.integer :periodicidade
       t.date :inicio
       t.string :campaign_id
+      t.string :status
 
       t.timestamps
     end

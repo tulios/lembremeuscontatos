@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
     user.pelo_nome '/contatos/pelo_nome', :controller => :contatos, :action => :pelo_nome
     user.resources :contatos
     user.load_contatos_ajax 'contatos_ajax', :controller => :contatos, :action => :index_ajax
-    
+                       
     user.resources :grupos
     
     user.resources :grupos_contatos, :only => :destroy
