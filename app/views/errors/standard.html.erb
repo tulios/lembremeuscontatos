@@ -1,0 +1,15 @@
+<div class="mensagem_erro">
+	<div style="width: 12%; float: left;">
+		<img src="/images/icons/cry_128.png"></img>
+	</div>
+	<div style="width: 88%; float: left; margin-top: 30px;">
+		O servidor fez alguma "caquinha" que não deveria!<br/> 
+		Nós acabamos de ser informados do problema, em breve ele será resolvido.
+		<% if Rails.env.test? or Rails.env.development? %>
+			<div id="erro">
+				<%= error %>
+			</div>
+		<% end %>
+	</div>
+	<div style="clear: both;"></div>
+</div>

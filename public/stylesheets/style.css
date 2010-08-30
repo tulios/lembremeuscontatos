@@ -325,4 +325,8 @@ a:hover {
 	text-decoration: line-through;
 }
 
+.mensagem_erro {
+	font-size: 2em;
+}
+
 
