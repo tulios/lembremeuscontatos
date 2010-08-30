@@ -8,15 +8,17 @@
 	<span class="periodo"><%= grupo.periodicidade_formatado %></span>
   <span class="divisor">&raquo;</span>
 	<span class="inicio"><%= grupo.inicio_formatado %></span>
-	<span class="opcoes">
-		<% link_to edit_users_grupo_path(grupo) do %>
-			<%= t "app.grupo.editar" %>
-	  <% end %>                  
+	<% if grupo.inativo? %>
+		<span class="opcoes">
+			<% link_to edit_users_grupo_path(grupo) do %>
+				<%= t "app.grupo.editar" %>
+		  <% end %>                  
 	
-	  &nbsp;|&nbsp;
+		  &nbsp;|&nbsp;
 	
-		<% link_to users_grupo_path(grupo), :method => :delete, :confirm => "Você tem certeza?" do %>
-			<%= t "app.grupo.remover" %>
-		<% end %>
-	</span>
+			<% link_to users_grupo_path(grupo), :method => :delete, :confirm => "Você tem certeza?" do %>
+				<%= t "app.grupo.remover" %>
+			<% end %>
+		</span>
+	<% end %>
 </div>

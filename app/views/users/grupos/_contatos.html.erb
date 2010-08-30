@@ -1,0 +1,7 @@
+<% if @grupo.contatos.length > 0 %>
+	<div id="nomes_container" class="contatos">
+		<span class="label"><%= t ("app.menu.contatos") %>:</span>
+		<br/>
+		<%= render :partial => 'users/grupos/item_contato', :collection => @grupo.contatos, :locals => {:grupo => @grupo} %>
+	</div>                           
+<% end %>

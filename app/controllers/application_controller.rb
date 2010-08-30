@@ -10,5 +10,6 @@ class ApplicationController < ActionController::Base
   
   include LembreMeusContatos::RescueFrom
   rescue_from StandardError, :with => :tratar_standard_error
+  rescue_from LembreMeusContatos::Exceptions::BadBehavior, :with => :tratar_bad_behavior
   
 end

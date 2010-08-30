@@ -6,8 +6,16 @@
 		O servidor fez alguma "caquinha" que não deveria!<br/> 
 		Nós acabamos de ser informados do problema, em breve ele será resolvido.
 		<% if Rails.env.test? or Rails.env.development? %>
+			<br/>
 			<div id="erro">
-				<%= error %>
+				<div class="error_message">
+					<span>Message:</span><br/>
+					<%= error.message%>
+				</div>
+				<div class="error_stack">
+					<span>Stack:</span><br/>
+					<%= h error %>    
+				</div>
 			</div>
 		<% end %>
 	</div>

@@ -140,6 +140,7 @@
         mensagem: "Mensagem"
         periodicidade: "Periodicidade (em dias)"
         inicio: "Data de início"
+        status: "Status"
 
     errors:
       template:
@@ -173,7 +174,11 @@
   app:
     logout: 'Sair'
     enviar: "Enviar"
+    salvar: "Salvar"
     certeza: "Você tem certeza?"
+    
+    exceptions:
+      bad_behavior: "Você tentou executar uma operação ilegal!"
     
     menu:
       contatos: "Contatos"
@@ -190,9 +195,11 @@
       editar: "Editar"
       remover: "Remover"
       visualizar: "Visualizar"
+      ativar: "Ativar"
       msg:
         sucesso: "Grupo criado com sucesso!"
         atualizado: "Grupo atualizado com sucesso!"
+        agendado: "Envio agendado com sucesso, as mensagens começarão a ser enviadas dia %{data}"
       
     grupo_contato:
       remover: "remover"  

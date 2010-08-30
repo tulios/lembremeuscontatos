@@ -32,6 +32,7 @@ module Hominid
       unless self.campaign_id
         self.campaign_id = Hominid::Loader.instance.create_campaign({
           :subject => self.subject,
+          :title => self.campaign_title,
           :from_name => self.name,
           :content => self.content,
           :folder_id => self.folder_id
@@ -53,7 +54,11 @@ module Hominid
     
     def remove_campaign                               
       Hominid::Loader.instance.remove_campaign(self.campaign_id)
-    end   
+    end                 
+    
+    def schedule_campaign
+      Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date)
+    end
     
     module ClassMethods
       

@@ -1,9 +1,7 @@
 Túlio
 feito! - 1 - Criar segmentos na lista principal com base no grupo criado pelo usuário
-fazendo - 2 - Criar opção no grupo para "Começar os envios", isso irá agendar a campanha no mailChimp com
-    pelo menos 48hrs de antecedência.
-
-
+feito! - 2 - Criar opção no grupo para "Começar os envios", isso irá agendar a campanha no mailChimp com
+    				 pelo menos 48hrs de antecedência.
 
 3 - Criar tarefa no rake que será chamada pelo cron do heroku. Essa tarefe irá selecionar os grupos
     que tem data de início em 2 dias no futuro, mantendo a periodicidade.

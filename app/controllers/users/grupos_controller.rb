@@ -1,4 +1,6 @@
 class Users::GruposController < Users::MainController
+          
+  before_filter :verificar_ativos, :only => [:edit, :update, :destroy]
   
   def index
     @grupos = Grupo.find(
@@ -29,11 +31,11 @@ class Users::GruposController < Users::MainController
   end
   
   def edit
-    @grupo = Grupo.find params[:id]
+    @grupo ||= Grupo.find params[:id]
   end
   
   def update
-    @grupo = Grupo.find params[:id]
+    @grupo ||= Grupo.find params[:id]
     
     unless @grupo.update_attributes(params[:grupo])
       render :action => :edit
@@ -52,7 +54,7 @@ class Users::GruposController < Users::MainController
   end
 
   def destroy
-    @grupo = Grupo.find params[:id]
+    @grupo ||= Grupo.find params[:id]
     @grupo.destroy
     
     redirect_to :action => :index
@@ -65,6 +67,11 @@ class Users::GruposController < Users::MainController
         GrupoContato.create(:grupo => @grupo, :contato => contato) unless @grupo.contatos.member? contato
       end
     end                   
+  end
+  
+  def verificar_ativos
+    @grupo = Grupo.find params[:id]
+    raise LembreMeusContatos::Exceptions::BadBehavior, t("app.exceptions.bad_behavior") if @grupo.ativo?
   end
   
 end

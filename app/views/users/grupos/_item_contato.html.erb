@@ -1,7 +1,9 @@
 <div id="contato_<%= item_contato.id %>" class="item_contato_box round">
 	<span class="nome"><%= item_contato.nome %></span>
-	<span class="opcoes">
-		<%= link_to t("app.grupo_contato.remover"),
-								users_grupo_contato_path(item_contato.associacao(grupo)) %>
-	</span>
+	<% if grupo.inativo? %>
+		<span class="opcoes">
+			<%= link_to t("app.grupo_contato.remover"),
+									users_grupo_grupo_contato_path(grupo, item_contato.associacao(grupo)) %>
+		</span>
+	<% end %>
 </div>

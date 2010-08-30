@@ -49,7 +49,7 @@ class Grupo < ActiveRecord::Base
     transitions :from => [:inativo], 
                 :to => :ativo, 
                 :guard => :pode_ativar?,
-                :on_transition => [:agendar_campanha]
+                :on_transition => [:schedule_campaign]
   end   
   
   #--
@@ -63,6 +63,10 @@ class Grupo < ActiveRecord::Base
   def inicio_formatado
     "começando em #{self.inicio_str}"
   end                 
+                  
+  def status_str
+    self.status.upcase
+  end
   
   def folder_id
     user.folder_id
@@ -74,12 +78,17 @@ class Grupo < ActiveRecord::Base
   
   def adicionar_segmentos
     add_segment
+  end                 
+  
+  def start_date
+    self.inicio
   end   
   
-  private
-  
-  def agendar_campanha
+  def campaign_title
+    "#{self.user.folder_name}-#{self.nome}"
   end
+  
+  private
   
   def pode_ativar?
     possui_contatos? and segmentos_corretos?

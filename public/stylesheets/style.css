@@ -46,11 +46,11 @@ a:hover {
 }
 
 .fieldWithErrors {
-	width: 50%;
+	width: 100%;
 }           
 
 .formError {
-	width: 50%;
+	width: 100%;
 	color: #C00;
 }
 
@@ -99,9 +99,10 @@ a:hover {
 
 #logo {
 	float: left;
-	width: 30%;
-	text-align: center;
 	margin-top: 20px;
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: left;
 }        
 
 #logo a {    
@@ -295,6 +296,10 @@ a:hover {
 .grupo_box .contatos .item_contato_box {
 	background-color: transparent;
 	border-bottom: 1px solid black;
+}        
+
+.grupo_box .status .ativar a {
+	font-size: 25px;
 }
 
 .contatos_nomes_container {
@@ -328,5 +333,58 @@ a:hover {
 .mensagem_erro {
 	font-size: 2em;
 }
+
+#erro {          
+	margin-top: 40px;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+#erro .error_message {
+	color: #600000;
+	font-size: 20px;
+	margin-bottom: 15px;
+} 
+
+#erro .error_message span {
+	color: black;
+	font-weight: bold;
+}
+
+#erro .error_stack {
+}
+                  
+#erro .error_stack span {
+	color: black;
+	font-weight: bold;       
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

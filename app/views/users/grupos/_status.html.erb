@@ -1,0 +1,14 @@
+<div class="status">
+	<span class="label"><%= t ("activerecord.attributes.grupo.status") %>:</span>
+	<br/>
+	<%= @grupo.status_str %>      
+	<% if @grupo.inativo? %>
+		<span class="divisor">&raquo;</span>
+		<span class="ativar">
+			<%= link_to (t("app.grupo.ativar"), 
+									users_grupo_agendamento_index_path(@grupo), 
+									:method => :post, 
+									:id => "ativar") %>
+		</span>
+	<% end %>
+</div>

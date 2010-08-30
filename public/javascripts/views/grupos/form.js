@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
 
 function aplicarBloquearBotao(){
 	$("#submit_grupo").click(function(){
-		bloquearBotao($(this), 'Enviando...');
+		bloquearBotao($(this), 'Salvando...');
 	});
 }
 

@@ -82,6 +82,10 @@ module Hominid
       }
       
       total == emails.length
+    end          
+    
+    def schedule_campaign campaign_id, time
+      base.schedule_campaign campaign_id, "#{time}"
     end
     
     private
