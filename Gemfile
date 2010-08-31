@@ -8,6 +8,6 @@ gem "hominid", "~> 2.1.7"
 gem "aasm", "~> 2.1.5"
 
 group :test do
-  # gem "rspec"
+  gem "rspec"
   # gem "faker"
 end
