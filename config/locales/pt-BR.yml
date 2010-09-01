@@ -174,8 +174,12 @@
   app:
     logout: 'Sair'
     enviar: "Enviar"
-    salvar: "Salvar"
+    salvar: "Salvar"          
     certeza: "Você tem certeza?"
+            
+    textos:
+      ativando_grupo: "Nós pedimos, no mínimo, 48 horas para o envio dos e-mails."
+      aviso_edicao_ativacao_grupo: "Uma vez ativado, o grupo não poderá receber atualizações."
     
     exceptions:
       bad_behavior: "Você tentou executar uma operação ilegal!"
@@ -196,10 +200,16 @@
       remover: "Remover"
       visualizar: "Visualizar"
       ativar: "Ativar"
+      erro:
+        header_ativar: "Não foi possível ativar o Grupo"
+        header_sub_ativar: "Verifique os seguintes problemas:"
+        inicio_menor_estipulado: "deve ter pelo menos 48 horas a partir de hoje"
+        contatos_maior_zero: "devem possuir pelo menos uma referência"
       msg:
         sucesso: "Grupo criado com sucesso!"
         atualizado: "Grupo atualizado com sucesso!"
         agendado: "Envio agendado com sucesso, as mensagens começarão a ser enviadas dia %{data}"
+        data_minima: "Data mínima: %{data}"
       
     grupo_contato:
       remover: "remover"  

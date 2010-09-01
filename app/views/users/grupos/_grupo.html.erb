@@ -6,8 +6,10 @@
 	</span>
   <span class="divisor">&raquo;</span>
 	<span class="periodo"><%= grupo.periodicidade_formatado %></span>
-  <span class="divisor">&raquo;</span>
-	<span class="inicio"><%= grupo.inicio_formatado %></span>
+	<% if grupo.ativo? %>
+	  <span class="divisor">&raquo;</span>
+		<span class="inicio"><%= grupo.inicio_formatado %></span>
+	<% end %>
 	<% if grupo.inativo? %>
 		<span class="opcoes">
 			<% link_to edit_users_grupo_path(grupo) do %>

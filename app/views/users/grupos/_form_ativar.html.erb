@@ -1,0 +1,34 @@
+<% content_for(:javascript) do %>
+	<%= javascript_include_tag 'plugins/maskedinput-1.2.2' %>
+	<%= javascript_include_tag 'views/grupos/ativar' %>
+	
+	<%= 
+ 		mask_fields({
+			:grupo_inicio => "99/99/9999"
+		})
+	%>
+<% end %>
+
+<div id="form_ativar">
+	<div class="texto">
+		<%= t("app.textos.ativando_grupo") %>
+		<div class="pequeno">
+			<%= t("app.textos.aviso_edicao_ativacao_grupo") %>
+		</div>
+	</div>
+	<% form_tag :controller=>"users/agendamento", :action=>"create" do %>
+		<%= hidden_field_tag :grupo_id, @grupo.id %>
+		<div class="field">
+			<label><%= t("activerecord.attributes.grupo.inicio") %></label>
+			<br />
+			<%= text_field_tag :inicio_str, @grupo.inicio_str, :id => "grupo_inicio", :style => "width: 120px;" %>
+			<span class="data_minima">
+				(<%= t("app.grupo.msg.data_minima", :data => @inicio_minimo) %>)
+			</span>
+		</div>
+		<div style="clear: both;"></div>
+		<p>
+			<%= submit_tag t("app.grupo.ativar"), :id => "submit_grupo" %>
+		</p>
+	<% end %>
+</div>

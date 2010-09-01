@@ -15,7 +15,7 @@ class Grupo < ActiveRecord::Base
   # Validacoes ==================================================================================================  
   #++
   
-  validates_presence_of :user_id, :nome, :mensagem, :periodicidade, :inicio
+  validates_presence_of :user_id, :nome, :mensagem, :periodicidade
   validates_numericality_of :periodicidade, :only_integer => true, :greater_than => 5
   
   #--
@@ -91,16 +91,38 @@ class Grupo < ActiveRecord::Base
   private
   
   def pode_ativar?
-    possui_contatos? and segmentos_corretos?
+    possui_contatos? and segmentos_corretos? and data_inicio_minima?
   end                       
   
   def possui_contatos?
-    self.contatos.length > 0
+    unless self.contatos.length > 0
+      errors.add(:contatos, I18n.t("app.grupo.erro.contatos_maior_zero"))
+      return false
+    end  
+    true
   end
                          
   def segmentos_corretos?
     segments_correct?
-  end  
+  end
+     
+  def self.inicio_minimo
+    2.days.from_now
+  end
+  
+  private
+  def data_inicio_minima?
+    if self.inicio.nil? or inicio_to_datetime < Grupo.inicio_minimo
+      errors.add(:inicio, I18n.t("app.grupo.erro.inicio_menor_estipulado"))
+      return false
+    end
+    
+    true
+  end
+  
+  def inicio_to_datetime
+    self.inicio.to_datetime.in_time_zone(Time.zone.name)
+  end
   
 end
 

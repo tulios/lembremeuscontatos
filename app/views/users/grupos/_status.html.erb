@@ -5,10 +5,7 @@
 	<% if @grupo.inativo? %>
 		<span class="divisor">&raquo;</span>
 		<span class="ativar">
-			<%= link_to (t("app.grupo.ativar"), 
-									users_grupo_agendamento_index_path(@grupo), 
-									:method => :post, 
-									:id => "ativar") %>
+			<a id="ativar" href="#form_ativar"><%= t("app.grupo.ativar") %></a>
 		</span>
 	<% end %>
 </div>

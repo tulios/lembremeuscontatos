@@ -1,5 +1,7 @@
 module LembreMeusContatos
   module Converters
+                   
+    protected
 
     # Currency to float
     #

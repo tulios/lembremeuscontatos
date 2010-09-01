@@ -358,10 +358,49 @@ a:hover {
 	color: black;
 	font-weight: bold;       
 }
+                 
+#form_ativar {
+	width: 40em;
+	height: 10em;
+}
 
+#form_ativar .data_minima {
+	font-size: 30px;
+}
 
+.texto {
+	font-size: 25px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}          
 
+.texto .pequeno { 
+	font-size: 18px;
+	margin-top: 10px;
+}
 
+.errorExplanation {
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	background: none repeat scroll 0 0 #FFF6BF;
+	color: #817134;
+	font-style: italic;
+	padding: 10px;
+}
+                    
+.errorExplanation h2 {
+	font-size: 25px;
+	margin-bottom: 15px;
+}
+                 
+.errorExplanation p {
+	margin-bottom: 5px;
+}
+
+.errorExplanation li {
+	font-style: normal;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
 
 
 
