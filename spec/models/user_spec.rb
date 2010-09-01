@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe User do
 
-  before(:each) { Factory(:user) }
+  before(:each) { @user = Factory(:user) }
+  subject { @user }
 
   context 'quando referente ao login' do
     it { should validate_presence_of :login }

@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Contato do
 
-  before(:each) { Factory(:contato) }
+  before(:each) { @contato = Factory(:contato) }
+  subject { @contato }
 
   context 'quando referente as associações' do
     it { should belong_to :user }
