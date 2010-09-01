@@ -1,4 +1,5 @@
 class Users::GruposController < Users::MainController
+  include LembreMeusContatos::Converters
           
   before_filter :verificar_ativos, :only => [:edit, :update, :destroy]
   
@@ -51,6 +52,7 @@ class Users::GruposController < Users::MainController
   
   def show
     @grupo = Grupo.find params[:id]
+    @inicio_minimo = date_format(Grupo.inicio_minimo)
   end
 
   def destroy

@@ -43,7 +43,7 @@ module Hominid
     
     def add_segment
       emails_for_segmentation = self.emails
-      if emails_for_segmentation
+      if emails_for_segmentation and (not emails_for_segmentation.empty?)
         Hominid::Loader.instance.create_segment(self.campaign_id, emails_for_segmentation)
       end
     end
