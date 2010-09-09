@@ -106,8 +106,9 @@ class Grupo < ActiveRecord::Base
     segments_correct?
   end
      
-  def self.inicio_minimo
-    2.days.from_now
+  def self.inicio_minimo               
+    # A dupla conversao eh para remover as horas.
+    2.days.from_now.to_date.to_datetime
   end
   
   private
@@ -121,7 +122,7 @@ class Grupo < ActiveRecord::Base
   end
   
   def inicio_to_datetime
-    self.inicio.to_datetime.in_time_zone(Time.zone.name)
+    self.inicio.to_datetime.in_time_zone(Time.zone.name) if self.inicio
   end
   
 end

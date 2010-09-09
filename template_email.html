@@ -1,0 +1,144 @@
+<html> 
+    <head> 
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+        <title>*|MC:SUBJECT|*</title> 
+        <style type="text/css" media="screen">
+                #header {
+                   background: none repeat scroll 0 0 #262626;
+                   border-bottom: 1px solid black;
+                   height: 70px;
+                   margin-bottom: 0;
+                   top: 0;
+                   width: 100%;
+                   color: white;
+                }
+            
+                /**
+                 * @tab Page
+                 * @section background color
+                 * @tip Choose a color for your HTML email's background. You might choose one to match your company's branding.
+                 * @theme page
+                 */
+                body {
+                    /*@editable*/ background-color: #D7D7D7;
+                    text-align:center;
+                }
+ 
+                /**
+                 * @tab Page
+                 * @section border
+                 * @tip Add a border to help your template content stand out from your email's background.
+                 */
+                #layout {
+                    /*@editable*/ border: 5px solid #999999;
+                    /*@editable*/ background:#ffffff;
+                    margin: 10px auto;
+                    text-align:left;
+                }
+ 
+                /**
+                 * @tab Body
+                 * @section default text
+                 * @tip This is the default text style for the body of your email.
+                 * @theme content
+                 */
+                #content {
+                    /*@editable*/ font-size: 13px;
+                    /*@editable*/ color: black;
+                    /*@editable*/ font-family: Helvetica;
+                    /*@editable*/ line-height: 1.25em;
+                    /*@editable*/ padding: 10px 30px;
+                    /*@editable*/ background-color: #EAEAEA;
+                }
+ 
+                /**
+                 * @tab Footer
+                 * @section footer
+                 * @tip You might give your footer a light background color and separate it with a top border
+                 * @theme footer
+                 */
+                #footer {
+                    /*@editable*/ background-color: #eeeeee;
+                    /*@editable*/ border-top: 0px none #ffffff;
+                    /*@editable*/ padding: 20px;
+                    /*@editable*/ font-size: 10px;
+                    /*@editable*/ color: black;
+                    /*@editable*/ line-height: 100%;
+                    /*@editable*/ font-family: Verdana;
+                }
+ 
+                /**
+                 * @tab Footer
+                 * @section link style
+                 * @tip Specify a color for your footer hyperlinks.
+                 * @theme link_footer
+                 */
+                #footer a {
+                    /*@editable*/ color: #800000;
+                    /*@editable*/ text-decoration: underline;
+                    /*@editable*/ font-weight: normal;
+                }
+            
+                /**
+                 * @tab Page
+                 * @section link style
+                 * @tip Specify a color for all the hyperlinks in your email.
+                 * @theme link
+                 */
+                a, a:link, a:visited {
+                    /*@editable*/ color: #800000;
+                    /*@editable*/ text-decoration: underline;
+                    /*@editable*/ font-weight: normal;
+                }
+               #logo {
+                  margin-top: 20px;
+   	          padding-left: 3%;
+	          padding-right: 3%;
+	          text-align: left;
+                  font-size: 2em;
+               }
+               .gray {
+                  color: #BFBFBF !important;
+               }
+               #subject {
+                  font-size: 1.5em;
+                  text-align: left;
+                  padding: 10px 10px 10px 18px;
+               }        
+
+        </style> 
+    </head> 
+    <body> 
+        <table id="layout" border="0" cellspacing="0" cellpadding="0" width="600"> 
+            <tr> 
+                <td id="header">  
+                    <div id="logo">
+                       Lembre <span class="gray">Meus</span> Contatos
+                    </div>
+                </td> 
+            </tr> 
+            
+            <tr>
+               <td id="subject">
+                  *|MC:SUBJECT|*
+               </td>
+            </tr>
+
+            <tr> 
+                <td id="content" mc:edit="content">
+                </td> 
+            </tr> 
+            
+            <tr> 
+                <td id="footer" mc:edit="footer"> 
+                    <p><a href="*|ARCHIVE|*" class="adminText">veja o email no navegador</a> | <a href="*|UNSUB|*">Não receber mais emails do lembreMeusContatos</a> *|EMAIL|*</p> 
+ 
+                    <p>*|LIST:DESCRIPTION|*</p> 
+ 
+                    <p>Copyright (C) *|CURRENT_YEAR|* *|LIST:COMPANY|* All rights reserved.</p> 
+                </td> 
+            </tr> 
+        </table>
+ 		<span style="padding: 0px;"></span>
+    </body> 
+</html>
