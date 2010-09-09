@@ -110,6 +110,15 @@ class Grupo < ActiveRecord::Base
     # A dupla conversao eh para remover as horas.
     2.days.from_now.to_date.to_datetime
   end
+                                                                                             
+  # Recupera os grupos que devem ser enviados na data informada, com base na periodicidade cadastrada.
+  # ex:
+  #   Grupo.pesquisar_envios(Date.today)
+  #     => inicio + periodicidade em dias = hoje
+  #
+  def pesquisar_envios data = Date.today
+    Grupo.find(:all, :conditions => ["inicio + (periodicidade * '1 day'::interval) = ?", data])
+  end
   
   private
   def data_inicio_minima?
