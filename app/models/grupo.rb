@@ -23,7 +23,7 @@ class Grupo < ActiveRecord::Base
   #++
   
   attr_protected :user_id
-  act_as_virtual_date :inicio                                      
+  act_as_virtual_date :inicio, :envio
   
   alias_column :original => 'nome', :new => 'subject'
   alias_column :original => 'nome', :new => 'name'
@@ -49,7 +49,7 @@ class Grupo < ActiveRecord::Base
     transitions :from => [:inativo], 
                 :to => :ativo, 
                 :guard => :pode_ativar?,
-                :on_transition => [:schedule_campaign]
+                :on_transition => [:atualizar_envio, :schedule_campaign]
   end   
   
   #--
@@ -88,7 +88,21 @@ class Grupo < ActiveRecord::Base
     "#{self.user.folder_name}-#{self.nome}"
   end
   
+  # Recupera os grupos que devem ser enviados na data informada, com base na periodicidade cadastrada.
+  # ex:
+  #   Grupo.pesquisar_envios(Date.today)
+  #     => inicio + periodicidade em dias = hoje
+  #   Grupo.pesquisar_envios(8.days.from_now.to_date)
+  #   
+  #   Precisa do to_date pois o tempo não deve ser considerado.
+  #
+  def self.pesquisar_envios data = Date.today
+    Grupo.find(:all, :conditions => ["envio + (periodicidade * '1 day'::interval) = ?", data])
+  end
+  
+  # ==========================================================================================================================
   private
+  # ==========================================================================================================================
   
   def pode_ativar?
     possui_contatos? and segmentos_corretos? and data_inicio_minima?
@@ -105,28 +119,21 @@ class Grupo < ActiveRecord::Base
   def segmentos_corretos?
     segments_correct?
   end
+  
+  def atualizar_envio
+    self.envio = self.inicio
+  end
      
   def self.inicio_minimo               
     # A dupla conversao eh para remover as horas.
     2.days.from_now.to_date.to_datetime
   end
                                                                                              
-  # Recupera os grupos que devem ser enviados na data informada, com base na periodicidade cadastrada.
-  # ex:
-  #   Grupo.pesquisar_envios(Date.today)
-  #     => inicio + periodicidade em dias = hoje
-  #
-  def pesquisar_envios data = Date.today
-    Grupo.find(:all, :conditions => ["inicio + (periodicidade * '1 day'::interval) = ?", data])
-  end
-  
-  private
   def data_inicio_minima?
     if self.inicio.nil? or inicio_to_datetime < Grupo.inicio_minimo
       errors.add(:inicio, I18n.t("app.grupo.erro.inicio_menor_estipulado"))
       return false
     end
-    
     true
   end
   

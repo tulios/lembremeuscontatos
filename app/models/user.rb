@@ -4,7 +4,7 @@ class User < TwitterAuth::GenericUser
   # parent TwitterAuth::GenericUser class.
   
   def folder_name
-    "#{self.id}-#{self.login}"
+    "#{self.twitter_id}-#{self.login}"
   end
   
 end

@@ -44,11 +44,12 @@ module Hominid
     def add_segment
       emails_for_segmentation = self.emails
       if emails_for_segmentation and (not emails_for_segmentation.empty?)
-        Hominid::Loader.instance.create_segment(self.campaign_id, emails_for_segmentation)
+        Hominid::Loader.instance.create_segment(self.campaign_id, emails_for_segmentation) unless Rails.env.test?
       end
     end
     
-    def segments_correct?
+    def segments_correct?                              
+      return true if Rails.env.test?
       Hominid::Loader.instance.segment_test self.emails
     end  
     
@@ -57,7 +58,7 @@ module Hominid
     end                 
     
     def schedule_campaign
-      Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date)
+      Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date) unless Rails.env.test?
     end
     
     module ClassMethods

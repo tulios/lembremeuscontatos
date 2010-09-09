@@ -12,8 +12,10 @@
 		<br/>
 		
 		<%= @grupo.periodicidade_formatado %>
-		<span class="divisor">&raquo;</span>
-		<%= @grupo.inicio_formatado %>
+		<% if @grupo.ativo? %>
+			<span class="divisor">&raquo;</span>
+			<%= @grupo.inicio_formatado %>
+		<% end %>
 	</div>
 	<br/>
 	<div class="mensagem">
