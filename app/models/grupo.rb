@@ -1,6 +1,7 @@
 class Grupo < ActiveRecord::Base
   include AASM
   include LembreMeusContatos::Converters
+  include LembreMeusContatos::StateMachineSupport
   include Hominid::Adapter       
   
   #--
@@ -88,16 +89,36 @@ class Grupo < ActiveRecord::Base
     "#{self.user.folder_name}-#{self.nome}"
   end
   
-  # Recupera os grupos que devem ser enviados na data informada, com base na periodicidade cadastrada.
+  # Recupera os grupos ativos, que devem ser enviados na data informada, com base na periodicidade cadastrada.
   # ex:
   #   Grupo.pesquisar_envios(Date.today)
   #     => inicio + periodicidade em dias = hoje
   #   Grupo.pesquisar_envios(8.days.from_now.to_date)
   #   
-  #   Precisa do to_date pois o tempo não deve ser considerado.
+  #   '8.days.from_now.to_date' precisa do to_date pois o tempo não deve ser considerado.
+  #   Grupo.pesquisar_envios já recupera os grupos agendados para Date.today.
   #
   def self.pesquisar_envios data = Date.today
-    Grupo.find(:all, :conditions => ["envio + (periodicidade * '1 day'::interval) = ?", data])
+    Grupo.find(
+      :all, :conditions => [
+        "(envio + (periodicidade * '1 day'::interval) = ? or envio = ?) and status = ?", 
+        data, data, Grupo.status_ativo
+      ]
+    )
+  end
+  
+  def self.agendar_envios! data = Date.tomorrow
+    grupos = Grupo.pesquisar_envios(data)
+    grupos.each do |grupo|
+      grupo.envio = data
+      grupo.save!
+      grupo.schedule_campaign
+    end
+    
+    true
+  rescue => e
+    RAILS_DEFAULT_LOGGER.error e.message
+    return false
   end
   
   # ==========================================================================================================================
