@@ -19,6 +19,26 @@ describe Grupo do
     end
     
   end               
+                  
+  context 'quando referente a pesquisa' do
+    it 'deveria utilizar o metodo pesquisar' do
+      3.times {Factory(:grupo)}
+      resultado = Grupo.pesquisar :conditions => ["nome = ?", @grupo.nome]
+      resultado.should_not be_nil
+      resultado.size.should == 1
+    end
+    
+    it 'deveria paginar os resultados' do
+      (LembreMeusContatos::PAGE_SIZE + 1).times {Factory(:grupo)}
+      resultado = Grupo.pesquisar :conditions => ["nome like ?", "Nome%"]
+      resultado.should_not be_nil
+      resultado.size.should == LembreMeusContatos::PAGE_SIZE
+      
+      resultado = Grupo.pesquisar :conditions => ["nome like ?", "Nome%"], :page => 2
+      resultado.should_not be_nil
+      resultado.size.should == 2 # +1 do before(:each)
+    end
+  end
   
   context 'quando referente ao agendamento' do
                                                       

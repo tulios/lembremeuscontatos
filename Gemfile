@@ -7,6 +7,7 @@ gem "json"
 gem "twitter-auth",    "~> 0.1.22", :require => "twitter_auth"
 gem "hominid",         "~> 2.1.7"
 gem "aasm",            "~> 2.1.5"
+gem "will_paginate",   "~> 2.3.15"
 
 group :test do
   gem 'rspec',         '~> 1.3.0'

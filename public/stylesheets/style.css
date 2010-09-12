@@ -402,8 +402,33 @@ a:hover {
 	margin-bottom: 5px;
 }
 
-
-
+.pagination {
+  text-align: center;
+	text-decoration: none;
+	margin-bottom: 5px;
+	margin-top: 20px;
+	font-weight: normal;
+}
+.pagination a, .pagination span, .pagination em {
+	border: 1px solid #BBDDFF;
+	padding: .4em .6em; 
+}
+.pagination span.disabled {
+	display: none;
+}
+.pagination em {
+  font-weight: bold;
+}
+.pagination a:hover, .pagination a:focus {
+	background-color: #DDEEFF;
+	color: #0072BC;
+	border: 1px solid black;
+}
+.pagination span.current {
+	background-color: #DDEEFF;
+	color: #0072BC;
+	cursor: default;
+}
 
 
 

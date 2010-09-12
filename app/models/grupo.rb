@@ -87,7 +87,7 @@ class Grupo < ActiveRecord::Base
   
   def campaign_title
     "#{self.user.folder_name}-#{self.nome}"
-  end
+  end               
   
   # Recupera os grupos ativos, que devem ser enviados na data informada, com base na periodicidade cadastrada.
   # ex:
@@ -107,7 +107,8 @@ class Grupo < ActiveRecord::Base
     )
   end
   
-  def self.agendar_envios! data = Date.tomorrow
+  def self.agendar_envios! data = 2.days.from_now.to_date # 2 dias no futuro
+    
     grupos = Grupo.pesquisar_envios(data)
     grupos.each do |grupo|
       grupo.envio = data

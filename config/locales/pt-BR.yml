@@ -171,6 +171,10 @@
         record_invalid: "A validação falhou: {{errors}}"
         validacao_cpf_cnpj: "inválido"
   
+  will_paginate:
+    previous_label: "&laquo; Anterior"
+    next_label: "Próxima &raquo;"
+    
   app:
     logout: 'Sair'
     enviar: "Enviar"
