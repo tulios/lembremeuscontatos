@@ -1,6 +1,6 @@
 <div id="login">
 	<% unless logged_in? %>
-		<% link_to login_url do %>
+		<% link_to login_url, :id => "link_login" do %>
 			<%= image_tag 'icons/twitter-login-light.png', :class => "login_with_twitter" %>
 		<% end %>
 	<% else %>                                          

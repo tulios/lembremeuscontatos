@@ -69,6 +69,10 @@ a:hover {
 	top: 0;
 	width: 100%;
 }
+      
+#link_login {
+	margin-right: 20px;
+}
 
 #login {
 	float: right;
@@ -456,7 +460,18 @@ a:hover {
 	background-color: #FFF6BF;
 }
 
-
+.hint {
+	text-shadow: 8px 3px 8px #222222;
+	padding-bottom: 15px;
+}
+                     
+.explicacao {
+	margin-left: 20px;
+	margin-bottom: 40px;
+	line-height: 1.4em;
+	font-family:'Lucida Grande','Lucida Sans Unicode',sans-serif;
+	font-size: 19px;
+}
 
 
 
