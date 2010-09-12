@@ -9,7 +9,7 @@ function aplicarBloquearBotaoESubmeterForm(){
 	$("#submit_grupo").click(function(e){
 		e.preventDefault();
 		bloquearBotao($(this), 'Salvando...');
-		$("#new_grupo").submit();
+		$("form").submit();
 	});
 }
 

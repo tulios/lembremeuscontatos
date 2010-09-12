@@ -436,12 +436,25 @@ a:hover {
 	cursor: default;
 }
 
+.flash_msg {
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	text-align: center;
+	padding: 10px;
+}
 
+#notice {
+	background-color: #34E0A0;
+}
 
+#error {
+  background-color: #CC2C00;
+}
 
-
-
-
+#warning {
+	background-color: #FFF6BF;
+}
 
 
 

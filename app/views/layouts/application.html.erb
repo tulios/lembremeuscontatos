@@ -18,14 +18,17 @@
   <title>LembreMeusContatos</title>
 </head>
 <body>      
-	
 	<div id="header">
 		<%= render :partial => 'layouts/logo' %>
 		<%= render :partial => 'layouts/menu' %>
 		<%= render :partial => 'layouts/login' %>
 	</div>
   <div style="clear: both;"></div>
-	<div class="body">                       
+	<div class="body">
+		<% flash.each do |key, message| %>
+			<div id="<%= key %>" class="flash_msg round shadow"><%= message %></div>
+		<% end %>
+		
 		<div class="content">
 			<%= yield %>    
 		</div>       
