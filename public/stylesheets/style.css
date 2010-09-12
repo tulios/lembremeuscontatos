@@ -21,6 +21,7 @@ q, blockquote { quotes: "" ""; }
 q:before, q:after, blockquote:before, blockquote:after { content: ""; }
 
 .round { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.shadow { -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; }
 
 a img { border: none; }
 
@@ -385,6 +386,7 @@ a:hover {
 
 .errorExplanation {
 	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999;
 	background: none repeat scroll 0 0 #FFF6BF;
 	color: #817134;
 	font-style: italic;

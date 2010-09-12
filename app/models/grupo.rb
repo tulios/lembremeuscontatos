@@ -50,7 +50,7 @@ class Grupo < ActiveRecord::Base
     transitions :from => [:inativo], 
                 :to => :ativo, 
                 :guard => :pode_ativar?,
-                :on_transition => [:atualizar_envio, :schedule_campaign]
+                :on_transition => [:atualizar_envio]
   end   
   
   #--

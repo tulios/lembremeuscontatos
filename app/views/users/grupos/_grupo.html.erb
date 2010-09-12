@@ -1,4 +1,4 @@
-<div id="grupo_<%= grupo.id %>" class="grupo_box round">
+<div id="grupo_<%= grupo.id %>" class="grupo_box round shadow">
 	<span class="nome">
 		<% link_to users_grupo_path(grupo) do %>
 			<%= truncate(grupo.nome, :length => 55) %>                
