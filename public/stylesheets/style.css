@@ -73,17 +73,19 @@ a:hover {
 	float: right;
 	text-align: center;
 	margin: 10px;
+	margin-right: 0px;
 }            
                      
 #login #img {
 	float: left;
+	margin-right: 20px;
 }
              
 #login #options {
 	float: left;
-	width: 50%;
-	margin-left: 5px;
-	text-align: left;
+	width: auto;
+	margin-right: 5px;
+	text-align: right;
 }
 
 #login #options #name {
@@ -100,7 +102,7 @@ a:hover {
 #logo {
 	float: left;
 	margin-top: 20px;
-	padding-left: 3%;
+	margin-left: 20px;
 	padding-right: 3%;
 	text-align: left;
 }        
@@ -115,8 +117,10 @@ a:hover {
 	padding: 10px;
 	margin: auto;
 	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
 	background-color: #eaeaea;
-	width: 92%;
+	width: auto;
 	min-height: 100px;
 }
 
