@@ -21,6 +21,11 @@
 											 :message => t("app.grupo.erro.header_sub_ativar") %>
 											
 <%= render :partial => "users/grupos/info" %>
-<div style="display: none;">
-	<%= render :partial => "users/grupos/form_ativar" %>
+
+<div style="display: none;">                   
+	<% if @grupo.inativo? %>
+		<%= render :partial => "users/grupos/form_ativar" %>
+	<% elsif @grupo.ativo? %>
+		<%= render :partial => "users/grupos/form_desativar" %>
+	<% end %>
 </div>

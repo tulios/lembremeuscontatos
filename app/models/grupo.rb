@@ -50,8 +50,14 @@ class Grupo < ActiveRecord::Base
     transitions :from => [:inativo], 
                 :to => :ativo, 
                 :guard => :pode_ativar?,
-                :on_transition => [:atualizar_envio]
-  end   
+                :on_transition => [:agendar_envio]
+  end                                              
+  
+  aasm_event :desativar do
+    transitions :from => [:ativo], 
+                :to => :inativo, 
+                :on_transition => [:interromper_agendamento]
+  end                                              
   
   #--
   # Metodos =====================================================================================================
@@ -82,14 +88,14 @@ class Grupo < ActiveRecord::Base
   end                 
   
   def start_date
-    self.inicio
+    self.envio
   end   
   
   def campaign_title
     "#{self.user.folder_name}-#{self.nome}"
   end               
   
-  # Recupera os grupos ativos, que devem ser enviados na data informada, com base na periodicidade cadastrada.
+  # Recupera os grupos ativos, agendados, e que devem ser enviados na data informada, com base na periodicidade cadastrada.
   # ex:
   #   Grupo.pesquisar_envios(Date.today)
   #     => inicio + periodicidade em dias = hoje
@@ -101,8 +107,8 @@ class Grupo < ActiveRecord::Base
   def self.pesquisar_envios data = Date.today
     Grupo.find(
       :all, :conditions => [
-        "(envio + (periodicidade * '1 day'::interval) = ? or envio = ?) and status = ?", 
-        data, data, Grupo.status_ativo
+        "(envio + (periodicidade * '1 day'::interval) = ? or envio = ?) and status = ? and agendado = ?", 
+        data, data, Grupo.status_ativo, true
       ]
     )
   end
@@ -117,7 +123,7 @@ class Grupo < ActiveRecord::Base
     end
     
     true
-  rescue => e
+  rescue => e                           
     RAILS_DEFAULT_LOGGER.error e.message
     return false
   end
@@ -142,8 +148,15 @@ class Grupo < ActiveRecord::Base
     segments_correct?
   end
   
-  def atualizar_envio
+  def agendar_envio
     self.envio = self.inicio
+    self.agendado = true
+  end
+  
+  def interromper_agendamento
+    self.inicio = nil
+    self.envio = nil
+    self.agendado = self.unschedule_campaign if self.agendado?
   end
      
   def self.inicio_minimo               

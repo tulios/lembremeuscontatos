@@ -2,10 +2,15 @@
 	<span class="label"><%= t ("activerecord.attributes.grupo.status") %>:</span>
 	<br/>
 	<%= @grupo.status_str %>      
+	
+	<span class="divisor">&raquo;</span>
 	<% if @grupo.inativo? %>
-		<span class="divisor">&raquo;</span>
 		<span class="ativar">
 			<a id="ativar" href="#form_ativar"><%= t("app.grupo.ativar") %></a>
 		</span>
-	<% end %>
+	<% elsif @grupo.ativo? %>
+		<span class="desativar">
+			<a id="desativar" href="#form_desativar"><%= t("app.grupo.desativar") %></a>
+		</span>
+ 	<% end %>
 </div>

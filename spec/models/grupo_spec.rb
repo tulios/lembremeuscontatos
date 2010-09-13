@@ -88,6 +88,7 @@ describe Grupo do
                            
       Grupo.agendar_envios!(data).should be_true
       @grupo.reload.envio.should == data
+      @grupo.agendado?.should be_true
     end
     
     it 'deveria agendar os grupos marcados para outra data, atualizando a data de envio' do
@@ -98,6 +99,7 @@ describe Grupo do
                            
       Grupo.agendar_envios!(data).should be_true
       @grupo.reload.envio.should == data
+      @grupo.agendado?.should be_true
     end
     
   end

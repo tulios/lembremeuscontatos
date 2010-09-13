@@ -2,9 +2,9 @@
 	<span class="nome"><%= contato.nome %></span>
 	<span class="divisor">&raquo;</span>
 	<span class="email"><%= contato.email %></span>
-	<span class="opcoes">
+	<div class="opcoes">
 		<% link_to users_contato_path(contato), :method => :delete, :confirm => "Você tem certeza?" do %>
 			<%= t "app.contato.remover" %>
 		<% end %>
-	</span>
+	</div>
 </div>

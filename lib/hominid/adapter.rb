@@ -53,12 +53,19 @@ module Hominid
       Hominid::Loader.instance.segment_test self.emails
     end  
     
-    def remove_campaign                               
+    def remove_campaign
+      return true if Rails.env.test?
       Hominid::Loader.instance.remove_campaign(self.campaign_id)
     end                 
     
     def schedule_campaign
-      Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date) unless Rails.env.test?
+      return true if Rails.env.test?
+      Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date)
+    end                
+    
+    def unschedule_campaign
+      return true if Rails.env.test?
+      Hominid::Loader.instance.unschedule_campaign(self.campaign_id)
     end
     
     module ClassMethods
