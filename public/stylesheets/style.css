@@ -280,10 +280,10 @@ a:hover {
 
 .grupo_box .opcoes {
 	float: right;
-}             
+}
 
 .grupo_box .nome a {
-	font-size:25px;
+	font-size: 25px;
 }
 
 .grupo_box a {
@@ -300,6 +300,7 @@ a:hover {
 
 .grupo_box .mensagem {
 	text-align: justify;
+	line-height: 1.2em;
 }
       
 .grupo_box .contatos .item_contato_box {
@@ -308,6 +309,10 @@ a:hover {
 }        
 
 .grupo_box .status .ativar a {
+	font-size: 25px;
+}
+
+.grupo_box .status .desativar a {
 	font-size: 25px;
 }
 
@@ -373,6 +378,11 @@ a:hover {
 	height: 10em;
 }
 
+#form_desativar {
+	width: 40em;
+	height: 8em;
+}
+
 #form_ativar .data_minima {
 	font-size: 30px;
 }
@@ -386,6 +396,7 @@ a:hover {
 .texto .pequeno { 
 	font-size: 18px;
 	margin-top: 10px;
+	line-height: 1.4em;
 }
 
 .errorExplanation {

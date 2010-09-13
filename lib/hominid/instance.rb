@@ -89,6 +89,10 @@ module Hominid
       base.schedule_campaign campaign_id, "#{time}"
     end
     
+    def unschedule_campaign campaign_id
+      base.unschedule campaign_id
+    end
+    
     private
     
     def create_conditions_array emails

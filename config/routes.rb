@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
                        
     user.resources :grupos do |grupo|
       grupo.resources :grupos_contatos, :only => :destroy, :as => "contatos"
-      grupo.resources :agendamento, :only => :create
+      grupo.resources :agendamento, :only => [:create, :destroy]
     end
   end
   
