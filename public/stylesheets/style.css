@@ -255,7 +255,13 @@ a:hover {
 
 .contato_box .opcoes {
 	float: right;
+	font-size: 15px;
+	margin-top: 5px;
 }             
+
+.contato_box .opcoes a {
+	font-size: 15px;
+}
 
 .contato_box .divisor {
 	color: white;
@@ -280,6 +286,12 @@ a:hover {
 
 .grupo_box .opcoes {
 	float: right;
+	font-size: 15px;
+	margin-top: 5px;
+}
+                   
+.grupo_box .opcoes a {
+	font-size: 15px;
 }
 
 .grupo_box .nome a {
