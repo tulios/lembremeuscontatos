@@ -12,6 +12,9 @@ class Users::GruposController < Users::MainController
   end
   
   def new
+    flash[:notice] = t("app.grupo.msg.sucesso")
+    redirect_to :action => :index
+    return
     @grupo = Grupo.new
   end             
   

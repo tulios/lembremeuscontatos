@@ -464,11 +464,13 @@ a:hover {
 }
 
 .flash_msg {
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-top: 10px;
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
 	text-align: center;
-	padding: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 #notice {
