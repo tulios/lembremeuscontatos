@@ -44,6 +44,29 @@ a:hover {
 
 .login_with_twitter {
 	margin-top: 10px;
+	background:url("/images/icons/twitter-login.png") no-repeat scroll 0 0 transparent;
+	height:23px;
+	width:146px;
+}
+
+.login_with_twitter:hover {
+	background-position:left -23px;
+}
+                     
+.login_with_twitter:active {
+	background-position:left -46px;
+}
+
+.twitter-connect {
+	background-position:left top;
+	background-repeat:no-repeat;
+	border:0 none;
+	display:inline-block;
+}
+
+.twitter-connect span {
+	left:-9999px;
+	position:absolute;
 }
 
 .fieldWithErrors {
