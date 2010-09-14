@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+
+  Jammit::Routes.draw(map)
   
   map.namespace(:users) do |user|
     user.resources :dashboard, :only => :index

@@ -1,0 +1,19 @@
+package_assets: on
+embed_assets: on
+
+javascripts:
+  common:
+    - public/javascripts/jrails.js
+    - public/javascripts/application.js
+    - public/javascripts/views/general.js
+  
+  development:
+    - public/javascripts/jquery.js
+    - public/javascripts/jquery-ui.js
+    - public/javascripts/jrails.js
+    - public/javascripts/application.js
+    - public/javascripts/views/general.js
+    
+stylesheets:
+  common:
+    - public/stylesheets/style.css
