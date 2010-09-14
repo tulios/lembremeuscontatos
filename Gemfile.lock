@@ -1,0 +1,108 @@
+--- 
+dependencies: 
+  pg: 
+    group: 
+    - :default
+    version: ~> 0.9
+  rails: 
+    group: 
+    - :default
+    version: = 2.3.8
+  twitter-auth: 
+    group: 
+    - :default
+    version: ~> 0.1.22
+    require: 
+    - twitter_auth
+  shoulda: 
+    group: 
+    - :test
+    version: ~> 2.11.3
+  rspec: 
+    group: 
+    - :test
+    version: ~> 1.3.0
+  rspec-rails: 
+    group: 
+    - :test
+    version: ~> 1.3.2
+  factory_girl: 
+    group: 
+    - :test
+    version: ~> 1.3.2
+  jammit: 
+    group: 
+    - :default
+    version: ">= 0"
+  json: 
+    group: 
+    - :default
+    version: ">= 0"
+  will_paginate: 
+    group: 
+    - :default
+    version: ~> 2.3.15
+  aasm: 
+    group: 
+    - :default
+    version: ~> 2.1.5
+  hominid: 
+    group: 
+    - :default
+    version: ~> 2.1.7
+specs: 
+- rake: 
+    version: 0.8.7
+- aasm: 
+    version: 2.1.7
+- activesupport: 
+    version: 2.3.8
+- rack: 
+    version: 1.1.0
+- actionpack: 
+    version: 2.3.8
+- actionmailer: 
+    version: 2.3.8
+- activerecord: 
+    version: 2.3.8
+- activeresource: 
+    version: 2.3.8
+- closure-compiler: 
+    version: 0.3.2
+- ezcrypto: 
+    version: 0.7.2
+- factory_girl: 
+    version: 1.3.2
+- hominid: 
+    version: 2.1.9
+- yui-compressor: 
+    version: 0.9.1
+- jammit: 
+    version: 0.5.1
+    source: 0
+- json: 
+    version: 1.4.6
+- oauth: 
+    version: 0.4.3
+- pg: 
+    version: 0.9.0
+- rails: 
+    version: 2.3.8
+- rspec: 
+    version: 1.3.0
+- rspec-rails: 
+    version: 1.3.2
+- shoulda: 
+    version: 2.11.3
+- twitter-auth: 
+    version: 0.1.22
+- will_paginate: 
+    version: 2.3.15
+hash: f5f530367db5fb867c78cc2d713b273503504c53
+sources: 
+- Git: 
+    uri: git://github.com/documentcloud/jammit.git
+    git: git://github.com/documentcloud/jammit.git
+    ref: 8f934928d6228147e86db483c59d2d2a23f3732f
+- Rubygems: 
+    uri: http://gemcutter.org
