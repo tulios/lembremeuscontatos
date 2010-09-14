@@ -92,6 +92,12 @@ a:hover {
 	top: 0;
 	width: 100%;
 }
+
+#header_corpo {
+	margin-left: 20px;
+	padding-top: 20px;
+	margin-right: 20px;
+}
       
 #link_login {
 	margin-right: 0px;
@@ -102,11 +108,11 @@ a:hover {
 	text-align: center;
 	margin: 0px;
 	margin-right: 0px;
+	margin-top: -10px !important;
 }            
                      
 #login #img {
 	float: left;
-	margin-right: 20px;
 }
              
 #login #options {
@@ -203,7 +209,6 @@ a:hover {
 }
 
 #menu {      
-	margin-top: 20px;
 	float: left;
 }
      
