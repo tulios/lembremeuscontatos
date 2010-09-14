@@ -1,7 +1,6 @@
 <% content_for(:javascript) do %>
 	<%= javascript_include_tag 'plugins/maskedinput-1.2.2' %>
-	<%= javascript_include_tag 'views/grupos/ativar' %>
-	
+	<%= include_javascripts :grupos_ativar %>
 	<%= 
  		mask_fields({
 			:grupo_inicio => "99/99/9999"

@@ -4,7 +4,7 @@
 
 <% content_for(:javascript) do %>
 	<%= javascript_include_tag 'plugins/alphanumeric.pack' %>
-	<%= javascript_include_tag 'views/grupos/form' %>
+	<%= include_javascripts :grupos_form %>
 	
 	<%= 
 		alphanumeric({
