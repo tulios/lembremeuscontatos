@@ -1,6 +1,7 @@
 class Grupo < ActiveRecord::Base
   include AASM
   include LembreMeusContatos::Converters
+  include LembreMeusContatos::StateMachineSupport
   include Hominid::Adapter       
   
   #--
@@ -23,7 +24,7 @@ class Grupo < ActiveRecord::Base
   #++
   
   attr_protected :user_id
-  act_as_virtual_date :inicio                                      
+  act_as_virtual_date :inicio, :envio
   
   alias_column :original => 'nome', :new => 'subject'
   alias_column :original => 'nome', :new => 'name'
@@ -49,8 +50,14 @@ class Grupo < ActiveRecord::Base
     transitions :from => [:inativo], 
                 :to => :ativo, 
                 :guard => :pode_ativar?,
-                :on_transition => [:schedule_campaign]
-  end   
+                :on_transition => [:agendar_envio]
+  end                                              
+  
+  aasm_event :desativar do
+    transitions :from => [:ativo], 
+                :to => :inativo, 
+                :on_transition => [:interromper_agendamento]
+  end                                              
   
   #--
   # Metodos =====================================================================================================
@@ -81,14 +88,49 @@ class Grupo < ActiveRecord::Base
   end                 
   
   def start_date
-    self.inicio
+    self.envio
   end   
   
   def campaign_title
     "#{self.user.folder_name}-#{self.nome}"
+  end               
+  
+  # Recupera os grupos ativos, agendados, e que devem ser enviados na data informada, com base na periodicidade cadastrada.
+  # ex:
+  #   Grupo.pesquisar_envios(Date.today)
+  #     => inicio + periodicidade em dias = hoje
+  #   Grupo.pesquisar_envios(8.days.from_now.to_date)
+  #   
+  #   '8.days.from_now.to_date' precisa do to_date pois o tempo não deve ser considerado.
+  #   Grupo.pesquisar_envios já recupera os grupos agendados para Date.today.
+  #
+  def self.pesquisar_envios data = Date.today
+    Grupo.find(
+      :all, :conditions => [
+        "(envio + (periodicidade * '1 day'::interval) = ? or envio = ?) and status = ? and agendado = ?", 
+        data, data, Grupo.status_ativo, true
+      ]
+    )
   end
   
+  def self.agendar_envios! data = 2.days.from_now.to_date # 2 dias no futuro
+    
+    grupos = Grupo.pesquisar_envios(data)
+    grupos.each do |grupo|
+      grupo.envio = data
+      grupo.save!
+      grupo.schedule_campaign
+    end
+    
+    true
+  rescue => e                           
+    RAILS_DEFAULT_LOGGER.error e.message
+    return false
+  end
+  
+  # ==========================================================================================================================
   private
+  # ==========================================================================================================================
   
   def pode_ativar?
     possui_contatos? and segmentos_corretos? and data_inicio_minima?
@@ -105,23 +147,33 @@ class Grupo < ActiveRecord::Base
   def segmentos_corretos?
     segments_correct?
   end
-     
-  def self.inicio_minimo
-    2.days.from_now
+  
+  def agendar_envio
+    self.envio = self.inicio
+    self.agendado = true
   end
   
-  private
+  def interromper_agendamento
+    self.inicio = nil
+    self.envio = nil
+    self.agendado = self.unschedule_campaign if self.agendado?
+  end
+     
+  def self.inicio_minimo               
+    # A dupla conversao eh para remover as horas.
+    2.days.from_now.to_date.to_datetime
+  end
+                                                                                             
   def data_inicio_minima?
     if self.inicio.nil? or inicio_to_datetime < Grupo.inicio_minimo
       errors.add(:inicio, I18n.t("app.grupo.erro.inicio_menor_estipulado"))
       return false
     end
-    
     true
   end
   
   def inicio_to_datetime
-    self.inicio.to_datetime.in_time_zone(Time.zone.name)
+    self.inicio.to_datetime.in_time_zone(Time.zone.name) if self.inicio
   end
   
 end

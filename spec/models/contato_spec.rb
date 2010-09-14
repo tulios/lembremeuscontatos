@@ -16,7 +16,28 @@ describe Contato do
     it { should validate_presence_of :email }
     it { should validate_uniqueness_of(:email).scoped_to(:user_id) }
   end
+                           
+  context 'quando referente as pesquisas' do
+    it 'deveria pesquisar pelo nome'
 
-  it 'deveria pesquisar pelo nome'
+    it 'deveria utilizar o metodo pesquisar' do
+      3.times {Factory(:contato)}
+      resultado = Contato.pesquisar :conditions => ["email = ?", @contato.email]
+      resultado.should_not be_nil
+      resultado.size.should == 1
+    end
+    
+    it 'deveria paginar os resultados' do
+      (LembreMeusContatos::PAGE_SIZE + 1).times {Factory(:contato)}
+      resultado = Contato.pesquisar :conditions => ["email like ?", "contato%"]
+      resultado.should_not be_nil
+      resultado.size.should == LembreMeusContatos::PAGE_SIZE
+      
+      resultado = Contato.pesquisar :conditions => ["email like ?", "contato%"], :page => 2
+      resultado.should_not be_nil
+      resultado.size.should == 2 # +1 do before(:each)
+    end
+    
+  end
 
 end

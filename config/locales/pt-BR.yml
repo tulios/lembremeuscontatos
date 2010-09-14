@@ -171,15 +171,23 @@
         record_invalid: "A validação falhou: {{errors}}"
         validacao_cpf_cnpj: "inválido"
   
+  will_paginate:
+    previous_label: "&laquo; Anterior"
+    next_label: "Próxima &raquo;"
+  
   app:
     logout: 'Sair'
     enviar: "Enviar"
     salvar: "Salvar"          
     certeza: "Você tem certeza?"
+    
+    login_sucesso: "Bem vindo!"
+    login_erro: "Falha ao realizar login pelo twitter, por favor, tente novamente."
             
     textos:
       ativando_grupo: "Nós pedimos, no mínimo, 48 horas para o envio dos e-mails."
       aviso_edicao_ativacao_grupo: "Uma vez ativado, o grupo não poderá receber atualizações."
+      desativando_grupo: "Você está prestes a desativar um grupo, isso significa que o envio das mensagens será interrompido. Uma vez inativo, um grupo poderá receber alterações."
     
     exceptions:
       bad_behavior: "Você tentou executar uma operação ilegal!"
@@ -200,6 +208,7 @@
       remover: "Remover"
       visualizar: "Visualizar"
       ativar: "Ativar"
+      desativar: "Desativar"
       erro:
         header_ativar: "Não foi possível ativar o Grupo"
         header_sub_ativar: "Verifique os seguintes problemas:"
@@ -210,9 +219,10 @@
         atualizado: "Grupo atualizado com sucesso!"
         agendado: "Envio agendado com sucesso, as mensagens começarão a ser enviadas dia %{data}"
         data_minima: "Data mínima: %{data}"
+        desativado: "Grupo desativado com sucesso!"
       
     grupo_contato:
-      remover: "remover"  
+      remover: "Remover"  
       
       
       
