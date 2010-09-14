@@ -11,5 +11,15 @@ class ApplicationController < ActionController::Base
   include LembreMeusContatos::RescueFrom
   rescue_from StandardError, :with => :tratar_standard_error
   rescue_from LembreMeusContatos::Exceptions::BadBehavior, :with => :tratar_bad_behavior
+     
+  protected
+  
+  def authentication_succeeded message = t("app.login_sucesso")
+    super
+  end
+  
+  def authentication_failed message = t("app.login_erro")
+    super
+  end
   
 end

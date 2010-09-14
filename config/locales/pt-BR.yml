@@ -174,12 +174,15 @@
   will_paginate:
     previous_label: "&laquo; Anterior"
     next_label: "Próxima &raquo;"
-    
+  
   app:
     logout: 'Sair'
     enviar: "Enviar"
     salvar: "Salvar"          
     certeza: "Você tem certeza?"
+    
+    login_sucesso: "Bem vindo!"
+    login_erro: "Falha ao realizar login pelo twitter, por favor, tente novamente."
             
     textos:
       ativando_grupo: "Nós pedimos, no mínimo, 48 horas para o envio dos e-mails."

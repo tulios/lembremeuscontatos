@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
 });
   
 function exibeFlashMessage(){
-	$(".flash_msg").slideDown("slow").delay(6000).slideUp("slow", function(){
+	$(".flash_msg").slideDown("slow").delay(5000).slideUp("slow", function(){
 		$(this).remove();
 	});
 }
