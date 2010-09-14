@@ -7,7 +7,7 @@ feito! - 2 - Criar opção no grupo para "Começar os envios", isso irá agendar
     que tem data de início em 2 dias no futuro, mantendo a periodicidade.
 
 Eduardo
-* 4 - Restringir número de contatos e grupos pelo plano padrão (num_contatos:10; num_grupos: 2; periodicidade_min:10) "basica"
+feito! - 4 - Restringir número de contatos e grupos pelo plano padrão (num_contatos:10; num_grupos: 2; periodicidade_min:10) "basica"
 5 - Contato com o pessoal do lembreMeusContatos (Usar mesmo mecanismo do portalN).
 
 Renan
