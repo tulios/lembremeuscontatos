@@ -1,13 +1,15 @@
 jQuery(document).ready(function(){
 	 
 	adicionarAutoCompleteDeContato();
-	aplicarBloquearBotao();
+	aplicarBloquearBotaoESubmeterForm();
 	
 });
 
-function aplicarBloquearBotao(){
-	$("#submit_grupo").click(function(){
+function aplicarBloquearBotaoESubmeterForm(){
+	$("#submit_grupo").click(function(e){
+		e.preventDefault();
 		bloquearBotao($(this), 'Salvando...');
+		$("form").submit();
 	});
 }
 

@@ -49,10 +49,11 @@ module Hominid
         :from_email => Hominid::Loader.config[:from_email],
         :to_email => Hominid::Loader.config[:to_email],
         :from_name => params[:from_name],
-        :subject => params[:subject]
+        :subject => params[:subject],
+        :template_id => Hominid::Loader.config[:template_id]
       }
       content = {
-        :text => params[:content]
+        :html_content => params[:content]
       }
       base.create_campaign(options, content)
     end
@@ -86,6 +87,10 @@ module Hominid
     
     def schedule_campaign campaign_id, time
       base.schedule_campaign campaign_id, "#{time}"
+    end
+    
+    def unschedule_campaign campaign_id
+      base.unschedule campaign_id
     end
     
     private

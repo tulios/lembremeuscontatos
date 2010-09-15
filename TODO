@@ -8,7 +8,7 @@ feito! - 2 - Criar opção no grupo para "Começar os envios", isso irá agendar
 
 Eduardo
 feito! - 4 - Restringir número de contatos e grupos pelo plano padrão (num_contatos:10; num_grupos: 2; periodicidade_min:10) "basica"
-5 - Contato com o pessoal do lembreMeusContatos (Usar mesmo mecanismo do portalN).
+* 5 - Contato com o pessoal do lembreMeusContatos (Usar mesmo mecanismo do portalN).
 
 Renan
 * - Testar tudo com rspec e webrat e criar mecanismo para desabilitar sync com o mailChimp nos testes.

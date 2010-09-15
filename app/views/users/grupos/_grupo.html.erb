@@ -1,4 +1,4 @@
-<div id="grupo_<%= grupo.id %>" class="grupo_box round">
+<div id="grupo_<%= grupo.id %>" class="grupo_box round shadow">
 	<span class="nome">
 		<% link_to users_grupo_path(grupo) do %>
 			<%= truncate(grupo.nome, :length => 55) %>                
@@ -11,7 +11,7 @@
 		<span class="inicio"><%= grupo.inicio_formatado %></span>
 	<% end %>
 	<% if grupo.inativo? %>
-		<span class="opcoes">
+		<div class="opcoes">
 			<% link_to edit_users_grupo_path(grupo) do %>
 				<%= t "app.grupo.editar" %>
 		  <% end %>                  
@@ -21,6 +21,6 @@
 			<% link_to users_grupo_path(grupo), :method => :delete, :confirm => "Você tem certeza?" do %>
 				<%= t "app.grupo.remover" %>
 			<% end %>
-		</span>
+		</div>
 	<% end %>
 </div>

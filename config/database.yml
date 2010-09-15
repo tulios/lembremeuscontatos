@@ -16,10 +16,18 @@ test:
   username: postgres
   password: postgres
 
-production: 
+production:
   encoding: unicode
   adapter: postgresql
-  port: 5432
+  port: 5432     
+  host: localhost
   database: lembremeuscontatos
-  username: lembremeuscontatos
-  password: $lembremeuscontatos!$
+  username: postgres
+  password: postgres
+
+  # encoding: unicode
+  # adapter: postgresql
+  # port: 5432
+  # database: lembremeuscontatos
+  # username: lembremeuscontatos
+  # password: $lembremeuscontatos!$

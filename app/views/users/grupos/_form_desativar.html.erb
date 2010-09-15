@@ -1,0 +1,18 @@
+<% content_for(:javascript) do %>
+	<%= include_javascripts :grupos_desativar %>
+<% end %>
+
+<div id="form_desativar">
+	<div class="texto">
+		<%= t ("app.certeza") %>
+		<div class="pequeno">
+			<%= t("app.textos.desativando_grupo") %>
+		</div>
+	</div>
+	<% form_tag({:controller=>"users/agendamento", :action=>"destroy"}, {:method => "delete", :id => "desativar_form"}) do %>
+		<%= hidden_field_tag :grupo_id, @grupo.id %>
+		<p>
+			<%= submit_tag t("app.grupo.desativar"), :id => "submit_grupo" %>
+		</p>
+	<% end %>
+</div>

@@ -54,5 +54,17 @@ module LembreMeusContatos
       
     end
     
+    # Requer:
+    # {:page, :conditions, :order}
+    #
+    def pesquisar params
+      paginate({
+        :per_page => LembreMeusContatos::PAGE_SIZE,
+        :page => params.delete(:page),
+        :conditions => params[:conditions],
+        :order => params[:order]
+      })
+    end
+    
   end
 end

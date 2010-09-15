@@ -2,6 +2,8 @@
 Dir[File.join(Rails.root, 'lib', 'patches', '**', '*.rb')].sort.each { |patch| require(patch) }
                   
 # Carregando novos modulos armazenados em lib
+                                                                                                            
+require File.join(Rails.root, 'lib', 'lembre_meus_contatos.rb')
 Dir[File.join(Rails.root, 'lib', 'lembre_meus_contatos', '**', '*.rb')].sort.each { |modulo| require(modulo) }
 Dir[File.join(Rails.root, 'lib', 'hominid_loader', '**', '*.rb')].sort.each { |modulo| require(modulo) }
 

@@ -1,15 +1,17 @@
 <div id="login">
 	<% unless logged_in? %>
-		<% link_to login_url do %>
-			<%= image_tag 'icons/twitter-login-light.png', :class => "login_with_twitter" %>
+		<% link_to login_url, :id => "link_login", 
+													:class => "twitter-connect login_with_twitter",
+													:title => "Login with Twitter" do %>
+		  <span>Login with twitter</span>
 		<% end %>
 	<% else %>                                          
+		<div id="options">
+			<span id="name"><%= current_user.login %></span><br/>
+			<span id="logout"><%= link_to (t 'app.logout'), logout_url %></span>
+		</div>
 		<div id="img">
 			<%= image_tag current_user.profile_image_url %>
-		</div>
-		<div id="options">
-			<span id="name"><%= current_user.login %></span>
-			<span id="logout"><%= link_to (t 'app.logout'), logout_url %></span>
 		</div>
 	<% end %>
 </div>               

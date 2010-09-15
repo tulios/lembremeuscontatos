@@ -40,8 +40,8 @@ class Users::ContatosController < Users::MainController
    
   private
   def pesquisar
-    @contatos = Contato.find(
-      :all,
+    @contatos = Contato.pesquisar(
+      :page => params[:page],
       :conditions => ["user_id = ?", current_user.id],
       :order => "nome asc"
     )

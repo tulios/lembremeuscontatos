@@ -2,3 +2,7 @@
                 
   gem install bundler
   bundle install
+
+== Como atualizar javascripts comprimidos
+
+  heroku jammit:add

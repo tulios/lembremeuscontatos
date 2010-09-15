@@ -20,10 +20,11 @@ test:
   
 production:
   strategy: oauth
-  oauth_consumer_key: prodkey
-  oauth_consumer_secret: prodsecret 
+  oauth_consumer_key: KZ1QrgbnYFIOgslPFkpA
+  oauth_consumer_secret: ovNGo0FMoINYxOst2AoUD9TSIXRsuIQKPOnuUENP8Do 
   authorize_path: "/oauth/authenticate"
   base_url: "https://twitter.com"
   api_timeout: 10
   remember_for: 14 # days
+  oauth_callback: "http://lembremeuscontatos.heroku.com/oauth_callback"
 

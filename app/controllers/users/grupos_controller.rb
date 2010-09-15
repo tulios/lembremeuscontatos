@@ -4,8 +4,8 @@ class Users::GruposController < Users::MainController
   before_filter :verificar_ativos, :only => [:edit, :update, :destroy]
   
   def index
-    @grupos = Grupo.find(
-      :all,
+    @grupos = Grupo.pesquisar(
+      :page => params[:page],
       :conditions => ["user_id = ?", current_user.id],
       :order => "created_at desc"
     )

@@ -19,7 +19,7 @@ class Contato < ActiveRecord::Base
     grupos_contatos.each {|grupo_contato| return grupo_contato if grupo_contato.grupo_id == grupo.id}
     nil
   end
-  
+
   def self.pesquisar_pelo_nome nome, user
     return nil if nome.nil? or nome.empty?
     

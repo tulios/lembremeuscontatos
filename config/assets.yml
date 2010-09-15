@@ -1,0 +1,43 @@
+package_assets: on
+embed_assets: on
+
+javascripts:
+  common:
+    - public/javascripts/jrails.js
+    - public/javascripts/application.js
+    - public/javascripts/views/general.js
+    
+  contatos_index:
+    - public/javascripts/views/contatos/index.js
+  
+  contatos_create:
+    - public/javascripts/views/contatos/create.js
+  
+  contatos_form:  
+    - public/javascripts/views/contatos/form.js
+  
+  grupos_form:
+    - public/javascripts/views/grupos/form.js
+    
+  grupos_contato_seach:
+    - public/javascripts/views/grupos/item_contato.js
+    
+  grupos_ativar:
+    - public/javascripts/views/grupos/ativar.js
+      
+  grupos_desativar:
+    - public/javascripts/views/grupos/desativar.js
+  
+  development:
+    - public/javascripts/jquery.js
+    - public/javascripts/jquery-ui.js
+    - public/javascripts/jrails.js
+    - public/javascripts/application.js
+    - public/javascripts/views/general.js
+    
+stylesheets:
+  common:
+    - public/stylesheets/style.css
+  
+  fancybox:
+    - public/stylesheets/jquery.fancybox-1.3.1.css

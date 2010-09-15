@@ -1,6 +1,6 @@
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
 
-body { line-height: 1; color: black; background-color: #d7d7d7; }
+body { line-height: 1; color: black; background-color: #d7d7d7; min-width: 900px; }
 
 h1 {
 	font-size: 40px;
@@ -21,6 +21,7 @@ q, blockquote { quotes: "" ""; }
 q:before, q:after, blockquote:before, blockquote:after { content: ""; }
 
 .round { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+.shadow { -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; }
 
 a img { border: none; }
 
@@ -43,6 +44,29 @@ a:hover {
 
 .login_with_twitter {
 	margin-top: 10px;
+	background:url("/images/icons/twitter-login.png") no-repeat scroll 0 0 transparent;
+	height:23px;
+	width:146px;
+}
+
+.login_with_twitter:hover {
+	background-position:left -23px;
+}
+                     
+.login_with_twitter:active {
+	background-position:left -46px;
+}
+
+.twitter-connect {
+	background-position:left top;
+	background-repeat:no-repeat;
+	border:0 none;
+	display:inline-block;
+}
+
+.twitter-connect span {
+	left:-9999px;
+	position:absolute;
 }
 
 .fieldWithErrors {
@@ -64,15 +88,27 @@ a:hover {
 	background: none repeat scroll 0 0 rgba(30, 30, 30, 0.95);
 	border-bottom: 1px solid black;
 	height: 70px;
-	margin-bottom: 0;
+	margin: 0 auto;
 	top: 0;
 	width: 100%;
+}
+
+#header_corpo {
+	margin-left: 20px;
+	padding-top: 20px;
+	margin-right: 20px;
+}
+      
+#link_login {
+	margin-right: 0px;
 }
 
 #login {
 	float: right;
 	text-align: center;
-	margin: 10px;
+	margin: 0px;
+	margin-right: 0px;
+	margin-top: -10px !important;
 }            
                      
 #login #img {
@@ -81,9 +117,9 @@ a:hover {
              
 #login #options {
 	float: left;
-	width: 50%;
-	margin-left: 5px;
-	text-align: left;
+	width: auto;
+	margin-right: 5px;
+	text-align: right;
 }
 
 #login #options #name {
@@ -99,8 +135,8 @@ a:hover {
 
 #logo {
 	float: left;
-	margin-top: 20px;
-	padding-left: 3%;
+	margin-top: 0px;
+	margin-left: 0px;
 	padding-right: 3%;
 	text-align: left;
 }        
@@ -115,8 +151,10 @@ a:hover {
 	padding: 10px;
 	margin: auto;
 	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
 	background-color: #eaeaea;
-	width: 92%;
+	width: auto;
 	min-height: 100px;
 }
 
@@ -171,7 +209,6 @@ a:hover {
 }
 
 #menu {      
-	margin-top: 20px;
 	float: left;
 }
      
@@ -246,7 +283,13 @@ a:hover {
 
 .contato_box .opcoes {
 	float: right;
+	font-size: 15px;
+	margin-top: 5px;
 }             
+
+.contato_box .opcoes a {
+	font-size: 15px;
+}
 
 .contato_box .divisor {
 	color: white;
@@ -271,10 +314,16 @@ a:hover {
 
 .grupo_box .opcoes {
 	float: right;
-}             
+	font-size: 15px;
+	margin-top: 5px;
+}
+                   
+.grupo_box .opcoes a {
+	font-size: 15px;
+}
 
 .grupo_box .nome a {
-	font-size:25px;
+	font-size: 25px;
 }
 
 .grupo_box a {
@@ -291,6 +340,7 @@ a:hover {
 
 .grupo_box .mensagem {
 	text-align: justify;
+	line-height: 1.2em;
 }
       
 .grupo_box .contatos .item_contato_box {
@@ -299,6 +349,10 @@ a:hover {
 }        
 
 .grupo_box .status .ativar a {
+	font-size: 25px;
+}
+
+.grupo_box .status .desativar a {
 	font-size: 25px;
 }
 
@@ -364,6 +418,11 @@ a:hover {
 	height: 10em;
 }
 
+#form_desativar {
+	width: 40em;
+	height: 8em;
+}
+
 #form_ativar .data_minima {
 	font-size: 30px;
 }
@@ -377,10 +436,12 @@ a:hover {
 .texto .pequeno { 
 	font-size: 18px;
 	margin-top: 10px;
+	line-height: 1.4em;
 }
 
 .errorExplanation {
 	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	-moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999;
 	background: none repeat scroll 0 0 #FFF6BF;
 	color: #817134;
 	font-style: italic;
@@ -402,24 +463,96 @@ a:hover {
 	margin-bottom: 5px;
 }
 
+.pagination {
+  text-align: center;
+	text-decoration: none;
+	margin-bottom: 5px;
+	margin-top: 20px;
+	font-weight: normal;
+}
+.pagination a, .pagination span, .pagination em {
+	border: 1px solid #BBDDFF;
+	padding: .4em .6em; 
+}
+.pagination span.disabled {
+	display: none;
+}
+.pagination em {
+  font-weight: bold;
+}
+.pagination a:hover, .pagination a:focus {
+	background-color: #DDEEFF;
+	color: #0072BC;
+	border: 1px solid black;
+}
+.pagination span.current {
+	background-color: #DDEEFF;
+	color: #0072BC;
+	cursor: default;
+}
 
+.flash_msg {
+	width: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
 
+#notice {
+	background-color: #34E0A0;
+}
 
+#error {
+  background-color: #CC2C00;
+}
 
+#warning {
+	background-color: #FFF6BF;
+}
 
+.hint {
+	text-shadow: 8px 3px 8px #222222;
+	padding-bottom: 15px;
+}
+                     
+.explicacao {
+	margin-left: 20px;
+	margin-bottom: 40px;
+	line-height: 1.4em;
+	font-family:'Lucida Grande','Lucida Sans Unicode',sans-serif;
+	font-size: 19px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* --- ilustração home --- */
+#ilustracao1{
+	background: url(/images/ilustracao_1.jpg) no-repeat 50% 0;
+	width: 40%;
+	text-align: center;
+}
+#ilustracao2{
+	background: url(/images/ilustracao_2.jpg) no-repeat 50% 0;
+	width: 20%;
+	text-align: center;
+}
+#ilustracao3{
+	background: url(/images/ilustracao_3.jpg) no-repeat 50% 0;
+	width: 40%;
+	text-align: center;
+}
+.flutuar_esquerda{
+	float:left;
+	display:block;
+}
+.limpar_fundo{
+	 clear:both;
+}
+.borda_redonda{
+	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
+	background: #ff0000;
+}
 
 
 

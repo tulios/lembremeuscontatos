@@ -8,4 +8,14 @@ jQuery(document).ready(function(){
 		}
 	});
 	
+	aplicarBloquearBotaoESubmeterForm();
+	
 });
+
+function aplicarBloquearBotaoESubmeterForm(){
+	$("#submit_grupo").click(function(e){
+		e.preventDefault();
+		bloquearBotao($(this), 'Ativando...');
+		$("#ativar_form").submit();
+	});
+}
