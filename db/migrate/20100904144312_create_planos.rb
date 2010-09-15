@@ -1,17 +1,19 @@
 class CreatePlanos < ActiveRecord::Migration
   def self.up
     create_table :planos do |t|
-      t.string :nome
+      t.string  :nome
       t.integer :num_contatos
       t.integer :num_grupos
       t.integer :periodicidade_min
+      t.decimal :preco, :precision => 5, :scale => 2
     end
 
     change_table :users do |t|
       t.belongs_to :plano
     end
     
-    Plano.create!(:nome => "Gratuito", :num_contatos => 10, :num_grupos => 5, :periodicidade_min => 6)
+    plano = Plano.create!(:nome => "Gratuito", :num_contatos => 10, :num_grupos => 5, :periodicidade_min => 6, :preco => 0)
+    User.update_all "plano_id = #{plano.id}"
   end
 
   def self.down

@@ -601,7 +601,7 @@ a:hover {
 }
 
 .plano_gratuito {
-	color: #B56286;
+	color: #526342;
 }
           
 #dashboard {
@@ -614,25 +614,23 @@ a:hover {
 
 .info_plano {     
 	cursor: default;
-	background-color: #9C9494;
-	font-size: 6em;
+	background-color: #839E6A;
+	font-size: 5em;
 	margin: 15px;
 	padding: 10px;
-	width: 25%;
+	width: 21%;
 	float: left;
 	white-space: nowrap;
 	text-align: center;
 }
 
-#qtd_contatos {
-	/*border: 3px solid #2DAEBF;*/
+#custo {
+	width: 20%;
 }
 
-#qtd_grupos {
-	/*border: 3px solid #FF5C00;*/
+#custo #cifrao {
+	font-size: 25px;
 }
-
-
 
 
 

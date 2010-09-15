@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20100904144312) do
     t.integer "num_contatos"
     t.integer "num_grupos"
     t.integer "periodicidade_min"
+    t.decimal "preco",             :precision => 5, :scale => 2
   end
 
   create_table "users", :force => true do |t|
