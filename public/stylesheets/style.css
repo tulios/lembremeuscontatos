@@ -43,7 +43,7 @@ a:hover {
 }
 
 .login_with_twitter {
-	margin-top: 10px;
+	margin-top: 0px;
 	background:url("/images/icons/twitter-login.png") no-repeat scroll 0 0 transparent;
 	height:23px;
 	width:146px;
@@ -109,7 +109,7 @@ a:hover {
 	color: white;
 	padding-left: 40px;
 	padding-top: 10px;
-	margin-top: 7px;
+	margin-top: -7px;
 	margin-right: 3px;
 }
 
@@ -118,21 +118,27 @@ a:hover {
 	text-align: center;
 	margin: 0px;
 	margin-right: 0px;
-	margin-top: -10px !important;
+	margin-top: 3px !important;
 }            
-                     
-#login #img {
+#user_date {
+	float: right;
+	text-align: center;
+	margin: 0px;
+	margin-right: 0px;
+	margin-top: -9px !important;
+}                  
+#user_date #img {
 	float: left;
 }
              
-#login #options {
+#user_date #options {
 	float: left;
 	width: auto;
 	margin-right: 5px;
 	text-align: right;
 }
 
-#login #options #name {
+#user_date #options #name {
 	color: white;
 	font-family: Arial,Helvetica,sans-serif;
 	font-size: 1.5em;
