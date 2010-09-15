@@ -5,6 +5,9 @@
 													:title => "Login with Twitter" do %>
 		  <span>Login with twitter</span>
 		<% end %>
+		<div id="executando_login">
+			<%= t("app.login_executando") %>
+		</div>
 	<% else %>                                          
 		<div id="options">
 			<span id="name"><%= current_user.login %></span><br/>

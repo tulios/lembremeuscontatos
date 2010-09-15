@@ -1,15 +1,36 @@
 <table border="0" cellpadding="0" cellspacing="0" style="width: 90%; margin: 0 auto 20px;">
   <tr>
-    <td style="width: 50%;"><img src="/images/ilustracao_1.jpg" alt="Imagem representando anotações ou lembretes" width="502px" height="298px" /></td>
-    <td style="width: 20%; text-align: center"><img src="/images/ilustracao_2.jpg" alt="Setas e cartas representando o sistema enviando os lembretes para os contatos" width="58px" height="298px" /></td>
-    <td style="width: 30%; text-align: right" ><img src="/images/ilustracao_3.jpg" alt="Imagem representando os contatos recebendo os lembretes" width="248px" height="298px" /></td>
+    <td style="width: 50%;">
+			<%= image_tag "ilustracao_1.jpg", 
+					:alt => "Imagem representando anotações ou lembretes",
+					:width => "502px",
+					:height => "298px" %>
+			
+		</td>
+    <td style="width: 20%; text-align: center">
+			<%= image_tag "ilustracao_2.jpg", 
+					:alt => "Setas e cartas representando o sistema enviando os lembretes para os contatos",
+					:width => "58px",
+					:height => "298px" %>
+		</td>
+    <td style="width: 30%; text-align: right">
+			<%= image_tag "ilustracao_3.jpg", 
+					:alt => "Imagem representando os contatos recebendo os lembretes",
+					:width => "248px",
+					:height => "298px" %>
+		</td>
   </tr>
 </table>
 
 <ul style="text-align: center;">
-	<li style="background:#776A5E; color: #433A34; width: 31%; padding: 10px; display: inline-table; margin: 0 -2px; font-size: 2.0em; height: 125px; -moz-border-radius: 10px 0 0 10px ; -webkit-border-radius: 10px 0 0 10px; border-radius: 10px 0 0 10px; text-align: left;">1º Crie grupos com os seus contatos.</li>
-	<li style="background:#84AB76; color: #394A33; width: 30%; padding: 10px; display: inline-table; margin: 0 -2px; font-size: 2.0em; height: 125px;  text-align: left; border-left: 4px dotted #fff; border-right: 4px dotted #fff">2º informe o período do envio das mensagens.</li>
-	<li style="background:#7989AB; color: #323847; width: 31%; padding: 10px; display: inline-table; margin: 0 -2px; font-size: 2.0em; height: 125px; -moz-border-radius: 0 10px 10px 0; -webkit-border-radius: 0 10px 10px 0; border-radius: 0 10px 10px 0; text-align: left;">3º Informe quando devemos começar
-	a enviar.</li>
+	<li id="home_box1" class="home_box">
+		1º Crie grupos com os seus contatos.
+	</li>
+	<li id="home_box2" class="home_box">
+		2º Informe a periodicidade do envio das mensagens.
+	</li>
+	<li id="home_box3" class="home_box">
+		3º Informe quando devemos começar	a enviar.
+	</li>
 </ul>
 

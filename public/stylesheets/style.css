@@ -102,6 +102,16 @@ a:hover {
 #link_login {
 	margin-right: 0px;
 }
+      
+#executando_login {
+	display: none;
+	background: url("/images/icons/load_32.gif") no-repeat transparent 0px 0px;
+	color: white;
+	padding-left: 40px;
+	padding-top: 10px;
+	margin-top: 7px;
+	margin-right: 3px;
+}
 
 #login {
 	float: right;
@@ -553,6 +563,74 @@ a:hover {
 	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
 	background: #ff0000;
 }
+  
+.home_box {
+	width: 31%; 
+	padding: 10px; 
+	display: inline-table; 
+	margin: 0 -2px; 
+	font-size: 2.2em; 
+	height: 125px; 
+	text-align: left;
+}
+
+#home_box1 {
+	background:#776A5E;
+	color: #433A34; 
+	-moz-border-radius: 10px 0 0 10px ; -webkit-border-radius: 10px 0 0 10px; border-radius: 10px 0 0 10px; 
+} 
+
+#home_box2 {
+	background:#84AB76; 
+	color: #394A33; 
+	width: 30%; 
+	border-left: 4px dotted #fff; 
+	border-right: 4px dotted #fff
+}
+
+#home_box3 {
+	background:#7989AB; 
+	color: #323847; 
+	-moz-border-radius: 0 10px 10px 0; -webkit-border-radius: 0 10px 10px 0; border-radius: 0 10px 10px 0;
+}
+
+.plano_gratuito {
+	color: #B56286;
+}
+          
+#dashboard {
+	margin: auto;
+}
+
+.info_plano h2 {
+	text-align: left;
+}
+
+.info_plano {     
+	cursor: default;
+	background-color: #9C9494;
+	font-size: 6em;
+	margin: 15px;
+	padding: 10px;
+	width: 25%;
+	float: left;
+	white-space: nowrap;
+	text-align: center;
+}
+
+#qtd_contatos {
+	/*border: 3px solid #2DAEBF;*/
+}
+
+#qtd_grupos {
+	/*border: 3px solid #FF5C00;*/
+}
+
+
+
+
+
+
 
 
 

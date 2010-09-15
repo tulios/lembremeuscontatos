@@ -41,12 +41,10 @@ ActiveRecord::Schema.define(:version => 20100904144312) do
   end
 
   create_table "planos", :force => true do |t|
-    t.string   "nome"
-    t.integer  "num_contatos"
-    t.integer  "num_grupos"
-    t.integer  "periodicidade_min"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "nome"
+    t.integer "num_contatos"
+    t.integer "num_grupos"
+    t.integer "periodicidade_min"
   end
 
   create_table "users", :force => true do |t|

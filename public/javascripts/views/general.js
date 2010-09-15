@@ -1,5 +1,6 @@
 jQuery(document).ready(function(){
 	exibeFlashMessage();
+	aplicarLoadLogin();
 });
   
 function exibeFlashMessage(){
@@ -11,4 +12,11 @@ function exibeFlashMessage(){
 function bloquearBotao(elemento, texto) {
 	elemento.disable();
 	elemento.attr("value", texto);
+}
+
+function aplicarLoadLogin(){
+	$("a#link_login").click(function(){
+		$(this).hide();
+		$("#executando_login").show();
+	})
 }

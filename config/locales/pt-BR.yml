@@ -181,6 +181,7 @@
     salvar: "Salvar"          
     certeza: "Você tem certeza?"
     
+    login_executando: "Conectando com o Twitter"
     login_sucesso: "Bem vindo!"
     login_erro: "Falha ao realizar login pelo twitter, por favor, tente novamente."
             

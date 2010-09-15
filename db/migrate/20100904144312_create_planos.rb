@@ -5,13 +5,13 @@ class CreatePlanos < ActiveRecord::Migration
       t.integer :num_contatos
       t.integer :num_grupos
       t.integer :periodicidade_min
-
-      t.timestamps
     end
 
     change_table :users do |t|
       t.belongs_to :plano
     end
+    
+    Plano.create!(:nome => "Gratuito", :num_contatos => 10, :num_grupos => 5, :periodicidade_min => 6)
   end
 
   def self.down

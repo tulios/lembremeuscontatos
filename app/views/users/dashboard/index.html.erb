@@ -1,1 +1,24 @@
-estatística sobre a conta desse usuário
+<h1>
+	<span>Plano</span>::<span class="plano_<%= current_user.plano.nome.downcase %>"><%= current_user.plano.nome %></span>
+</h1>
+
+<div id="dashboard">
+	
+	<div id="qtd_contatos" class="info_plano round shadow">
+		<h2>Contatos</h2>
+		<span><%= @qtd_contatos %> / <%= current_user.plano.num_contatos %></span>
+	</div>
+	
+	<div id="qtd_grupos" class="info_plano round shadow">
+		<h2>Grupos</h2>
+		<span><%= @qtd_grupos %> / <%= current_user.plano.num_grupos %></span>
+	</div>
+	
+	<div id="qtd_periodicidade" class="info_plano round shadow">
+		<h2>Periodicidade mínima</h2>
+		<span><%= current_user.plano.periodicidade_min %> dias</span>
+	</div>
+	
+	<div style="clear: both;"></div>
+	
+</div>
