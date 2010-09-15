@@ -1,11 +1,13 @@
-<div id="login">
-	<% unless logged_in? %>
+<% unless logged_in? %>
+	<div id="login">
 		<% link_to login_url, :id => "link_login", 
 													:class => "twitter-connect login_with_twitter",
 													:title => "Login with Twitter" do %>
 		  <span>Login with twitter</span>
-		<% end %>
-	<% else %>                                          
+	</div>
+<% end %>
+<% else %> 
+    <div id="user_date">
 		<div id="options">
 			<span id="name"><%= current_user.login %></span><br/>
 			<span id="logout"><%= link_to (t 'app.logout'), logout_url %></span>
@@ -13,5 +15,5 @@
 		<div id="img">
 			<%= image_tag current_user.profile_image_url %>
 		</div>
-	<% end %>
-</div>               
+	</div>
+<% end %>               
