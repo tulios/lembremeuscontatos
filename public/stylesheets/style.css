@@ -626,6 +626,7 @@ a:hover {
 
 #custo {
 	width: 20%;
+	min-width: 220px;
 }
 
 #custo #cifrao {

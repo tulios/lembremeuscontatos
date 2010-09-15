@@ -21,7 +21,9 @@
 	
 	<div id="custo" class="info_plano round shadow">
 		<h2>Custo</h2>
-		<span id="cifrao">R$</span>&nbsp;<span><%= current_user.plano.preco %></span>
+		<span>
+			<%= number_to_currency(current_user.plano.preco, :unit => "<span id='cifrao'>R$</span>") %>
+		</span>
 	</div>
 	
 	<div style="clear: both;"></div>
