@@ -1,5 +1,7 @@
 class Users::ContatosController < Users::MainController
-
+  
+  before_filter :verificar_permissao, :only => :destroy
+  
   def pelo_nome             
     @contatos = Contato.pesquisar_pelo_nome params[:nome], current_user
     render :json => @contatos
@@ -32,13 +34,18 @@ class Users::ContatosController < Users::MainController
   end
   
   def destroy
-    @contato = Contato.find params[:id]
+    @contato ||= Contato.find params[:id]
     @contato.destroy
     
     redirect_to :action => :index
   end
    
   private
+  def verificar_permissao
+    @contato = Contato.find params[:id]
+    authorize! :destroy, @contato
+  end
+  
   def pesquisar
     @contatos = Contato.pesquisar(
       :page => params[:page],

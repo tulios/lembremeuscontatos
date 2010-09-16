@@ -605,28 +605,31 @@ a:hover {
 }
           
 #dashboard {
-	margin: auto;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#dashboard table {
+	width: 100%;
+}            
+
+#dashboard table tr {
+	width: 25%;
 }
 
 .info_plano h2 {
 	text-align: left;
 }
-
-.info_plano {     
+           
+.info_plano {
 	cursor: default;
 	background-color: #839E6A;
 	font-size: 5em;
 	margin: 15px;
 	padding: 10px;
-	width: 21%;
-	float: left;
+	width: 83%;
 	white-space: nowrap;
 	text-align: center;
-}
-
-#custo {
-	width: 20%;
-	min-width: 220px;
 }
 
 #custo #cifrao {

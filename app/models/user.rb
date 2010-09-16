@@ -4,7 +4,7 @@ class User < TwitterAuth::GenericUser
   # parent TwitterAuth::GenericUser class.
 
   belongs_to :plano
-
+  
   def folder_name
     "#{self.twitter_id}-#{self.login}"
   end

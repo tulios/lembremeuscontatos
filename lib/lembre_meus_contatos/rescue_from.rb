@@ -8,6 +8,10 @@ module LembreMeusContatos
     module ClassMethods
     
       protected
+        
+      def tratar_cancan_error exception
+        raise LembreMeusContatos::Exceptions::BadBehavior, t("app.exceptions.bad_behavior")
+      end
     
       def tratar_standard_error exception
         output = ""

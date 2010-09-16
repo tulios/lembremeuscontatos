@@ -3,29 +3,40 @@
 </h1>
 
 <div id="dashboard">
+	<table>
+		<tr>
+			
+			<td>
+				<div id="qtd_contatos" class="info_plano round shadow">
+					<h2>Contatos</h2>
+					<span><%= @qtd_contatos %> / <%= current_user.plano.num_contatos %></span>
+				</div>
+	    </td>
 	
-	<div id="qtd_contatos" class="info_plano round shadow">
-		<h2>Contatos</h2>
-		<span><%= @qtd_contatos %> / <%= current_user.plano.num_contatos %></span>
-	</div>
+			<td>
+				<div id="qtd_grupos" class="info_plano round shadow">
+					<h2>Grupos</h2>
+					<span><%= @qtd_grupos %> / <%= current_user.plano.num_grupos %></span>
+				</div>
+	    </td>     
 	
-	<div id="qtd_grupos" class="info_plano round shadow">
-		<h2>Grupos</h2>
-		<span><%= @qtd_grupos %> / <%= current_user.plano.num_grupos %></span>
-	</div>
+			<td>
+				<div id="qtd_periodicidade" class="info_plano round shadow">
+					<h2>Periodicidade mínima</h2>
+					<span><%= current_user.plano.periodicidade_min %> dias</span>
+				</div>
+	    </td>
 	
-	<div id="qtd_periodicidade" class="info_plano round shadow">
-		<h2>Periodicidade mínima</h2>
-		<span><%= current_user.plano.periodicidade_min %> dias</span>
-	</div>
+			<td>
+				<div id="custo" class="info_plano round shadow">
+					<h2>Custo</h2>
+					<span>
+						<%= number_to_currency(current_user.plano.preco, :unit => "<span id='cifrao'>R$</span>") %>
+					</span>
+				</div>
+	  	</td>
 	
-	<div id="custo" class="info_plano round shadow">
-		<h2>Custo</h2>
-		<span>
-			<%= number_to_currency(current_user.plano.preco, :unit => "<span id='cifrao'>R$</span>") %>
-		</span>
-	</div>
-	
-	<div style="clear: both;"></div>
+		</tr>
+	</table>
 	
 </div>

@@ -1,7 +1,7 @@
 class Users::GruposController < Users::MainController
   include LembreMeusContatos::Converters
-          
-  before_filter :verificar_ativos, :only => [:edit, :update, :destroy]
+  
+  before_filter :verificar_permissao, :only => [:edit, :update, :destroy]
   
   def index
     @grupos = Grupo.pesquisar(
@@ -63,17 +63,17 @@ class Users::GruposController < Users::MainController
   end
   
   private
+  def verificar_permissao          
+    @grupo = Grupo.find params[:id]          
+    authorize! params[:action].intern, @grupo
+  end
+  
   def associar_contatos
     if params[:contatos]
       Contato.find(params[:contatos]).each do |contato|
         GrupoContato.create(:grupo => @grupo, :contato => contato) unless @grupo.contatos.member? contato
       end
     end                   
-  end
-  
-  def verificar_ativos
-    @grupo = Grupo.find params[:id]
-    raise LembreMeusContatos::Exceptions::BadBehavior, t("app.exceptions.bad_behavior") if @grupo.ativo?
   end
   
 end

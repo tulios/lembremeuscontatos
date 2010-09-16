@@ -6,11 +6,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
   
   # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  filter_parameter_logging :password
   
   include LembreMeusContatos::RescueFrom
   rescue_from StandardError, :with => :tratar_standard_error
   rescue_from LembreMeusContatos::Exceptions::BadBehavior, :with => :tratar_bad_behavior
+  rescue_from CanCan::AccessDenied, :with => :tratar_cancan_error
      
   protected
   
