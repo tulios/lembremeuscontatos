@@ -17,7 +17,8 @@ class Grupo < ActiveRecord::Base
   #++
   
   validates_presence_of :user_id, :nome, :mensagem, :periodicidade
-  validates_numericality_of :periodicidade, :only_integer => true, :greater_than => 5
+  validates_numericality_of :periodicidade, :only_integer => true
+  validate :periodicidade_minima
   
   #--
   # Configuracoes ===============================================================================================
@@ -131,6 +132,12 @@ class Grupo < ActiveRecord::Base
   # ==========================================================================================================================
   private
   # ==========================================================================================================================
+     
+  def periodicidade_minima
+    if periodicidade and periodicidade < user.plano.periodicidade_min
+      errors.add(:periodicidade, I18n.t("app.grupo.erro.periodicidade_minima", :valor => user.plano.periodicidade_min))
+    end
+  end
   
   def pode_ativar?
     possui_contatos? and segmentos_corretos? and data_inicio_minima?

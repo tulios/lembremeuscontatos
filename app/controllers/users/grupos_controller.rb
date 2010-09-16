@@ -64,7 +64,7 @@ class Users::GruposController < Users::MainController
   
   private
   def verificar_permissao          
-    @grupo = Grupo.find params[:id]          
+    @grupo = Grupo.find params[:id]
     authorize! params[:action].intern, @grupo
   end
   

@@ -128,6 +128,7 @@
       user: "Usuário"
       contato: "Contato"
       grupo: "Grupo"
+      plano: "Plano"
 
     attributes:
       # Coloque aqui a traducao dos atributos dos modelos
@@ -138,9 +139,12 @@
       grupo:
         nome: "Nome"
         mensagem: "Mensagem"
-        periodicidade: "Periodicidade (em dias)"
+        periodicidade: "Periodicidade em dias"
         inicio: "Data de início"
         status: "Status"
+      
+      plano:
+        nome: "Nome"
 
     errors:
       template:
@@ -215,6 +219,7 @@
         header_sub_ativar: "Verifique os seguintes problemas:"
         inicio_menor_estipulado: "deve ter pelo menos 48 horas a partir de hoje"
         contatos_maior_zero: "devem possuir pelo menos uma referência"
+        periodicidade_minima: "O menor valor permitido é %{valor} dias"
       msg:
         sucesso: "Grupo criado com sucesso!"
         atualizado: "Grupo atualizado com sucesso!"
