@@ -1,11 +1,17 @@
-<% if logged_in? %>
-	<div id="menu">
+<div id="menu">
+
+	<% if logged_in? %>
 		<% link_to(users_contatos_url, :class => "large blue awesome") do %>
 			<%= t "app.menu.contatos" %>
 		<% end %>
-	
+
 		<% link_to(users_grupos_url, :class => "large orange awesome") do %>
-		<%= t "app.menu.grupos" %>
+			<%= t "app.menu.grupos" %>
 		<% end %>
-	</div>
-<% end %>
+	<% end %>
+
+	<a id="menu_sugestoes" href="#" class="large magenta awesome">
+		<%= t("app.menu.sugestoes") %>
+	</a>
+
+</div>

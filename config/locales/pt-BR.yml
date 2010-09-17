@@ -200,6 +200,7 @@
     menu:
       contatos: "Contatos"
       grupos: "Grupos"
+      sugestoes: "Sugestões"
     
     contato:
       nenhum_encontrado: "Nenhum encontrado"

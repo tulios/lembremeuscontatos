@@ -27,6 +27,9 @@ javascripts:
       
   grupos_desativar:
     - public/javascripts/views/grupos/desativar.js
+                        
+  uservoice:
+    - public/javascripts/plugins/uservoice.js
   
   development:
     - public/javascripts/jquery.js
