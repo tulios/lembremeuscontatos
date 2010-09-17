@@ -9,14 +9,15 @@
 <h1 class="item_contatos">
 	<span><%= t "app.menu.contatos" %></span>
 </h1>
-                                 
-<% link_to new_users_contato_path, :class => "novo_contato", :id => "novo" do %>
-	<%= t "app.contato.novo" %>
+              
+<% if can? :create, Contato %>
+	<div id="div_novo_contato">
+		<% link_to new_users_contato_path, :class => "novo_contato", :id => "novo" do %>
+			<%= t "app.contato.novo" %>
+		<% end %>                
+	</div>
 <% end %>
-                    
-<br/>
-<br/>
-                 
+
 <%= hidden_field_tag 'contatos_ajax', users_load_contatos_ajax_url %>
 <div class="contatos">
 	<%= render :partial => 'users/contatos/list' %>

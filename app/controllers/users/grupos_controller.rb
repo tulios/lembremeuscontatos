@@ -1,7 +1,8 @@
 class Users::GruposController < Users::MainController
   include LembreMeusContatos::Converters
   
-  before_filter :verificar_permissao, :only => [:edit, :update, :destroy]
+  before_filter :verificar_permissao_criacao, :only => [:new, :create]
+  before_filter :verificar_permissao_atualizacao, :only => [:edit, :update, :destroy]
   
   def index
     @grupos = Grupo.pesquisar(
@@ -63,7 +64,11 @@ class Users::GruposController < Users::MainController
   end
   
   private
-  def verificar_permissao          
+  def verificar_permissao_criacao
+    authorize! :create, Grupo
+  end
+  
+  def verificar_permissao_atualizacao          
     @grupo = Grupo.find params[:id]
     authorize! params[:action].intern, @grupo
   end

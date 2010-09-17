@@ -32,7 +32,7 @@
 				  </p>                        
 			
 					<p>    
-				    <%= f.label :periodicidade %> (Mínimo de <%= current_user.plano.periodicidade_min %>)
+				    <%= f.label :periodicidade %> (Mínimo: <%= current_user.plano.periodicidade_min %>)
 						<%= f.error_message_on :periodicidade %>
 						<br />       
 				    <%= f.text_field :periodicidade, :style => "width: 100px;" %>

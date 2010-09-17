@@ -262,7 +262,8 @@ a:hover {
 	cursor: pointer;
 }
 
-.novo_contato {       
+#div_novo_contato {
+	margin-bottom: 20px;
 }
 
 .field input {
@@ -317,6 +318,10 @@ a:hover {
 
 .contato_box a:hover {
 	color: #cdcdcd;
+}
+
+#div_novo_grupo {
+	margin-bottom: 20px;
 }
 
 .grupo_box {

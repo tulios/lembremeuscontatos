@@ -1,6 +1,6 @@
 class Users::ContatosController < Users::MainController
   
-  before_filter :verificar_permissao, :only => :destroy
+  before_filter :verificar_permissao_criacao, :only => [:new, :create]
   
   def pelo_nome             
     @contatos = Contato.pesquisar_pelo_nome params[:nome], current_user
@@ -16,7 +16,7 @@ class Users::ContatosController < Users::MainController
     render :partial => 'users/contatos/list'
   end
   
-  def new
+  def new                 
     @contato = Contato.new
     render :layout => false
   end                                       
@@ -34,16 +34,16 @@ class Users::ContatosController < Users::MainController
   end
   
   def destroy
-    @contato ||= Contato.find params[:id]
-    @contato.destroy
+    @contato = Contato.find params[:id]
+    authorize! :destroy, @contato
     
+    @contato.destroy
     redirect_to :action => :index
   end
    
   private
-  def verificar_permissao
-    @contato = Contato.find params[:id]
-    authorize! :destroy, @contato
+  def verificar_permissao_criacao
+    authorize! :create, Contato
   end
   
   def pesquisar

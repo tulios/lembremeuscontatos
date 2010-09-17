@@ -2,13 +2,14 @@
 	<span><%= t "app.menu.grupos" %></span>
 </h1>
 
-<% link_to new_users_grupo_path, :class => "novo_grupo", :id => "novo" do %>
-	<%= t "app.grupo.novo" %>
+<% if can? :create, Grupo %>
+	<div id="div_novo_grupo">
+		<% link_to new_users_grupo_path, :class => "novo_grupo", :id => "novo" do %>
+			<%= t "app.grupo.novo" %>
+		<% end %>              
+	</div>
 <% end %>
-                    
-<br/>
-<br/>
-    
+
 <div class="grupos">
 	<%= render :partial => "users/grupos/list" %>
 </div>
