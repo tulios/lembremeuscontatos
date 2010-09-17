@@ -44,7 +44,7 @@ class SessionsController < ApplicationController
     # so we nullify it in the session.
     session[:request_token] = nil
     session[:request_token_secret] = nil
-
+                                                                   
     @user = User.identify_or_create_from_access_token(@access_token)
 
     session[:user_id] = @user.id

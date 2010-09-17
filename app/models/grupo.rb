@@ -29,7 +29,6 @@ class Grupo < ActiveRecord::Base
   
   alias_column :original => 'nome', :new => 'subject'
   alias_column :original => 'nome', :new => 'name'
-  alias_column :original => 'mensagem', :new => 'content'
   
   #--
   # MailChimp ===================================================================================================
@@ -63,6 +62,13 @@ class Grupo < ActiveRecord::Base
   #--
   # Metodos =====================================================================================================
   #++
+  
+  def content    
+    [
+      I18n.t("app.grupo.email.cabecalho", :nome => self.user.nome, :twitter => self.user.login),
+      self.mensagem
+    ].join("<br/><br/>")
+  end
   
   def periodicidade_formatado
     "a cada #{self.periodicidade} dias" if periodicidade
@@ -114,6 +120,9 @@ class Grupo < ActiveRecord::Base
     )
   end
   
+  # Método chamado pela tarefa do cron (lib/tasks/cron.rake) para agendar o envio das mensagens.
+  # Esse método será chamado uma vez por dia.
+  #
   def self.agendar_envios! data = 2.days.from_now.to_date # 2 dias no futuro
     
     grupos = Grupo.pesquisar_envios(data)
@@ -127,6 +136,11 @@ class Grupo < ActiveRecord::Base
   rescue => e                           
     RAILS_DEFAULT_LOGGER.error e.message
     return false
+  end
+  
+  def self.inicio_minimo               
+    # A dupla conversao eh para remover as horas.
+    2.days.from_now.to_date.to_datetime
   end
   
   # ==========================================================================================================================
@@ -166,11 +180,6 @@ class Grupo < ActiveRecord::Base
     self.agendado = self.unschedule_campaign if self.agendado?
   end
      
-  def self.inicio_minimo               
-    # A dupla conversao eh para remover as horas.
-    2.days.from_now.to_date.to_datetime
-  end
-                                                                                             
   def data_inicio_minima?
     if self.inicio.nil? or inicio_to_datetime < Grupo.inicio_minimo
       errors.add(:inicio, I18n.t("app.grupo.erro.inicio_menor_estipulado"))

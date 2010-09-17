@@ -228,6 +228,9 @@
         data_minima: "Data mínima: %{data}"
         desativado: "Grupo desativado com sucesso!"
       
+      email:
+        cabecalho: "E-mail enviado por %{nome} (@%{twitter})"
+      
     grupo_contato:
       remover: "Remover"  
       

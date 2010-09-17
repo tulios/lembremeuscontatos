@@ -34,7 +34,9 @@
   <div style="clear: both;"></div>
 	<div class="body">
 		<% flash.each do |key, message| %>
-			<div id="<%= key %>" class="flash_msg round shadow"><%= message %></div>
+			<% unless message.blank? %>
+				<div id="<%= key %>" class="flash_msg round shadow"><%= message %></div>
+			<% end %>
 		<% end %>
 		
 		<div class="content shadow">

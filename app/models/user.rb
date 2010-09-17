@@ -2,7 +2,9 @@ class User < TwitterAuth::GenericUser
   # Extend and define your user model as you see fit.
   # All of the authentication logic is handled by the
   # parent TwitterAuth::GenericUser class.
-
+  
+  alias_column :original => 'name', :new => 'nome'
+  
   belongs_to :plano
   
   def folder_name

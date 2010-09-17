@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
      
   protected
   
-  def authentication_succeeded message = t("app.login_sucesso")
+  def authentication_succeeded message = nil#t("app.login_sucesso")
     super
   end
   

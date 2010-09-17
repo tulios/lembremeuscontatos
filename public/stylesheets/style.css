@@ -78,6 +78,18 @@ a:hover {
 	color: #C00;
 }
 
+.grupo_form .formError {
+	width: 50%;
+	color: #C00;
+	float: left;
+	margin-left: 10px;
+}         
+
+.grupo_form .fieldWithErrors {
+	width: auto;
+	float: left;
+}
+
 .body {
 	height:auto !important;
 	margin:0 auto -324px;

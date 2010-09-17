@@ -26,9 +26,7 @@ module Hominid
       Hominid::Loader.instance.unsubscribe self.email unless defined? @prevent_unsubscribe
     end
        
-    # Add a new campaign
-    #
-    def add_campaign
+    def add_or_update_campaign
       unless self.campaign_id
         self.campaign_id = Hominid::Loader.instance.create_campaign({
           :subject => self.subject,
@@ -38,6 +36,9 @@ module Hominid
           :folder_id => self.folder_id
         })
         self.save!
+      else
+        Hominid::Loader.instance.update_campaign(self.campaign_id, "subject", self.subject)
+        Hominid::Loader.instance.update_campaign(self.campaign_id, "content", {:html_content => self.content})
       end
     end
     
@@ -81,7 +82,7 @@ module Hominid
       
       def sync_with_hominid_campaign
         unless Rails.env.test?
-          self.send :after_save, :add_campaign
+          self.send :after_save, :add_or_update_campaign
           self.send :after_destroy, :remove_campaign
         end
       end
