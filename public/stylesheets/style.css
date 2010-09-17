@@ -90,6 +90,18 @@ a:hover {
 	float: left;
 }
 
+.contato_form .formError {
+	width: 50%;
+	color: #C00;
+	float: left;
+	margin-left: 10px;
+}
+
+.contato_form .fieldWithErrors {
+	width: auto;
+	float: left;
+}
+
 .body {
 	height:auto !important;
 	margin:0 auto -324px;
@@ -298,7 +310,7 @@ a:hover {
 }
 
 .contato_form {
-	height: 200px;
+	height: 200px !important;
 }
 
 .contato_box {
