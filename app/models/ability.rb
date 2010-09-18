@@ -13,6 +13,7 @@ class Ability
     can :create, Grupo do
       Grupo.count(:conditions => ["user_id = ?", user.id]) < user.plano.num_grupos
     end
+    can :ativar_desativar, Grupo, :user_id => user.id
   end
 
 end

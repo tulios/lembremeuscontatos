@@ -180,6 +180,9 @@
     next_label: "Próxima &raquo;"
   
   app:
+    mailchimp:
+      erro_test_segment: "Falha ao agendar envio. Os servidores estão ocupados, tente novamente."
+    
     logout: 'Sair'
     enviar: "Enviar"
     salvar: "Salvar"          

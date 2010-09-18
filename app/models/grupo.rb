@@ -146,15 +146,9 @@ class Grupo < ActiveRecord::Base
   # ==========================================================================================================================
   private
   # ==========================================================================================================================
-     
-  def periodicidade_minima
-    if periodicidade and periodicidade < user.plano.periodicidade_min
-      errors.add(:periodicidade, I18n.t("app.grupo.erro.periodicidade_minima", :valor => user.plano.periodicidade_min))
-    end
-  end
   
   def pode_ativar?
-    possui_contatos? and segmentos_corretos? and data_inicio_minima?
+    possui_contatos? and data_inicio_minima? and segmentos_corretos?
   end                       
   
   def possui_contatos?
@@ -164,9 +158,27 @@ class Grupo < ActiveRecord::Base
     end  
     true
   end
-                         
+  
+  def data_inicio_minima?
+    if self.inicio.blank? or inicio_to_datetime < Grupo.inicio_minimo
+      errors.add(:inicio, I18n.t("app.grupo.erro.inicio_menor_estipulado"))
+      return false
+    end
+    true
+  end
+  
   def segmentos_corretos?
-    segments_correct?
+    unless segments_correct?
+      errors.add(:status, I18n.t("app.mailchimp.erro_test_segment"))
+      return false
+    end
+    true
+  end
+  
+  def periodicidade_minima
+    if periodicidade and periodicidade < user.plano.periodicidade_min
+      errors.add(:periodicidade, I18n.t("app.grupo.erro.periodicidade_minima", :valor => user.plano.periodicidade_min))
+    end
   end
   
   def agendar_envio
@@ -177,17 +189,15 @@ class Grupo < ActiveRecord::Base
   def interromper_agendamento
     self.inicio = nil
     self.envio = nil
-    self.agendado = self.unschedule_campaign if self.agendado?
+    if self.agendado?
+      self.agendado = false   
+      
+      # Defaz o agendamento no mailchimp se ele tiver sido feito    
+      campaign = find_campaign
+      self.unschedule_campaign if campaign and campaign['status'] != "save"
+    end
   end
      
-  def data_inicio_minima?
-    if self.inicio.nil? or inicio_to_datetime < Grupo.inicio_minimo
-      errors.add(:inicio, I18n.t("app.grupo.erro.inicio_menor_estipulado"))
-      return false
-    end
-    true
-  end
-  
   def inicio_to_datetime
     self.inicio.to_datetime.in_time_zone(Time.zone.name) if self.inicio
   end

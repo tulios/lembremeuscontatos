@@ -25,6 +25,11 @@ module Hominid
     def remove_contact
       Hominid::Loader.instance.unsubscribe self.email unless defined? @prevent_unsubscribe
     end
+    
+    def find_campaign
+      return nil if Rails.env.test?
+      Hominid::Loader.instance.find_campaign(self.campaign_id)
+    end
        
     def add_or_update_campaign
       unless self.campaign_id

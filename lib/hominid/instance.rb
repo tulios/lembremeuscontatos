@@ -66,6 +66,10 @@ module Hominid
       base.update campaign_id, name, value
     end                                   
     
+    def find_campaign campaign_id
+      base.find_campaign_by_id campaign_id
+    end
+    
     def create_segment campaign_id, emails
       conditions = create_conditions_array(emails)
       self.update_campaign campaign_id, "segment_opts", {
