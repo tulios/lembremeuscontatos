@@ -129,9 +129,16 @@ a:hover {
       
 #executando_login {
 	display: none;
-	background: url("/images/icons/load_32.gif") no-repeat transparent 0px 0px;
+	width: 210px;
 	color: white;
-	padding-left: 40px;
+}
+
+#executando_login #img {
+	width: auto;
+	float: left;
+} 
+
+#executando_login #msg {
 	padding-top: 10px;
 	margin-top: -7px;
 	margin-right: 3px;
