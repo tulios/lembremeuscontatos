@@ -12,7 +12,7 @@ class CreatePlanos < ActiveRecord::Migration
       t.belongs_to :plano
     end
     
-    plano = Plano.create!(:nome => "Gratuito", :num_contatos => 10, :num_grupos => 5, :periodicidade_min => 6, :preco => 0)
+    plano = Plano.create!(:nome => "Gratuito", :num_contatos => 30, :num_grupos => 15, :periodicidade_min => 6, :preco => 0)
     User.update_all "plano_id = #{plano.id}"
   end
 

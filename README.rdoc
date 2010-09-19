@@ -6,3 +6,4 @@
 == Como atualizar javascripts comprimidos
 
   heroku jammit:add
+	heroku jammit:delete
