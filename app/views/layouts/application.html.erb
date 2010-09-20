@@ -49,7 +49,9 @@
 	</div>
 	
 	<%= include_javascripts :uservoice %>
-	<%= javascript_include_tag "plugins/googleanalytics" %>
+	<% if Rails.env.production?%>                                    
+		<%= javascript_include_tag "plugins/googleanalytics" %>
+	<% end %>
 </body>
 </html>
 
