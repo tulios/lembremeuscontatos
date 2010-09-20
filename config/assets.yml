@@ -31,6 +31,9 @@ javascripts:
   uservoice:
     - public/javascripts/plugins/uservoice.js
   
+  googleanalytics:
+    - public/javascripts/plugins/googleanalytics.js
+  
   development:
     - public/javascripts/jquery.js
     - public/javascripts/jquery-ui.js
