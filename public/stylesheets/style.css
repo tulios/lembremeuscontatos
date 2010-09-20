@@ -1,6 +1,6 @@
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; }
 
-body { line-height: 1; color: black; background-color: #d7d7d7; min-width: 900px; }
+body { line-height: 1; color: black; background-color: #d7d7d7; min-width: 980px; }
 
 h1 {
 	font-size: 40px;
@@ -611,7 +611,7 @@ a:hover {
 	padding: 10px; 
 	display: inline-table; 
 	margin: 0 -2px; 
-	font-size: 2.2em; 
+	font-size: 1.9em; 
 	height: 125px; 
 	text-align: left;
 }
