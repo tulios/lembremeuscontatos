@@ -63,7 +63,7 @@ class Grupo < ActiveRecord::Base
   # Metodos =====================================================================================================
   #++
   
-  def content    
+  def content
     [
       I18n.t("app.grupo.email.cabecalho", :nome => self.user.nome, :twitter => self.user.login),
       self.mensagem
