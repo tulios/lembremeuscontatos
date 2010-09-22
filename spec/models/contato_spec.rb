@@ -8,6 +8,15 @@ describe Contato do
   context 'quando referente as associações' do
     it { should belong_to :user }
     it { should have_many :grupos_contatos }
+    
+    it 'deveria retornar GrupoUsuario com base no grupo' do
+      grupo_contato = Factory(:grupo_contato)
+      contato = grupo_contato.contato
+      
+      resultado = contato.associacao grupo_contato.grupo
+      resultado.should_not be_nil
+      resultado.id.should == grupo_contato.id
+    end
   end
 
   context 'quando referente aos campos obrigatórios' do
@@ -18,7 +27,13 @@ describe Contato do
   end
                            
   context 'quando referente as pesquisas' do
-    it 'deveria pesquisar pelo nome'
+    it 'deveria pesquisar pelo nome' do
+      contato = Factory(:contato)
+      
+      resultado = Contato.pesquisar_pelo_nome contato.nome, contato.user
+      resultado.should_not be_nil
+      resultado.size.should == 1
+    end
 
     it 'deveria utilizar o metodo pesquisar' do
       3.times {Factory(:contato)}

@@ -109,7 +109,7 @@ a:hover {
 }
  
 #header {
-	background: none repeat scroll 0 0 rgba(30, 30, 30, 0.95);
+	background: none repeat scroll 0 0 #262626; /* rgba(30, 30, 30, 0.95) */
 	border-bottom: 1px solid black;
 	height: 70px;
 	margin: 0 auto;
