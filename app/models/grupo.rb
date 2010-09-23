@@ -29,6 +29,7 @@ class Grupo < ActiveRecord::Base
   
   alias_column :original => 'nome', :new => 'subject'
   alias_column :original => 'nome', :new => 'name'
+  alias_column :original => 'envio', :new => "start_date"
   
   #--
   # MailChimp ===================================================================================================
@@ -50,7 +51,7 @@ class Grupo < ActiveRecord::Base
     transitions :from => [:inativo], 
                 :to => :ativo, 
                 :guard => :pode_ativar?,
-                :on_transition => [:agendar_envio]
+                :on_transition => [:agendar_envio, :schedule_campaign]
   end                                              
   
   aasm_event :desativar do
@@ -74,33 +75,15 @@ class Grupo < ActiveRecord::Base
     "a cada #{self.periodicidade} dias" if periodicidade
   end                           
   
-  def inicio_formatado
-    "começando em #{self.inicio_str}"
-  end                 
-                  
-  def status_str
-    self.status.upcase
-  end
-  
-  def folder_id
-    user.folder_id
-  end
-  
   def emails
     self.contatos(:force_reload => true).collect {|contato| contato.email}
   end
   
-  def adicionar_segmentos
-    add_segment
-  end                 
-  
-  def start_date
-    self.envio
-  end   
-  
-  def campaign_title
-    "#{self.user.folder_name}-#{self.nome}"
-  end               
+  def inicio_formatado; "começando em #{self.inicio_str}" end
+  def status_str; self.status.upcase end
+  def folder_id; user.folder_id end
+  def adicionar_segmentos; add_segment end
+  def campaign_title; "#{self.user.folder_name}-#{self.nome}" end
   
   # Recupera os grupos ativos, agendados, e que devem ser enviados na data informada, com base na periodicidade cadastrada.
   # ex:
@@ -124,7 +107,6 @@ class Grupo < ActiveRecord::Base
   # Esse método será chamado uma vez por dia.
   #
   def self.agendar_envios! data = 2.days.from_now.to_date # 2 dias no futuro
-    
     grupos = Grupo.pesquisar_envios(data)
     grupos.each do |grupo|
       grupo.envio = data
@@ -194,10 +176,10 @@ class Grupo < ActiveRecord::Base
       
       # Defaz o agendamento no mailchimp se ele tiver sido feito    
       campaign = find_campaign
-      self.unschedule_campaign if campaign and campaign['status'] != "save"
+      self.unschedule_campaign if campaign and campaign['status'] == "schedule"
     end
   end
-     
+  
   def inicio_to_datetime
     self.inicio.to_datetime.in_time_zone(Time.zone.name) if self.inicio
   end

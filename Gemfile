@@ -5,6 +5,7 @@ gem "pg",              "~> 0.9"
 
 gem "json"                                             
 gem "twitter-auth",    "~> 0.1.22", :require => "twitter_auth"
+#gem "twitter"
 gem "hominid",         "~> 2.1.7"
 gem "aasm",            "~> 2.1.5"
 gem "will_paginate",   "~> 2.3.15"
