@@ -70,6 +70,21 @@ module Hominid
     
     def schedule_campaign
       return true if Rails.env.test?
+      recreate_campaign
+      Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date)
+    end                
+    
+    def unschedule_campaign
+      return true if Rails.env.test?
+      campaign = find_campaign
+      if campaign and campaign['status'] == "schedule"
+        Hominid::Loader.instance.unschedule_campaign(self.campaign_id)
+      end
+    end
+    
+    def recreate_campaign
+      return true if Rails.env.test?
+      
       campaign = find_campaign
       
       if campaign['status'] == 'sent'
@@ -79,13 +94,13 @@ module Hominid
         self.campaign_id = new_campaign_id
         self.save!
       end
-      
-      Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date)
-    end                
+    end
     
-    def unschedule_campaign
+    def unschedule_or_recreate_campaign
       return true if Rails.env.test?
-      Hominid::Loader.instance.unschedule_campaign(self.campaign_id)
+      
+      recreate_campaign
+      unschedule_campaign
     end
     
     module ClassMethods

@@ -175,8 +175,7 @@ class Grupo < ActiveRecord::Base
       self.agendado = false   
       
       # Defaz o agendamento no mailchimp se ele tiver sido feito    
-      campaign = find_campaign
-      self.unschedule_campaign if campaign and campaign['status'] == "schedule"
+      self.unschedule_or_recreate_campaign 
     end
   end
   
