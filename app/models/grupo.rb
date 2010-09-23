@@ -51,7 +51,7 @@ class Grupo < ActiveRecord::Base
     transitions :from => [:inativo], 
                 :to => :ativo, 
                 :guard => :pode_ativar?,
-                :on_transition => [:agendar_envio, :schedule_campaign]
+                :on_transition => [:agendar_envio]
   end                                              
   
   aasm_event :desativar do

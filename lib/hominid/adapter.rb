@@ -28,11 +28,14 @@ module Hominid
     
     def find_campaign
       return nil if Rails.env.test?
+      return nil unless self.campaign_id
       Hominid::Loader.instance.find_campaign(self.campaign_id)
     end
        
     def add_or_update_campaign
-      unless self.campaign_id
+      campaign = find_campaign
+                      
+      if campaign.nil?
         self.campaign_id = Hominid::Loader.instance.create_campaign({
           :subject => self.subject,
           :title => self.campaign_title,
@@ -41,7 +44,8 @@ module Hominid
           :folder_id => self.folder_id
         })
         self.save!
-      else
+        
+      elsif campaign['status'] != 'sent' and campaign['status'] != 'schedule'
         Hominid::Loader.instance.update_campaign(self.campaign_id, "subject", self.subject)
         Hominid::Loader.instance.update_campaign(self.campaign_id, "content", {:html_content => self.content})
       end
