@@ -82,18 +82,30 @@ module Hominid
       end
     end
     
+    def replicate_campaign
+      new_campaign_id = Hominid::Loader.instance.replicate_campaign(self.campaign_id)
+      Hominid::Loader.instance.update_campaign(new_campaign_id, "folder_id", self.folder_id)
+      new_campaign_id
+    end
+    
     def recreate_campaign
       return true if Rails.env.test?
       
       campaign = find_campaign
       
       if campaign['status'] == 'sent'
-        new_campaign_id = Hominid::Loader.instance.replicate_campaign(self.campaign_id)
-        Hominid::Loader.instance.delete_campaign self.campaign_id
         
-        self.campaign_id = new_campaign_id
-        self.save!
+        new_campaign_id = replicate_campaign
+        if new_campaign_id
+          Hominid::Loader.instance.delete_campaign self.campaign_id
+          self.campaign_id = new_campaign_id
+          self.save!
+          return true
+        end
+        
       end
+      
+      false
     end
     
     def unschedule_or_recreate_campaign
