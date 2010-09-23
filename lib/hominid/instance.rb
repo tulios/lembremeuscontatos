@@ -97,6 +97,14 @@ module Hominid
       base.unschedule campaign_id
     end
     
+    def replicate_campaign campaign_id
+      base.replicate campaign_id
+    end
+    
+    def delete_campaign campaign_id
+      base.delete campaign_id
+    end
+    
     private
     
     def create_conditions_array emails

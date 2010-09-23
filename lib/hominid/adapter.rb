@@ -70,6 +70,16 @@ module Hominid
     
     def schedule_campaign
       return true if Rails.env.test?
+      campaign = find_campaign
+      
+      if campaign['status'] == 'sent'
+        new_campaign_id = Hominid::Loader.instance.replicate_campaign(self.campaign_id)
+        Hominid::Loader.instance.delete_campaign self.campaign_id
+        
+        self.campaign_id = new_campaign_id
+        self.save!
+      end
+      
       Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date)
     end                
     
