@@ -225,8 +225,8 @@
         contatos_maior_zero: "devem possuir pelo menos uma referência"
         periodicidade_minima: "O menor valor permitido é %{valor} dias"
       msg:
-        sucesso: "Grupo criado com sucesso!"
-        atualizado: "Grupo atualizado com sucesso!"
+        sucesso: "Grupo criado com sucesso! Você ainda precisa ativá-lo para que os envios começem."
+        atualizado: "Grupo atualizado com sucesso! Você ainda precisa ativá-lo para que os envios começem."
         agendado: "Envio agendado com sucesso, as mensagens começarão a ser enviadas dia %{data}"
         data_minima: "Data mínima: %{data}"
         desativado: "Grupo desativado com sucesso!"
