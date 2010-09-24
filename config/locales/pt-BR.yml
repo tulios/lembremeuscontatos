@@ -216,8 +216,10 @@
       editar: "Editar"
       remover: "Remover"
       visualizar: "Visualizar"
-      ativar: "Ativar"
-      desativar: "Desativar"
+      ativar: "Clique para Ativar"
+      desativar: "Clique para Desativar"
+      title:
+        clique_visualizar_ativar: "Clique aqui para visualizar o seu grupo e ativá-lo."
       erro:
         header_ativar: "Não foi possível ativar o Grupo"
         header_sub_ativar: "Verifique os seguintes problemas:"

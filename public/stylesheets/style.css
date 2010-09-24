@@ -374,6 +374,13 @@ a:hover {
 	font-size: 15px;
 }
 
+.grupo_box .status_acao {
+	background:none repeat scroll 0 0 brown;
+	color:white;
+	margin:10px;
+	padding:5px;
+}
+
 .grupo_box .nome a {
 	font-size: 25px;
 }

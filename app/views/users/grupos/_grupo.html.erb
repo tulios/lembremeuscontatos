@@ -12,6 +12,10 @@
 	<% end %>
 	<% if grupo.inativo? %>
 		<div class="opcoes">
+		  <% link_to users_grupo_path(grupo), :title => t("app.grupo.title.clique_visualizar_ativar") do %>
+		    <em class="status_acao round"><%= grupo.status %></em>
+		  <% end %>
+		  
 			<% link_to edit_users_grupo_path(grupo) do %>
 				<%= t "app.grupo.editar" %>
 		  <% end %>                  
