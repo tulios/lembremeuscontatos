@@ -4,6 +4,7 @@
   bundle install
 
 == Como atualizar javascripts comprimidos
-
+  
+  jammit -f --base-url http://lembremeuscontatos.com.br
   heroku jammit:add
 	heroku jammit:delete
