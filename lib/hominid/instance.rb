@@ -31,7 +31,16 @@ module Hominid
             
     def create_folder name
       base.create_folder name
-    end        
+    end
+    
+    def list_folders
+      base.folders
+    end
+    
+    def folder_exist? folder_name
+      detected = list_folders.select {|folder| folder["name"] == folder_name}
+      detected.blank? ? false : detected[0]["folder_id"]
+    end
                                    
     # Params:
     #   :subject => String - Obligatory
