@@ -375,10 +375,10 @@ a:hover {
 }
 
 .grupo_box .status_acao {
-	background:none repeat scroll 0 0 brown;
-	color:white;
-	margin:10px;
-	padding:5px;
+	background: none repeat scroll 0 0 #5B3838;
+	color: white;
+	margin: 10px 10px 10px 0px;
+	padding: 5px;
 }
 
 .grupo_box .nome a {
