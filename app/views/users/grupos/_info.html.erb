@@ -1,14 +1,14 @@
 <div class="grupo_box round shadow">
 	<%= render :partial => "users/grupos/status" %>
-</div>
-<div class="grupo_box round shadow">
+	<br/>             
+	
   <div class="nome">
   	<span class="label"><%= t ("activerecord.attributes.grupo.nome") %>:</span>
   	<br/>
   	<%= h @grupo.nome %>
-  </div>          
-</div>
-<div class="grupo_box round shadow">
+  </div>
+  <br/>
+	
   <div class="periodo inicio">
   	<span class="label"><%= t ("app.enviar") %>:</span>
   	<br/>
@@ -19,14 +19,14 @@
   		<%= @grupo.inicio_formatado %>
   	<% end %>
   </div>
-</div>
-<div class="grupo_box round shadow">
+  <br/>
+	
   <div class="mensagem">
   	<span class="label"><%= t ("activerecord.attributes.grupo.mensagem") %>:</span>
   	<br/>
   	<%= h @grupo.mensagem %>
   </div>
-</div>
-<div class="grupo_box round shadow">
+  <br/>
+	
   <%= render :partial => "users/grupos/contatos" %>
 </div>

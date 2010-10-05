@@ -1,13 +1,10 @@
 class Users::DashboardController < Users::MainController
-  include Twitter::Adapter
   
   before_filter :ajustar_conta_inicial
 
   def index
     @qtd_contatos ||= Contato.count :conditions => ["user_id = ?", current_user.id]
     @qtd_grupos ||= Grupo.count :conditions => ["user_id = ?", current_user.id]
-    
-    @follow = friendship_exists? current_user.login
   end
 
   private

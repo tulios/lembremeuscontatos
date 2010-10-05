@@ -2,11 +2,6 @@
 	<span>Plano</span>::<span class="plano_<%= current_user.plano.nome.downcase %>"><%= current_user.plano.nome %></span>
 </h1>
                          
-<% unless @follow %>
-  <div id="direct_message">
-  </div>            
-<% end %>
-
 <div id="dashboard">
 	<table>
 		<tr>
