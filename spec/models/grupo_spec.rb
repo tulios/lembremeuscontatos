@@ -24,6 +24,20 @@ describe Grupo do
     it { should respond_to :subject }
     it { should respond_to :name }
     it { should respond_to :content }
+    it { should respond_to :start_date}
+    it { should respond_to :folder_id}
+    it { should respond_to :campaign_title}
+  end
+                                       
+  context 'quando referente a formatacao' do
+    it 'deveria retornar o content com o nome do usuario' do
+      (@grupo.content =~ /#{@grupo.user.nome}/).should be_true
+      (@grupo.content =~ /#{@grupo.user.login}/).should be_true
+    end
+    
+    it { @grupo.periodicidade_formatado.should == "a cada #{@grupo.periodicidade} dias" }
+    it { @grupo.inicio_formatado.should == "começando em #{@grupo.inicio_str}" }
+    it { @grupo.status_str.should == @grupo.status.upcase }
   end
 
   context 'quando referente a ativacao' do
