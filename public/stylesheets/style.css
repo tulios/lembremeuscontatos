@@ -333,6 +333,10 @@ a:hover {
 	margin-bottom: 20px;
 }
 
+.focused {
+	background-color: #E0DFE1;
+}
+
 .field input {
 	border: 1px solid black;
 	color: black;
@@ -340,6 +344,10 @@ a:hover {
 	margin: 0px 10px 10px 10px;
 	padding: 8px;
 	width: 340px;
+}           
+
+.field input:focus {
+	background-color: #FFFFDF;
 }
 
 .field textarea {
@@ -350,6 +358,10 @@ a:hover {
 	padding: 8px;
 	width: 600px;
 	height: 200px;
+}
+
+.field textarea:focus {
+	background-color: #FFFFDF;
 }
 
 .contato_form {

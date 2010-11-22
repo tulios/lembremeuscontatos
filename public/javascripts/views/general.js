@@ -1,6 +1,8 @@
 jQuery(document).ready(function(){
 	exibeFlashMessage();
 	aplicarLoadLogin();
+	
+	$('input:not(:hidden):first').focus();
 });
   
 function exibeFlashMessage(){

@@ -6,6 +6,7 @@ jQuery(document).ready(function(){
 		overlayOpacity: 0.7,
 		autoDimensions: true, 
 		onComplete: function(){
+			$('input:not(:hidden):first').focus();
 		}
 	});
 	
