@@ -133,7 +133,7 @@ a:hover {
       
 #executando_login {
 	display: none;
-	width: 240px;
+	width: 213px;
 	color: white;
 }
 
@@ -405,6 +405,15 @@ a:hover {
 	-moz-border-radius: 5px 5px 0 0 !important; 
 	-webkit-border-radius: 5px 5px 0 0 !important; 
 	border-radius: 5px 5px 0 0 !important;
+}       
+
+.grupo_box_show .nome {
+	float: left;
+	width: auto;
+}              
+
+.grupo_box_show .opcoes {
+	margin-right: 15px;
 }
           
 .grupo_box_content {              
@@ -430,8 +439,9 @@ a:hover {
 
 .grupo_box_content table td.label {
 	text-align: right;
-	width: 10%;
+	width: auto;
 	font-weight: bold;
+	white-space: nowrap;
 }
 
 .grupo_box_content table td.mensagem {

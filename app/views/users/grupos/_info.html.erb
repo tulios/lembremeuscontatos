@@ -1,6 +1,22 @@
 <div class="grupo_box grupo_box_show round shadow">
-  <%= h @grupo.nome.capitalize %>
+  <div class="nome">
+    <%= h @grupo.nome.capitalize %>
+  </div>
   <%= render :partial => 'users/grupos/ativar_desativar' %>
+  <% if @grupo.inativo? %>
+    <div class="opcoes">
+  		<% link_to edit_users_grupo_path(@grupo) do %>
+  			<%= t "app.grupo.editar" %>
+  	  <% end %>                  
+
+  	  &nbsp;|&nbsp;
+
+  		<% link_to users_grupo_path(@grupo), :method => :delete, :confirm => "Você tem certeza?" do %>
+  			<%= t "app.grupo.remover" %>
+  		<% end %>
+  	</div>
+	<% end %>
+  <div style="clear: both;"></div>
 </div>
 <div class="grupo_box_content round">
   <table>
@@ -15,8 +31,10 @@
       	<% if @grupo.ativo? %>
       		<span class="divisor">&raquo;</span>
       		<%= @grupo.inicio_formatado %>
-      		<span class="divisor">&raquo;</span>
-      		<%= @grupo.qtd_envios_formatado %>
+      		<% unless @grupo.qtd_envios_indeterminada? %>
+        		<span class="divisor">&raquo;</span>
+        		<%= @grupo.qtd_envios_formatado %>         
+      		<% end %>
       	<% end %>
       </td>
     </tr>
@@ -29,6 +47,15 @@
       <td>
         <%= render :partial => 'users/grupos/item_contato', :collection => @grupo.contatos, :locals => {:grupo => @grupo} %>
   		</td>
+    </tr>
+    <tr>
+      <td class="label"><%= t ("activerecord.attributes.grupo.total_envios") %></td>
+      <td>
+        <%= @grupo.total_envios %>
+        <% unless @grupo.qtd_envios_indeterminada? %>
+          &nbsp;(<%= @grupo.qtd_enviada %>/<%= @grupo.qtd_envios %>)
+        <% end %>
+      </td>
     </tr>
   </table>
 	
