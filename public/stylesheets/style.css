@@ -420,10 +420,25 @@ a:hover {
 	background-color: #F5EDE9;
 }
 
-.grupo_box_content span.label {
+.grupo_box_content table {
+	width: 100%;
+}
+                           
+.grupo_box_content table td {
+	padding: 10px;
+}
+
+.grupo_box_content table td.label {
+	text-align: right;
+	width: 10%;
 	font-weight: bold;
 }
 
+.grupo_box_content table td.mensagem {
+	text-align: justify;
+	line-height: 1.2em;
+}
+                            
 .grupo_box .opcoes {
 	float: right;
 	font-size: 15px;

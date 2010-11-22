@@ -3,27 +3,33 @@
   <%= render :partial => 'users/grupos/ativar_desativar' %>
 </div>
 <div class="grupo_box_content round">
-	<%= render :partial => "users/grupos/status" %>
-	<br/>             
+  <table>
+    <tr>
+      <td class="label"><%= t ("activerecord.attributes.grupo.status") %></td>
+      <td><%= @grupo.status_str %></td>
+    </tr>
+    <tr>
+      <td class="label"><%= t ("app.enviar") %></td>
+      <td>
+        <%= @grupo.periodicidade_formatado.capitalize %>
+      	<% if @grupo.ativo? %>
+      		<span class="divisor">&raquo;</span>
+      		<%= @grupo.inicio_formatado %>
+      		<span class="divisor">&raquo;</span>
+      		<%= @grupo.qtd_envios_formatado %>
+      	<% end %>
+      </td>
+    </tr>
+    <tr>
+      <td class="label"><%= t ("activerecord.attributes.grupo.mensagem") %></td>
+      <td class="mensagem"><%= h @grupo.mensagem %></td>
+    </tr>
+    <tr>
+      <td class="label"><%= t ("app.menu.contatos") %></td>
+      <td>
+        <%= render :partial => 'users/grupos/item_contato', :collection => @grupo.contatos, :locals => {:grupo => @grupo} %>
+  		</td>
+    </tr>
+  </table>
 	
-  <div class="periodo inicio">
-  	<span class="label"><%= t ("app.enviar") %>:</span>
-  	<br/>
-	
-  	<%= @grupo.periodicidade_formatado %>
-  	<% if @grupo.ativo? %>
-  		<span class="divisor">&raquo;</span>
-  		<%= @grupo.inicio_formatado %>
-  	<% end %>
-  </div>
-  <br/>
-	
-  <div class="mensagem">
-  	<span class="label"><%= t ("activerecord.attributes.grupo.mensagem") %>:</span>
-  	<br/>
-  	<%= h @grupo.mensagem %>
-  </div>
-  <br/>
-	
-  <%= render :partial => "users/grupos/contatos" %>
 </div>

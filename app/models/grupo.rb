@@ -93,6 +93,7 @@ class Grupo < ActiveRecord::Base
   end
   
   def inicio_formatado; "começando em #{self.inicio_str}" end
+  def qtd_envios_formatado; "#{self.qtd_envios} vezes" end
   def status_str; self.status.upcase end
   def folder_id; user.folder_id end
   def adicionar_segmentos; add_segment end
