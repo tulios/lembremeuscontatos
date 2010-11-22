@@ -81,25 +81,29 @@ a:hover {
 .grupo_form .formError {
 	width: 50%;
 	color: #C00;
-	float: left;
 	margin-left: 10px;
 }         
 
 .grupo_form .fieldWithErrors {
 	width: auto;
-	float: left;
+}
+
+.grupo_form .fieldWithErrors input {
+	border: 1px solid red;
+}
+
+.grupo_form .fieldWithErrors textarea {
+	border: 1px solid red;
 }
 
 .contato_form .formError {
 	width: 50%;
 	color: #C00;
-	float: left;
 	margin-left: 10px;
 }
 
 .contato_form .fieldWithErrors {
 	width: auto;
-	float: left;
 }
 
 .body {
@@ -226,7 +230,7 @@ a:hover {
 }
 
 .awesome:active {
-	top: -1px !important;
+	top: 2px !important;
 }
 
 .awesome:hover {
@@ -286,7 +290,6 @@ a:hover {
 .yellow.awesome:hover {
 	background-color: #fc9200;
 }
-
 
 #menu {      
 	float: left;
@@ -397,6 +400,30 @@ a:hover {
 	color: black;
 }
 
+.grupo_box_show {
+	margin-bottom: 0px !important;
+	-moz-border-radius: 5px 5px 0 0 !important; 
+	-webkit-border-radius: 5px 5px 0 0 !important; 
+	border-radius: 5px 5px 0 0 !important;
+}
+          
+.grupo_box_content {              
+	-moz-border-radius: 0 0 5px 5px !important; 
+	-webkit-border-radius: 0 0 5px 5px !important; 
+	border-radius: 0 0 5px 5px !important;
+	border-left: 1px solid #FF5C00;
+	border-right: 1px solid #FF5C00;
+	border-bottom: 1px solid #FF5C00;
+	border-top: 0px !important;
+	padding: 15px 10px 5px 10px;
+	font-size: 20px;
+	background-color: #F5EDE9;
+}
+
+.grupo_box_content span.label {
+	font-weight: bold;
+}
+
 .grupo_box .opcoes {
 	float: right;
 	font-size: 15px;
@@ -414,7 +441,18 @@ a:hover {
 	padding: 5px;
 }
 
+.grupo_box_content .status_acao {
+	background: none repeat scroll 0 0 #5B3838;
+	color: white;
+	margin: 10px 10px 10px 0px;
+	padding: 5px;
+}
+
 .grupo_box .nome a {
+	font-size: 25px;
+}
+
+.grupo_box_content .nome a {
 	font-size: 25px;
 }
 
@@ -422,7 +460,15 @@ a:hover {
 	color: white;
 }                   
 
+.grupo_box_content a {
+	color: white;
+}
+
 .grupo_box a:hover {
+	color: #cdcdcd;
+}
+
+.grupo_box_content a:hover {
 	color: #cdcdcd;
 }
 
@@ -439,13 +485,22 @@ a:hover {
 	background-color: transparent;
 	border-bottom: 1px solid black;
 }        
+                  
+.grupo_box .status {
+	float: right;
+}
+
+.grupo_box .status span {
+	margin: auto !important;
+	padding: 2px 5px !important;
+}
 
 .grupo_box .status .ativar a {
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .grupo_box .status .desativar a {
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .contatos_nomes_container {
@@ -507,7 +562,7 @@ a:hover {
                  
 #form_ativar {
 	width: 40em;
-	height: 10em;
+	height: 15em;
 }
 
 #form_desativar {
@@ -517,6 +572,14 @@ a:hover {
 
 #form_ativar .data_minima {
 	font-size: 30px;
+}
+
+#form_ativar .qtd_envios {
+	font-size: 20px;
+}
+
+#form_ativar .qtd_envios strong {
+	font-weight: bold;
 }
 
 .texto {

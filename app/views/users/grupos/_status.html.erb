@@ -4,13 +4,4 @@
 	<%= @grupo.status_str %>      
 	
 	<span class="divisor">&raquo;</span>
-	<% if @grupo.inativo? %>
-		<span class="ativar status_acao round">
-			<a id="ativar" href="#form_ativar"><%= t("app.grupo.ativar") %></a>
-		</span>
-	<% elsif @grupo.ativo? %>
-		<span class="desativar status_acao round">
-			<a id="desativar" href="#form_desativar"><%= t("app.grupo.desativar") %></a>
-		</span>
- 	<% end %>
 </div>

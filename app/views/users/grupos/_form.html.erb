@@ -15,23 +15,21 @@
        
 <div class="form_container">
 	<% form_for [:users, @grupo] do |f| %>
-		<div class="grupo_form" style="float: left;">
-				<div class="field">
-					<p>
+		<div class="grupo_form">
+		    <ul>
+		      <li class="field">
 				    <%= f.label :nome %>
 						<%= f.error_message_on :nome %>
 						<br />
 				    <%= f.text_field :nome, :style => "width: 600px;" %>
-				  </p>
-	           
-					<p>
+    			</li>
+	        <li class="field">
 				    <%= f.label :mensagem %>
 						<%= f.error_message_on :mensagem %>
 						<br />       
 				    <%= f.text_area :mensagem %>
-				  </p>                        
-			
-					<p>    
+    			</li>  
+			    <li class="field">
 				    <%= f.label :periodicidade, 
 								"#{t('activerecord.attributes.grupo.periodicidade')} (Mínimo: #{current_user.plano.periodicidade_min})" 
 						%>
@@ -39,24 +37,19 @@
 						<div style="clear: both;"></div>
 						<br />       
 				    <%= f.text_field :periodicidade, :style => "width: 100px;" %>
-				  </p>                               
-		
-				</div>
-	
-				<div style="clear: both;"></div>
-	
+				  </li>
+		      <li>
+		        <%= render :partial => 'users/grupos/contato_search', :locals => {
+      				:contatos => @grupo.contatos,
+      				:grupo => @grupo
+      			}%>
+      		</li>
 				<p>
 			    <%= f.submit t("app.salvar"), :id => "submit_grupo" %>
 			  </p> 
-	
+	      </ul>
 		</div>
 
-		<div style="float: left;">
-			<%= render :partial => 'users/grupos/contato_search', :locals => {
-				:contatos => @grupo.contatos,
-				:grupo => @grupo
-			}%>
-		</div>
 	<% end %>
 	
 	<div style="clear: both;"></div>

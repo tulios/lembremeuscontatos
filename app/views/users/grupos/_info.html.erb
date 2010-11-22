@@ -1,13 +1,10 @@
-<div class="grupo_box round shadow">
+<div class="grupo_box grupo_box_show round shadow">
+  <%= h @grupo.nome.capitalize %>
+  <%= render :partial => 'users/grupos/ativar_desativar' %>
+</div>
+<div class="grupo_box_content round">
 	<%= render :partial => "users/grupos/status" %>
 	<br/>             
-	
-  <div class="nome">
-  	<span class="label"><%= t ("activerecord.attributes.grupo.nome") %>:</span>
-  	<br/>
-  	<%= h @grupo.nome %>
-  </div>
-  <br/>
 	
   <div class="periodo inicio">
   	<span class="label"><%= t ("app.enviar") %>:</span>

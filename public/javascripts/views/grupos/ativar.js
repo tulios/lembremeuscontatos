@@ -1,4 +1,7 @@
 jQuery(document).ready(function(){
+
+  $("#grupo_inicio").mask("99/99/9999");
+  $("#grupo_qtd_envios").numeric();
 	 
 	$("a#ativar").fancybox({
 		autoScale: false,

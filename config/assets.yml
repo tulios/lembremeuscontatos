@@ -24,7 +24,9 @@ javascripts:
     
   grupos_ativar:
     - public/javascripts/views/grupos/ativar.js
-      
+    - public/javascripts/plugins/maskedinput-1.2.2.js
+    - public/javascripts/plugins/alphanumeric.pack.js
+    
   grupos_desativar:
     - public/javascripts/views/grupos/desativar.js
                         

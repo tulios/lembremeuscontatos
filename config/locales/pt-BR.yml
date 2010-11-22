@@ -142,6 +142,9 @@
         periodicidade: "Periodicidade em dias"
         inicio: "Data de início"
         status: "Status"
+        qtd_envios: "Quantidade de envios"
+        qtd_enviada: "Quantidade enviada"
+        total_envios: "Total de envios"
       
       plano:
         nome: "Nome"
@@ -232,6 +235,8 @@
         agendado: "Envio agendado com sucesso, as mensagens começarão a ser enviadas dia %{data}"
         data_minima: "Data mínima: %{data}"
         desativado: "Grupo desativado com sucesso!"
+      info:
+        qtd_envios: "Deixe em branco para <strong>não limitar</strong> o nº de envios"
       
       email:
         cabecalho: "E-mail enviado por %{nome} (@%{twitter})"

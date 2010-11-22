@@ -6,6 +6,7 @@ class Users::AgendamentoController < Users::MainController
   def create
     @grupo ||= Grupo.find params[:grupo_id]
     @grupo.inicio_str = params[:inicio_str]
+    @grupo.qtd_envios = params[:qtd_envios].to_i
                       
     unless @grupo.inativo? and @grupo.ativar!
       @inicio_minimo = date_format(Grupo.inicio_minimo)
@@ -32,7 +33,7 @@ class Users::AgendamentoController < Users::MainController
   
   private
   def verificar_permissao
-    @grupo = Grupo.find params[:grupo_id]
+    @grupo ||= Grupo.find params[:grupo_id]
     authorize! :ativar_desativar, @grupo
   end
   

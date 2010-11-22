@@ -1,11 +1,5 @@
 <% content_for(:javascript) do %>
-	<%= javascript_include_tag 'plugins/maskedinput-1.2.2' %>
 	<%= include_javascripts :grupos_ativar %>
-	<%= 
- 		mask_fields({
-			:grupo_inicio => "99/99/9999"
-		})
-	%>
 <% end %>
 
 <div id="form_ativar">
@@ -23,6 +17,13 @@
 			<%= text_field_tag :inicio_str, @grupo.inicio_str, :id => "grupo_inicio", :style => "width: 120px;" %>
 			<span class="data_minima">
 				(<%= t("app.grupo.msg.data_minima", :data => @inicio_minimo) %>)
+			</span>
+			<br/>
+			<label><%= t("activerecord.attributes.grupo.qtd_envios") %></label>
+			<br/>
+			<%= text_field_tag :qtd_envios, '', :id => "grupo_qtd_envios", :style => "width: 120px;" %>
+			<span class="qtd_envios">
+				(<%= t("app.grupo.info.qtd_envios") %>)
 			</span>
 		</div>
 		<div style="clear: both;"></div>
