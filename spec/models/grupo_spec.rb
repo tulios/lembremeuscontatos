@@ -18,6 +18,13 @@ describe Grupo do
     it { should validate_presence_of :mensagem }
     it { should validate_presence_of :periodicidade }
     it { should validate_numericality_of :periodicidade }
+    it { should validate_numericality_of :qtd_envios }
+    
+    it 'qtd_envios deve ser um numero maior que zero' do
+      @grupo.qtd_envios = -1
+      @grupo.save.should be_false
+    end
+    
   end
 
   context 'quanto a presença de alias de colunas' do
@@ -50,6 +57,29 @@ describe Grupo do
       @grupo.envio_str.should == @grupo.inicio_str
     end
     
+    it "deveria manter o qtd_envios em zero, caso nao seja informado" do
+      @grupo.inicio_str = date_format(Grupo.inicio_minimo)
+      @grupo.ativar!.should be_true         
+      
+      @grupo.reload.ativo?.should be_true
+      @grupo.envio_str.should == @grupo.inicio_str
+      @grupo.qtd_envios.should == 0
+    end
+    
+    it "deveria limpar a qtd_enviada, pois esta eh apenas para o controle do qtd_envios" do
+      @grupo.qtd_enviada = 10
+      @grupo.save(false).should be_true
+      
+      @grupo.reload.qtd_enviada.should == 10
+      
+      @grupo.inicio_str = date_format(Grupo.inicio_minimo)
+      @grupo.ativar!.should be_true         
+      
+      @grupo.reload.ativo?.should be_true
+      @grupo.envio_str.should == @grupo.inicio_str
+      @grupo.qtd_enviada.should == 0
+    end
+    
   end               
                   
   context 'quando referente a pesquisa' do
@@ -72,46 +102,46 @@ describe Grupo do
     end
   end
   
-  context 'quando referente ao agendamento' do
-                                                      
-    context 'quando referente a pesquisa de grupos ativos' do
+  context 'quando referente a pesquisa de grupos ativos' do
 
-      it 'deveria recuperar os grupos ativos, agendados para data informada' do
-        data = Grupo.inicio_minimo
-      
-        # 1 grupo ativo
-        @grupo.inicio_str = date_format(data)
-        @grupo.ativar!.should be_true
-      
-        # 3 não ativos
-        3.times {Factory(:grupo)}
-      
-        grupos = Grupo.pesquisar_envios(data)
-        grupos.should_not be_nil
-        grupos.size.should == 1
-        grupos[0].id.should == @grupo.id
-      end                                                                  
+    it 'deveria recuperar os grupos ativos, agendados para data informada' do
+      data = Grupo.inicio_minimo
     
-      it 'deveria recuperar os grupos ativos, agendados para uma data calculada com a periodicidade' do
-        data = Grupo.inicio_minimo
+      # 1 grupo ativo
+      @grupo.inicio_str = date_format(data)
+      @grupo.ativar!.should be_true
+    
+      # 3 não ativos
+      3.times {Factory(:grupo)}
+    
+      grupos = Grupo.pesquisar_envios(data)
+      grupos.should_not be_nil
+      grupos.size.should == 1
+      grupos[0].id.should == @grupo.id
+    end                                                                  
+  
+    it 'deveria recuperar os grupos ativos, agendados para uma data calculada com a periodicidade' do
+      data = Grupo.inicio_minimo
+    
+      # 1 grupo ativo
+      @grupo.inicio_str = date_format(data)
+      @grupo.ativar!.should be_true
+    
+      # 3 não ativos
+      3.times {Factory(:grupo)}
       
-        # 1 grupo ativo
-        @grupo.inicio_str = date_format(data)
-        @grupo.ativar!.should be_true
+      data += @grupo.periodicidade.days
       
-        # 3 não ativos
-        3.times {Factory(:grupo)}
-        
-        data += @grupo.periodicidade.days
-        
-        grupos = Grupo.pesquisar_envios(data)
-        grupos.should_not be_nil
-        grupos.size.should == 1
-        grupos[0].id.should == @grupo.id
-      end
-      
+      grupos = Grupo.pesquisar_envios(data)
+      grupos.should_not be_nil
+      grupos.size.should == 1
+      grupos[0].id.should == @grupo.id
     end
     
+  end
+  
+  context 'quando referente ao agendamento' do
+                                                      
     it 'deveria agendar os grupos marcados para data mínima, atualizando a data de envio' do
       data = Grupo.inicio_minimo
       
@@ -134,7 +164,116 @@ describe Grupo do
       @grupo.agendado?.should be_true
     end
     
+    it 'deveria incrementar o total de envios e a qtd enviada' do
+      data = Grupo.inicio_minimo
+      
+      @grupo.inicio_str = date_format(data)
+      @grupo.ativar!.should be_true
+      @grupo.qtd_enviada.should == 0
+      @grupo.total_envios.should == 0
+                           
+      Grupo.agendar_envios!(data).should be_true
+      @grupo.reload.envio.should == data
+      @grupo.agendado?.should be_true
+      @grupo.qtd_enviada.should == 1
+      @grupo.total_envios.should == 1
+    end
+                                     
+  end
+  
+  context 'quando referente a pesquisa de desativacoes' do
+    
+    it 'deveria recuperar grupos cuja quantidade de envio ja tenha sido utilizada' do
+      data = Grupo.inicio_minimo
+    
+      # 3 não ativos
+      3.times {Factory(:grupo)}
+    
+      # 1 grupo ativo
+      @grupo.inicio_str = date_format(data)
+      @grupo.qtd_envios = 1
+      @grupo.ativar!.should be_true
+      
+      # Simulando o envio
+      Grupo.agendar_envios!(data).should be_true
+      @grupo.reload.ativo?.should be_true
+      @grupo.qtd_enviada.should == 1
+      @grupo.total_envios.should == 1
+    
+      grupos = Grupo.pesquisar_desativacoes(data)
+      grupos.should_not be_nil
+      grupos.size.should == 1
+      grupos.first.id.should == @grupo.id
+    end     
+    
+    it 'nao deveria recuperar grupos de envio indeterminado' do
+      data = Grupo.inicio_minimo
+      
+      # 3 não ativos
+      3.times {Factory(:grupo)}
+      
+      @grupo.inicio_str = date_format(data)
+      @grupo.qtd_envios = Grupo::QTD_INDETERMINADA
+      @grupo.ativar!.should be_true
+      
+      Grupo.agendar_envios!(data).should be_true
+      @grupo.reload.total_envios.should == 1
+      
+      grupos = Grupo.pesquisar_desativacoes(data)
+      grupos.should be_blank
+    end
+    
+  end
+  
+  context 'quando referente a desativacao dos grupos enviados cuja quantidade de envios ja tenha sido utilizada' do
+    
+    it 'deveria desativar os grupos enviados ontem' do
+      data = Grupo.inicio_minimo
+    
+      # 3 não ativos
+      3.times {Factory(:grupo)}
+    
+      # 1 grupo ativo
+      @grupo.inicio_str = date_format(data)
+      @grupo.qtd_envios = 1
+      @grupo.ativar!.should be_true
+      
+      # Simulando o envio
+      Grupo.agendar_envios!(data).should be_true
+      @grupo.reload.ativo?.should be_true
+      @grupo.qtd_enviada.should == 1
+      @grupo.total_envios.should == 1
+    
+      Grupo.count(:conditions => ["status = ?", Grupo.status_inativo]).should == 3
+      
+      Grupo.desativar_enviados!(data).should be_true
+      Grupo.count(:conditions => ["status = ?", Grupo.status_inativo]).should == 4
+      @grupo.reload.inativo?.should be_true
+      @grupo.total_envios.should == 1
+    end
+    
   end
   
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

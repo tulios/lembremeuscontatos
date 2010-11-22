@@ -10,6 +10,31 @@ class User < TwitterAuth::GenericUser
   def folder_name
     "#{self.twitter_id}-#{self.login}"
   end
-
+     
+  def finalizar_cadastro!
+    configurar_mailchimp_folder!
+    configurar_plano!
+    self.save!
+  end
+  
+  def cadastro_completo?
+    self.folder_id and self.plano
+  end
+  
+  private
+  def configurar_plano!
+    self.plano = Plano.gratuito unless self.plano
+  end
+  
+  def configurar_mailchimp_folder!
+    mailchimp_folder_id = Hominid::Loader.instance.folder_exist? self.folder_name
+    
+    unless mailchimp_folder_id
+      self.folder_id = Hominid::Loader.instance.create_folder(self.folder_name)
+    else
+      self.folder_id = mailchimp_folder_id
+    end
+  end
+  
 end
 

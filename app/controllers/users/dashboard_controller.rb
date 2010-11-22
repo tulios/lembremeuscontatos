@@ -10,20 +10,7 @@ class Users::DashboardController < Users::MainController
   private
 
   def ajustar_conta_inicial
-    unless current_user.folder_id or current_user.plano
-      
-      folder_id = Hominid::Loader.instance.folder_exist? current_user.folder_name
-      
-      unless folder_id
-        current_user.folder_id = Hominid::Loader.instance.create_folder(current_user.folder_name)
-      else
-        current_user.folder_id = folder_id
-      end
-
-      # Configura o plano
-      current_user.plano = Plano.gratuito
-      current_user.save!
-    end
+    current_user.finalizar_cadastro! unless current_user.cadastro_completo?
   end
 
 end

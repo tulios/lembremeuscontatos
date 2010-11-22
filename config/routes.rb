@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   Jammit::Routes.draw(map)
   
   map.namespace(:users) do |user|
-    user.resources :dashboard, :only => :index
+    user.resources :dashboard, :path_prefix => '/users/:login', :only => :index
     
     user.pelo_nome '/contatos/pelo_nome', :controller => :contatos, :action => :pelo_nome
     user.resources :contatos

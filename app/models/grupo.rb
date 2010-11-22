@@ -3,6 +3,8 @@ class Grupo < ActiveRecord::Base
   include LembreMeusContatos::Converters
   include LembreMeusContatos::StateMachineSupport
   include Hominid::Adapter       
+                       
+  QTD_INDETERMINADA = 0
   
   #--
   # Associacoes =================================================================================================  
@@ -13,18 +15,25 @@ class Grupo < ActiveRecord::Base
   has_many :contatos, :through => :grupos_contatos, :order => "nome asc"
   
   #--
+  # Callbacks ===================================================================================================  
+  #++
+  
+  before_validation :inicializar_total_envios, :inicializar_qtd_envios
+  
+  #--
   # Validacoes ==================================================================================================  
   #++
   
   validates_presence_of :user_id, :nome, :mensagem, :periodicidade
-  validates_numericality_of :periodicidade, :only_integer => true
+  validates_numericality_of :periodicidade, :only_integer => true, :greater_than => 0
+  validates_numericality_of :qtd_envios, :only_integer => true, :greater_than_or_equal_to => 0
   validate :periodicidade_minima
   
   #--
   # Configuracoes ===============================================================================================
   #++
   
-  attr_protected :user_id
+  attr_protected :user_id, :total_envios, :qtd_enviada
   act_as_virtual_date :inicio, :envio
   
   alias_column :original => 'nome', :new => 'subject'
@@ -51,7 +60,7 @@ class Grupo < ActiveRecord::Base
     transitions :from => [:inativo], 
                 :to => :ativo, 
                 :guard => :pode_ativar?,
-                :on_transition => [:agendar_envio]
+                :on_transition => [:limpar_qtd_enviada, :agendar_envio]
   end                                              
   
   aasm_event :desativar do
@@ -77,6 +86,10 @@ class Grupo < ActiveRecord::Base
   
   def emails
     self.contatos(:force_reload => true).collect {|contato| contato.email}
+  end
+  
+  def qtd_envios_indeterminada?
+    self.qtd_envios == QTD_INDETERMINADA
   end
   
   def inicio_formatado; "começando em #{self.inicio_str}" end
@@ -110,13 +123,49 @@ class Grupo < ActiveRecord::Base
     grupos = Grupo.pesquisar_envios(data)
     grupos.each do |grupo|
       grupo.envio = data
+      grupo.qtd_enviada += 1
+      grupo.total_envios += 1
+      
       grupo.save!
       grupo.schedule_campaign
     end
     
     true
   rescue => e                           
-    RAILS_DEFAULT_LOGGER.error e.message
+    Rails.logger.error e.message
+    return false
+  end
+  
+  # Recupera os grupos cuja qtd_envios > qtd_enviada e que nao sejam de envio indeterminado,
+  # ou seja, qtd_envios = 0
+  #
+  def self.pesquisar_desativacoes data = Date.today, indeterminada = QTD_INDETERMINADA
+    Grupo.find(
+      :all, :conditions => [
+        %Q{
+          (envio + (periodicidade * '1 day'::interval) = ? or envio = ?) and 
+          status = ? and 
+          agendado = ? and
+          qtd_envios > ? and
+          qtd_enviada >= qtd_envios
+        }, 
+        data, data, Grupo.status_ativo, true, indeterminada
+      ]
+    )
+  end
+    
+  # E desativa, pois o agendamento no mailChimp foi feito a 2 dias e
+  # eles serao enviados exatamente hoje.
+  #
+  def self.desativar_enviados! data = (Date.today - 1.day.to_date) # Grupos enviados ontem
+      grupos = Grupo.pesquisar_desativacoes(data)
+      grupos.each do |grupo|
+        grupo.desativar!
+      end
+
+      true
+  rescue => e                           
+    Rails.logger.error e.message
     return false
   end
   
@@ -168,19 +217,31 @@ class Grupo < ActiveRecord::Base
     self.agendado = true
   end
   
+  def limpar_qtd_enviada
+    self.qtd_enviada = 0
+  end
+  
   def interromper_agendamento
     self.inicio = nil
     self.envio = nil
     if self.agendado?
       self.agendado = false   
       
-      # Defaz o agendamento no mailchimp se ele tiver sido feito    
-      self.unschedule_or_recreate_campaign 
+      # Desfaz o agendamento no mailchimp se ele tiver sido feito    
+      self.unschedule_or_recreate_campaign unless Rails.env.test?
     end
   end
   
   def inicio_to_datetime
     self.inicio.to_datetime.in_time_zone(Time.zone.name) if self.inicio
+  end
+  
+  def inicializar_total_envios
+    self.total_envios = 0 unless self.total_envios
+  end
+  
+  def inicializar_qtd_envios
+    self.qtd_envios = 0 unless self.qtd_envios
   end
   
 end

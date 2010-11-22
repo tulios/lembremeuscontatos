@@ -129,7 +129,7 @@ a:hover {
       
 #executando_login {
 	display: none;
-	width: 210px;
+	width: 240px;
 	color: white;
 }
 
@@ -142,6 +142,7 @@ a:hover {
 	padding-top: 10px;
 	margin-top: -7px;
 	margin-right: 3px;
+	text-align: left;
 }
 
 #login {

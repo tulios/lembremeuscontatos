@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100904144312) do
+ActiveRecord::Schema.define(:version => 20101122094712) do
 
   create_table "contatos", :force => true do |t|
     t.integer  "user_id"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(:version => 20100904144312) do
     t.boolean  "agendado"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "qtd_envios"
+    t.integer  "qtd_enviada"
+    t.integer  "total_envios"
   end
 
   create_table "grupos_contatos", :force => true do |t|
