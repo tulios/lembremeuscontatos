@@ -1,9 +1,9 @@
 <% unless logged_in? %>
 	<div id="login">
 		<% link_to login_url, :id => "link_login", 
-													:class => "twitter-connect login_with_twitter",
+													:class => "large strong_blue awesome",#"twitter-connect login_with_twitter",
 													:title => "Login with Twitter" do %>
-		  <span>Login with twitter</span>
+		  <span>Login com <strong>Twitter</strong></span>
 		<% end %>                 
 		<div id="executando_login">
 			<div id="img"><%= image_tag 'icons/load_32.gif' %></div>
