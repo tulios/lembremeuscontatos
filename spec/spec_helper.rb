@@ -52,3 +52,47 @@ Spec::Runner.configure do |config|
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end
+                                                               
+# FakeWeb.allow_net_connect = false
+# FakeWeb.register_uri(
+#   :post, 
+#   'https://twitter.com:443/oauth/request_token', 
+#   :body => 'oauth_token=testkey&oauth_token_secret=testsecret'
+# )
+# 
+# FakeWeb.register_uri(
+#   :post, 
+#   'https://twitter.com:443/oauth/access_token', 
+#   :body => 'oauth_token=testkey&oauth_token_secret=testsecret'
+# )
+# 
+# FakeWeb.register_uri(
+#   :get, 
+#   'https://twitter.com:443/account/verify_credentials.json', 
+#   :response => File.join(RAILS_ROOT, 'spec', 'resources', 'verify_credentials.json')
+# )
+
+def login user
+  controller.send 'current_user=', user
+  controller.send(:logged_in?).should be_true
+  user
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
