@@ -27,6 +27,11 @@ class User < TwitterAuth::GenericUser
   end
   
   def configurar_mailchimp_folder!
+    if Rails.env.test?
+      self.folder_id = 1
+      return
+    end
+    
     mailchimp_folder_id = Hominid::Loader.instance.folder_exist? self.folder_name
     
     unless mailchimp_folder_id

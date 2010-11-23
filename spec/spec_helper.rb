@@ -78,6 +78,11 @@ def login user
   user
 end
 
+def current_user
+  controller.send(:current_user)
+end
+
+
 
 
 
