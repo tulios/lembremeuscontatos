@@ -7,7 +7,8 @@ javascripts:
     - public/javascripts/application.js
     - public/javascripts/views/general.js
     
-  contatos_index:
+  contatos_index:                       
+    - public/javascripts/plugins/jquery.fancybox-1.3.1.js
     - public/javascripts/views/contatos/index.js
   
   contatos_create:
@@ -20,12 +21,13 @@ javascripts:
     - public/javascripts/views/grupos/form.js
     
   grupos_contato_seach:
+    - public/javascripts/plugins/jquery.fancybox-1.3.1.js
     - public/javascripts/views/grupos/item_contato.js
     
   grupos_ativar:
     - public/javascripts/views/grupos/ativar.js
-    - public/javascripts/plugins/maskedinput-1.2.2.js
-    - public/javascripts/plugins/alphanumeric.pack.js
+    - public/javascripts/plugins/jquery.maskedinput-1.2.2.js
+    - public/javascripts/plugins/jquery.alphanumeric.js
     
   grupos_desativar:
     - public/javascripts/views/grupos/desativar.js

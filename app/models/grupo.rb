@@ -155,8 +155,8 @@ class Grupo < ActiveRecord::Base
     )
   end
     
-  # E desativa, pois o agendamento no mailChimp foi feito a 2 dias e
-  # eles serao enviados exatamente hoje.
+  # Desativa os grupos cuja quantidade de envios ja tenha sido satisfeita. Recupera os grupos em
+  # today - 1.day pois o agendamento no mailChimp foi feito a 2 dias e vamos manter 1 dia de folga.
   #
   def self.desativar_enviados! data = (Date.today - 1.day.to_date) # Grupos enviados ontem
       grupos = Grupo.pesquisar_desativacoes(data)
