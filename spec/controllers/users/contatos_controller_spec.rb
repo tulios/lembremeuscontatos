@@ -120,6 +120,17 @@ describe Users::ContatosController do
     
   end
   
+  context 'quando referente a operacoes sem usuario logado' do
+    
+    it { get :index; response.should redirect_to(login_path) }
+    it { get :index_ajax; response.should redirect_to(login_path) }
+    it { get :new; response.should redirect_to(login_path) }
+    it { get :pelo_nome; response.should redirect_to(login_path) }
+    it { post :create; response.should redirect_to(login_path) }
+    it { delete :destroy; response.should redirect_to(login_path) }
+    
+  end
+  
 end
 
 
