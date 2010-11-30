@@ -3,6 +3,8 @@ jQuery(document).ready(function(){
 	adicionarAutoCompleteDeContato();
 	aplicarBloquearBotaoESubmeterForm();
 	
+  $("#grupo_periodicidade").numeric();
+	
 });
 
 function aplicarBloquearBotaoESubmeterForm(){
@@ -53,7 +55,7 @@ function adicionarContato(id, nome){
 
 	// Se ainda não tiver sido associado, adiciona
 	if ($("#" + idDiv, container).length == 0) {
-		var remover = "<a href='#' id='link_"+idDiv+"'>remover</a>";
+		var remover = "<a href='#' id='link_" + idDiv + "'>remover</a>";
 		var item = $(
 			"<div id='" + idDiv + "'>" +
 			"<input type='hidden' value='" + id + "' name='contatos[]'/>" + 

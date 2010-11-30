@@ -96,7 +96,7 @@ class Grupo < ActiveRecord::Base
   def qtd_envios_formatado; "#{self.qtd_envios} vezes" end
   def status_str; self.status.upcase end
   def folder_id; user.folder_id end
-  def adicionar_segmentos; add_segment end
+  def adicionar_segmentos; add_segment unless Rails.env.test? end
   def campaign_title; "#{self.user.folder_name}-#{self.nome}" end
   
   # Recupera os grupos ativos, agendados, e que devem ser enviados na data informada, com base na periodicidade cadastrada.

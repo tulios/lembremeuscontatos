@@ -17,7 +17,8 @@ javascripts:
   contatos_form:  
     - public/javascripts/views/contatos/form.js
   
-  grupos_form:
+  grupos_form:                               
+    - public/javascripts/plugins/jquery.alphanumeric.js
     - public/javascripts/views/grupos/form.js
     
   grupos_contato_seach:
@@ -25,9 +26,9 @@ javascripts:
     - public/javascripts/views/grupos/item_contato.js
     
   grupos_ativar:
-    - public/javascripts/views/grupos/ativar.js
     - public/javascripts/plugins/jquery.maskedinput-1.2.2.js
     - public/javascripts/plugins/jquery.alphanumeric.js
+    - public/javascripts/views/grupos/ativar.js
     
   grupos_desativar:
     - public/javascripts/views/grupos/desativar.js

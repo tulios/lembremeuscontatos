@@ -3,6 +3,7 @@ class Users::GruposController < Users::MainController
   
   before_filter :verificar_permissao_criacao, :only => [:new, :create]
   before_filter :verificar_permissao_atualizacao, :only => [:edit, :update, :destroy]
+  before_filter :verificar_permissao_visualizacao, :only => :show
   
   def index
     @grupos = Grupo.pesquisar(
@@ -19,17 +20,19 @@ class Users::GruposController < Users::MainController
   def create           
     @grupo = Grupo.new params[:grupo]
     @grupo.user = current_user
-    
-    unless @grupo.save
-      render :action => :new
-      return
-    end     
-             
-    associar_contatos
-    @grupo.adicionar_segmentos
-    
+
+    ActiveRecord::Base::transaction do
+      @grupo.save!
+      associar_contatos
+      @grupo.adicionar_segmentos
+    end
+
     flash[:notice] = t("app.grupo.msg.sucesso")
-    redirect_to :action => :index
+    redirect_to :action => :index       
+    
+  rescue ActiveRecord::ActiveRecordError
+    @contatos_temporarios = Contato.find(params[:contatos]) if params[:contatos]
+    render :action => :new
   end
   
   def edit
@@ -38,21 +41,23 @@ class Users::GruposController < Users::MainController
   
   def update
     @grupo ||= Grupo.find params[:id]
-    
-    unless @grupo.update_attributes(params[:grupo])
-      render :action => :edit
-      return
+              
+    ActiveRecord::Base::transaction do
+      @grupo.update_attributes!(params[:grupo])
+      associar_contatos
+      @grupo.adicionar_segmentos
     end
-    
-    associar_contatos
-    @grupo.adicionar_segmentos
     
     flash[:notice] = t("app.grupo.msg.atualizado")
     redirect_to :action => :index
+    
+  rescue ActiveRecord::ActiveRecordError
+    @contatos_temporarios = Contato.find(params[:contatos]) if params[:contatos]
+    render :action => :edit
   end
   
   def show
-    @grupo = Grupo.find params[:id]
+    @grupo ||= Grupo.find params[:id]
     @inicio_minimo = date_format(Grupo.inicio_minimo)
   end
 
@@ -73,12 +78,17 @@ class Users::GruposController < Users::MainController
     authorize! params[:action].intern, @grupo
   end
   
+  def verificar_permissao_visualizacao
+    @grupo = Grupo.find params[:id]
+    authorize! :show, @grupo
+  end
+  
   def associar_contatos
-    if params[:contatos]
-      Contato.find(params[:contatos]).each do |contato|
-        GrupoContato.create(:grupo => @grupo, :contato => contato) unless @grupo.contatos.member? contato
-      end
-    end                   
+    contatos = params[:contatos] ? Contato.find(params[:contatos]) : []
+    contatos.each do |contato|
+      authorize! :associar, contato
+      GrupoContato.create(:grupo => @grupo, :contato => contato) unless @grupo.contatos.member? contato
+    end
   end
   
 end

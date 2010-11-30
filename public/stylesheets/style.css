@@ -458,7 +458,8 @@ a:hover {
 
 .grupo_box_content table td.mensagem {
 	text-align: justify;
-	line-height: 1.2em;
+	line-height: 1.2em;               
+	width: 90%;
 }
                             
 .grupo_box .opcoes {

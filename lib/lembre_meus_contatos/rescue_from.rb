@@ -34,7 +34,7 @@ module LembreMeusContatos
         output << "\n============================ /BadBehavior ===========================\n"
         
         logger.error output
-        puts "#{output}\nparams: #{params.inspect}" if Rails.env.test? or Rails.env.development?
+        puts "#{output}\nparams: #{params.inspect}" if Rails.env.development?
         
         render :template => 'errors/bad_behavior', :locals => {:error => exception}
       end

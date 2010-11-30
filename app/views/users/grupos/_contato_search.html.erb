@@ -13,4 +13,7 @@
 	<% if defined? contatos and defined? grupo %>
 		<%= render :partial => 'users/grupos/item_contato', :collection => contatos, :locals => {:grupo => grupo} %>
 	<% end %>
+	<% if defined? contatos_temporarios and contatos_temporarios %>
+	  <%= render :partial => 'users/grupos/item_contato_temporario', :collection => contatos_temporarios %>
+	<% end %>
 </div>

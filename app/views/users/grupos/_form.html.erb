@@ -3,14 +3,7 @@
 <% end %>                                                     
 
 <% content_for(:javascript) do %>
-	<%= javascript_include_tag 'plugins/alphanumeric.pack' %>
 	<%= include_javascripts :grupos_form %>
-	
-	<%= 
-		alphanumeric({
-			:grupo_periodicidade => "numeric()"
-		})
-	%>
 <% end %>
        
 <div class="form_container">
@@ -41,6 +34,7 @@
 		      <li>
 		        <%= render :partial => 'users/grupos/contato_search', :locals => {
       				:contatos => @grupo.contatos,
+      				:contatos_temporarios => @contatos_temporarios,
       				:grupo => @grupo
       			}%>
       		</li>

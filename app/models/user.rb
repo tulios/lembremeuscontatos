@@ -7,6 +7,8 @@ class User < TwitterAuth::GenericUser
   
   belongs_to :plano
   
+  validates_presence_of :plano_id
+  
   def folder_name
     "#{self.twitter_id}-#{self.login}"
   end
