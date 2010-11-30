@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
   end
 
   def oauth_callback
-    unless session[:request_token] && session[:request_token_secret] 
+    unless session[:request_token] && session[:request_token_secret]
       authentication_failed('No authentication information was found in the session. Please try again.') and return
     end
 

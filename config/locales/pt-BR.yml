@@ -194,6 +194,7 @@
     login_executando: "Conectando com o Twitter"
     login_sucesso: "Bem vindo!"
     login_erro: "Falha ao realizar login pelo twitter, por favor, tente novamente."
+    login_nao_autorizado: "Login não autorizado pelo Twitter."
             
     textos:
       ativando_grupo: "Nós pedimos, no mínimo, 48 horas para o envio dos e-mails."

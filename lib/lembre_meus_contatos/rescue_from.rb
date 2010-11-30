@@ -16,11 +16,14 @@ module LembreMeusContatos
       def tratar_standard_error exception
         output = ""
         output << "\n============================ Erro ============================\n"
-        output << "\n\n#{DateTime.now} - Erro inesperado:\n#{exception}\n\n"
+        output << "\n\n#{DateTime.now} - Erro inesperado:\n#{exception.message}\n\n"
         output << "\n============================ /Erro ===========================\n"
 
         logger.error output
-        puts "#{output}\nparams: #{params.inspect}" if Rails.env.test? or Rails.env.development?
+        if Rails.env.test? or Rails.env.development?
+          puts exception.inspect
+          puts "#{output}\nparams: #{params.inspect}"
+        end
       
         render :template => 'errors/standard', :locals => {:error => exception}
       end

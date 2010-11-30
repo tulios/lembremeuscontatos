@@ -4,7 +4,7 @@
 
 <% if can? :create, Grupo %>
 	<div id="div_novo_grupo">
-		<% link_to new_users_grupo_path, :class => "novo_grupo", :id => "novo" do %>
+		<% link_to new_users_grupo_path, :class => "novo_grupo botao_novo", :id => "novo" do %>
 			<%= t "app.grupo.novo" %>
 		<% end %>              
 	</div>

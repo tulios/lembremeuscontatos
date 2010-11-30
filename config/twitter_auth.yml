@@ -6,7 +6,7 @@ development:
   authorize_path: "/oauth/authenticate"
   api_timeout: 10
   remember_for: 14 # days
-  oauth_callback: "http://localhost:3000/oauth_callback"
+  oauth_callback: "http://lembremeuscontatos.local/oauth_callback"
   
 test:
   strategy: oauth

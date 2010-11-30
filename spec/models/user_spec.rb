@@ -17,9 +17,9 @@ describe User do
     it { should validate_uniqueness_of(:twitter_id).with_message(/ID has already been taken/) }
   end
 
-  context 'quando referente ao plano basico do usuario' do
-    it { should validate_presence_of :plano_id }
-  end
+  # context 'quando referente ao plano basico do usuario' do
+  #   it { should validate_presence_of :plano_id }
+  # end
   
   context 'quando referente a um diretorio no mailchimp' do
     it { should respond_to :folder_id}
