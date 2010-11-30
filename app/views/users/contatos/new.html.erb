@@ -1,9 +1,7 @@
 <%= include_javascripts :contatos_form %>
 
 <div class="contato_form">
-	<h2>
-		<%= t "activerecord.models.contato" %>
-	</h2>        
+	<h2><%= t "activerecord.models.contato" %></h2>        
 	
 	<% form_for [:users, @contato] do |f| %>
 	
