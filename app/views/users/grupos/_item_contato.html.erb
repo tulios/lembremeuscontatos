@@ -1,5 +1,5 @@
 <div id="contato_<%= item_contato.id %>" class="item_contato_box round permanente">
-	<span class="nome"><%= item_contato.nome %> &raquo; <%= item_contato.email %></span>
+	<span class="nome"><%= item_contato.nome %> > <%= item_contato.email %></span>
 	<% if grupo.inativo? %>
 		<span class="opcoes">
 			<%= link_to t("app.grupo_contato.remover"),

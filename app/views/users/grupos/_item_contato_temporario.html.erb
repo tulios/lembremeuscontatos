@@ -1,6 +1,6 @@
 <div id="contato_<%= item_contato_temporario.id %>" class="item_contato_box round temporario">
   <input type='hidden' value="<%= item_contato_temporario.id %>" name="contatos[]"/> 
-	<span><%= item_contato_temporario.nome %></span>
+	<span><%= item_contato_temporario.nome %> > <%= item_contato_temporario.email %></span>
 	<span class="opcoes">
     <a href="#" id="link_contato_<%= item_contato_temporario.id %>">remover</a>
 	</span>
