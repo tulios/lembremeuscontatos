@@ -8,3 +8,10 @@
   jammit -f --base-url http://lembremeuscontatos.com.br
   heroku jammit:add
 	heroku jammit:delete
+	
+== Deploy
+
+  heroku maintenance:on
+  git push heroku master
+  heroku rake db:migrate
+  heroku maintenance:off
