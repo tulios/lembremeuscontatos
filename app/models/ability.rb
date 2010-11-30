@@ -16,6 +16,9 @@ class Ability
     end
     can :ativar_desativar, Grupo, :user_id => user.id
     can :show, Grupo, :user_id => user.id
+    
+    # GrupoContato
+    can :destroy, GrupoContato, :grupo => {:user_id => user.id}, :contato => {:user_id => user.id}
   end
 
 end
