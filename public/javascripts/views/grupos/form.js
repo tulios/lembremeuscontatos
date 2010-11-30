@@ -41,8 +41,8 @@ function consultarNomes(request, response){
 function mapearJSON(data) {
 	return $.map(data, function(json) {
 	  return {
-		  label: json.contato.nome,
-			value: json.contato.nome,
+		  label: json.contato.nome + ' &raquo; ' + json.contato.email,
+			value: json.contato.nome + ' &raquo; ' + json.contato.email,
 			id: json.contato.id
 		}
 	})
