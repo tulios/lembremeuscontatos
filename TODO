@@ -2,3 +2,4 @@
 - Pedir permissão de escrita no twitter para enviar lembrete por mensagem direta
 - Separar grupo de grupo de contatos
 - One Click cria grupo e agenda envio
+- MailChimp só aceita segmentos de até 10 contatos, pensar uma forma de remediar isso!

@@ -10,6 +10,7 @@ class User < TwitterAuth::GenericUser
   def folder_name
     "#{self.twitter_id}-#{self.login}"
   end
+  alias :grouping_name :folder_name
      
   def finalizar_cadastro!
     configurar_mailchimp_folder!

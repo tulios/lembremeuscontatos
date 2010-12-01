@@ -83,9 +83,13 @@ class Grupo < ActiveRecord::Base
   def periodicidade_formatado
     "a cada #{self.periodicidade} dias" if periodicidade
   end                           
+                                        
+  def contacts
+    self.contatos(:force_reload => true)
+  end
   
   def emails
-    self.contatos(:force_reload => true).collect {|contato| contato.email}
+    contacts.collect {|contato| contato.email}
   end
   
   def qtd_envios_indeterminada?
@@ -98,6 +102,7 @@ class Grupo < ActiveRecord::Base
   def folder_id; user.folder_id end
   def adicionar_segmentos; add_segment unless Rails.env.test? end
   def campaign_title; "#{self.user.folder_name}-#{self.nome}" end
+  def grouping_holder; user end
   
   # Recupera os grupos ativos, agendados, e que devem ser enviados na data informada, com base na periodicidade cadastrada.
   # ex:

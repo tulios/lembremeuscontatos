@@ -5,38 +5,77 @@ module Hominid
     def self.included(klass)
       klass.extend ClassMethods
     end
+    
+    def instance
+      Hominid::Loader.instance
+    end
                              
     # Add a new member in mail chimp list
+    # Params:
+    #   grouping_opt (Hash)
     #
-    def add_contact
+    def add_contact contact = self, grouping_opt = nil
       params = {}
     
-      if self.name
-        f = self.name.split(/\s+/) if self.name
+      if contact.name
+        f = contact.name.split(/\s+/) if contact.name
         params[:FNAME] = f[0] if f and f[0]
         params[:LNAME] = f[1..f.length].join(" ") if f and f[1]
       end
+      
+      if grouping_opt
+        groups = instance.member_groups(contact.email)
+        groups << grouping_opt[:groups]
+                                  
+        params[:GROUPINGS] = []
+        params[:GROUPINGS] << {
+            :id => grouping_opt[:grouping_id],
+            :groups => groups.join(',')
+        }
+      end
 
-      Hominid::Loader.instance.subscribe self.email, params unless defined? @prevent_subscribe
+      instance.subscribe contact.email, params unless defined? @prevent_subscribe
     end
     
     # Remove a member of mail chimp list
     #
     def remove_contact
-      Hominid::Loader.instance.unsubscribe self.email unless defined? @prevent_unsubscribe
+      instance.unsubscribe self.email unless defined? @prevent_unsubscribe
     end
     
     def find_campaign
       return nil if Rails.env.test?
       return nil unless self.campaign_id
-      Hominid::Loader.instance.find_campaign(self.campaign_id)
+      instance.find_campaign(self.campaign_id)
     end
-       
+                 
+    def create_group
+      unless self.grouping_holder.grouping_id
+        
+        mailchimp_grouping_id = instance.grouping_exist? self.grouping_holder.grouping_name
+
+        unless mailchimp_grouping_id
+          self.grouping_holder.grouping_id = instance.create_grouping(self.grouping_holder.grouping_name, [self.subject])
+        else
+          self.grouping_holder.grouping_id = mailchimp_grouping_id
+          instance.create_group(self.subject, self.grouping_holder.grouping_id)
+        end            
+        self.grouping_holder.save!
+        
+      else
+        instance.create_group(self.subject, self.grouping_holder.grouping_id)
+      end
+    end   
+    
+    # Cria ou atualiza uma campanha. Cria ou atualiza um grouping e um grupo.
+    #   
     def add_or_update_campaign
       campaign = find_campaign
                       
       if campaign.nil?
-        self.campaign_id = Hominid::Loader.instance.create_campaign({
+        create_group
+        
+        self.campaign_id = instance.create_campaign({
           :subject => self.subject,
           :title => self.campaign_title,
           :from_name => self.name,
@@ -46,45 +85,58 @@ module Hominid
         self.save!
         
       elsif campaign['status'] != 'sent' and campaign['status'] != 'schedule'
-        Hominid::Loader.instance.update_campaign(self.campaign_id, "subject", self.subject)
-        Hominid::Loader.instance.update_campaign(self.campaign_id, "content", {:html_content => self.content})
+        if campaign['subject'] != self.subject
+          instance.update_group(campaign['subject'], self.subject)
+        end
+        instance.update_campaign(self.campaign_id, "subject", self.subject)
+        instance.update_campaign(self.campaign_id, "content", {:html_content => self.content})
       end
     end
     
-    def add_segment
-      emails_for_segmentation = self.emails
-      if emails_for_segmentation and (not emails_for_segmentation.empty?)
-        Hominid::Loader.instance.create_segment(self.campaign_id, emails_for_segmentation) unless Rails.env.test?
+    def add_segment contacts = self.contacts, subject = self.subject, grouping_id = self.grouping_holder.grouping_id
+      unless contacts.blank?
+        grouping_opt = {
+          :grouping_id => grouping_id,
+          :groups => subject
+        }
+
+        contacts.each do |contact|
+          add_contact contact, grouping_opt
+        end
+        
+        instance.create_segment_groups(self.campaign_id, grouping_id, [subject])
       end
     end
     
     def segments_correct?                              
       return true if Rails.env.test?
-      Hominid::Loader.instance.segment_test self.emails
+      #instance.segment_test self.emails
+      instance.segment_test_group self.grouping_holder.grouping_id, self.subject
     end  
     
     def remove_campaign
       return true if Rails.env.test?
-      Hominid::Loader.instance.remove_campaign(self.campaign_id)
+      instance.remove_campaign(self.campaign_id)
+      instance.remove_group(self.subject)
     end                 
     
     def schedule_campaign
       return true if Rails.env.test?
       recreate_campaign
-      Hominid::Loader.instance.schedule_campaign(self.campaign_id, self.start_date)
+      instance.schedule_campaign(self.campaign_id, self.start_date)
     end                
     
     def unschedule_campaign
       return true if Rails.env.test?
       campaign = find_campaign
       if campaign and campaign['status'] == "schedule"
-        Hominid::Loader.instance.unschedule_campaign(self.campaign_id)
+        instance.unschedule_campaign(self.campaign_id)
       end
     end
     
     def replicate_campaign
-      new_campaign_id = Hominid::Loader.instance.replicate_campaign(self.campaign_id)
-      Hominid::Loader.instance.update_campaign(new_campaign_id, "folder_id", self.folder_id)
+      new_campaign_id = instance.replicate_campaign(self.campaign_id)
+      instance.update_campaign(new_campaign_id, "folder_id", self.folder_id)
       new_campaign_id
     end
     
@@ -97,7 +149,7 @@ module Hominid
         
         new_campaign_id = replicate_campaign
         if new_campaign_id
-          Hominid::Loader.instance.delete_campaign self.campaign_id
+          instance.delete_campaign self.campaign_id
           self.campaign_id = new_campaign_id
           self.save!
           return true
