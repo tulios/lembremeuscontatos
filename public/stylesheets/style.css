@@ -94,6 +94,18 @@ a:hover {
 
 .grupo_form .fieldWithErrors textarea {
 	border: 1px solid red;
+}          
+
+.grupo_form #grupo_nome {
+	width: 600px;
+}              
+
+.grupo_form #grupo_periodicidade {
+	width: 100px;
+}              
+
+#contato_search_field {
+	width: 600px;
 }
 
 .contato_form .formError {
@@ -107,9 +119,9 @@ a:hover {
 }
 
 .body {
-	height:auto !important;
-	margin:0 auto -324px;
-	min-height:100%;
+	height: auto !important;
+	margin: auto; /*0 auto -324px;*/
+	min-height: 100%;
 }
  
 #header {
@@ -160,11 +172,15 @@ a:hover {
 	float: right;
 	text-align: center;
 	margin: 0px;
-	margin-right: 0px;
+	margin-right: 1px;
 	margin-top: -9px !important;
 }                  
 #user_date #img {
 	float: left;
+	border: 1px solid #D7D7D7;
+  padding: 2px;
+  position: relative;
+  top: -2px;
 }
              
 #user_date #options {
@@ -202,10 +218,8 @@ a:hover {
 	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
 	padding: 10px;
 	margin: auto;
-	margin-top: 10px;
-	margin-left: 20px;
-	margin-right: 20px;
-	background-color: #eaeaea;
+	margin: 20px;
+	background-color: #EAEAEA;
 	width: auto;
 	min-height: 100px;
 }

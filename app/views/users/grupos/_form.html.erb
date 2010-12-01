@@ -1,5 +1,5 @@
 <% content_for(:css) do %>
-	<%= stylesheet_link_tag "smoothness/jquery-ui-1.8.custom" %>
+	<%= include_stylesheets :jquery_ui %>
 <% end %>                                                     
 
 <% content_for(:javascript) do %>
@@ -14,7 +14,7 @@
 				    <%= f.label :nome %>
 						<%= f.error_message_on :nome %>
 						<br />
-				    <%= f.text_field :nome, :style => "width: 600px;" %>
+				    <%= f.text_field :nome %>
     			</li>
 	        <li class="field">
 				    <%= f.label :mensagem %>
@@ -29,7 +29,7 @@
 						<%= f.error_message_on :periodicidade %>
 						<div style="clear: both;"></div>
 						<br />       
-				    <%= f.text_field :periodicidade, :style => "width: 100px;" %>
+				    <%= f.text_field :periodicidade %>
 				  </li>
 		      <li>
 		        <%= render :partial => 'users/grupos/contato_search', :locals => {

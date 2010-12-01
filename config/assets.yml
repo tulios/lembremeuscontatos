@@ -52,3 +52,6 @@ stylesheets:
   
   fancybox:
     - public/stylesheets/jquery.fancybox-1.3.1.css
+    
+  jquery_ui:
+    - public/stylesheets/smoothness/jquery-ui-1.8.custom.css  

@@ -11,13 +11,13 @@
 		</div>
 	</div>
 <% else %> 
-    <div id="user_date">
-			<div id="options">
-				<span id="name"><%= current_user.login %></span><br/>
-				<span id="logout"><%= link_to (t 'app.logout'), logout_url %></span>
-			</div>
-			<div id="img">
-				<%= image_tag current_user.profile_image_url %>
-			</div>
+  <div id="user_date">
+		<div id="options">
+			<span id="name"><%= current_user.login %></span><br/>
+			<span id="logout"><%= link_to (t 'app.logout'), logout_url %></span>
+		</div>
+		<div id="img">
+			<%= image_tag current_user.profile_image_url %>
+		</div>
 	</div>
 <% end %>               
