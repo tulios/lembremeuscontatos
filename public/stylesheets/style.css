@@ -399,7 +399,7 @@ a:hover {
 	height:22px;
 }
 .botao_novo:after {
-	border-color: transparent transparent rgba(255, 255, 255, 0.63);
+	border-color: transparent rgba(255, 255, 255, 0.63);
 	left:-1px;
 	bottom:-2px;
 	height:100%;
