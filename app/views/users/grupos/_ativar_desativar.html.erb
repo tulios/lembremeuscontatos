@@ -1,10 +1,10 @@
 <div class="status">
   <% if @grupo.inativo? %>
-  	<span class="ativar status_acao round">
+  	<span class="ativar botao_color botao_novo">
   		<a id="ativar" href="#form_ativar"><%= t("app.grupo.ativar") %></a>
   	</span>
   <% elsif @grupo.ativo? %>
-  	<span class="desativar status_acao round">
+  	<span class="desativar botao_color botao_novo">
   		<a id="desativar" href="#form_desativar"><%= t("app.grupo.desativar") %></a>
   	</span>
   <% end %>

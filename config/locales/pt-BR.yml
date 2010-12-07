@@ -220,8 +220,8 @@
       editar: "Editar"
       remover: "Remover"
       visualizar: "Visualizar"
-      ativar: "Clique para Ativar"
-      desativar: "Clique para Desativar"
+      ativar: "Ativar"
+      desativar: "Desativar"
       title:
         clique_visualizar_ativar: "Clique aqui para visualizar o seu grupo e ativá-lo."
       erro:

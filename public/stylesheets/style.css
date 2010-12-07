@@ -507,6 +507,7 @@ a:hover {
 .grupo_box_show .nome {
 	float: left;
 	width: auto;
+	margin-top: 4px;
 }              
 
 .grupo_box_show .opcoes {
@@ -550,7 +551,7 @@ a:hover {
 .grupo_box .opcoes {
 	float: right;
 	font-size: 15px;
-	margin-top: 5px;
+	margin-top: 7px;
 }
                    
 .grupo_box .opcoes a {
@@ -618,8 +619,14 @@ a:hover {
 	padding: 2px 5px !important;
 }
 
-.grupo_box .status .ativar a {
-	font-size: 20px;
+.botao_color a {
+	color: black;
+	font-size: 13px;
+}
+                          
+.botao_color:hover a {
+	color: #CC0000;
+	font-size: 14px;
 }
 
 .grupo_box .status .desativar a {
